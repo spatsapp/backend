@@ -1,0 +1,351 @@
+[{
+	"_id": "ea3934970",
+	"_cls": "Meta",
+	"name": "Manga",
+	"subtype": "Book",
+	"attrs": [
+		{
+			"name": "Name",
+			"desc": "",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": true,
+				"display": "nodisplay",
+				"db_field": "Name"
+			}
+		},
+		{
+			"name": "Author",
+			"desc": "Author of Series",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "tertiary",
+				"default": "None",
+				"db_field": "Author"
+			}
+		},
+		{
+			"name": "Vol",
+			"desc": "Volume of Collection",
+			"type": "Int",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "secondary",
+				"default": "None",
+				"db_field": "Vol"
+			}
+		},
+		{
+			"name": "Chapters",
+			"desc": "List of chapters in book",
+			"type": "List",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "other",
+				"default": "None",
+				"field": "Int",
+				"db_field": "Chapters"
+			}
+		},
+		{
+			"name": "Story",
+			"desc": "Stories in the Vol",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "other",
+				"default": "None",
+				"db_field": "Story"
+			}
+		}
+	],
+	"order": [
+		"Author",
+		"Vol",
+		"Chapters",
+		"Story"
+	]
+},
+{
+	"_id": {
+		"$oid": "5e24bcdd83590969bd86197e"
+	},
+	"_cls": "Meta",
+	"name": "Book",
+	"subtype": "Asset",
+	"attrs": [
+		{
+			"name": "Genres",
+			"desc": "Comma seperated list of genres",
+			"type": "List",
+			"args": {
+				"field": "String",
+				"db_field": "Genres"
+			}
+		},
+		{
+			"name": "Format",
+			"desc": "Format of book (ie. Mass Market, Paperback, Hardcover, ect.)",
+			"type": "String",
+			"args": {
+				"db_field": "Format"
+			}
+		},
+		{
+			"name": "Isbn",
+			"desc": "ISBN 10 or 13, can include hyphens",
+			"type": "String",
+			"args": {
+				"db_field": "Isbn"
+			}
+		},
+		{
+			"name": "Price",
+			"desc": "Cover price of book, not what was paid for it",
+			"type": "Decimal",
+			"args": {
+				"default": 0.0,
+				"min_value": 0.0,
+				"db_field": "Price"
+			}
+		},
+		{
+			"name": "Publisher",
+			"desc": "Company that published it",
+			"type": "String",
+			"args": {
+				"db_field": "Publisher"
+			}
+		},
+		{
+			"name": "Copyright",
+			"desc": "Earliest copyright date",
+			"type": "Int",
+			"args": {
+				"min_value": 1900,
+				"max_value": 2021,
+				"db_field": "Copyright"
+			}
+		}
+	],
+	"order": [
+		"Name",
+		"Isbn",
+		"Price",
+		"Format",
+		"Genres",
+		"Copyright",
+		"Publisher",
+		"Notes",
+		"Combos",
+		"Pics"
+	]
+},
+{
+	"_id": {
+		"$oid": "5e24bcdd83590969bd86197f"
+	},
+	"_cls": "Meta",
+	"name": "Prose",
+	"subtype": "Book",
+	"attrs": [
+		{
+			"name": "Name",
+			"desc": "",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": true,
+				"display": "nodisplay",
+				"db_field": "Name"
+			}
+		},
+		{
+			"name": "Subtitle",
+			"desc": "Subtitle of book (usually after a colon)",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "secondary",
+				"default": "None",
+				"db_field": "Subtitle"
+			}
+		},
+		{
+			"name": "Author",
+			"desc": "Primary author of book",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "tertiary",
+				"default": "None",
+				"db_field": "Author"
+			}
+		},
+		{
+			"name": "Series",
+			"desc": "Primary series of book",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "other",
+				"default": "None",
+				"db_field": "Series"
+			}
+		}
+	],
+	"order": [
+		"Subtitle",
+		"Author",
+		"Series"
+	]
+},
+{
+	"_id": {
+		"$oid": "5e24bcdd83590969bd861980"
+	},
+	"_cls": "Meta",
+	"name": "Comic",
+	"subtype": "Book",
+	"attrs": [
+		{
+			"name": "Name",
+			"desc": "",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": true,
+				"display": "nodisplay",
+				"db_field": "Name"
+			}
+		},
+		{
+			"name": "Story",
+			"desc": "Story arc",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "tertiary",
+				"default": "None",
+				"db_field": "Story"
+			}
+		},
+		{
+			"name": "Collected",
+			"desc": "Vol number of collected edition, can use v1, b1, c1, for volume, book, or collected",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "secondary",
+				"default": "None",
+				"db_field": "Collected"
+			}
+		},
+		{
+			"name": "Issues",
+			"desc": "Comma seperated list of issues in collected book, or single number for floppies",
+			"type": "List",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "other",
+				"default": "None",
+				"field": "Int",
+				"db_field": "Issues"
+			}
+		},
+		{
+			"name": "Series",
+			"desc": "Characters involed, Batgirl, Wasp, Champions, Ms. Marvel",
+			"type": "List",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "other",
+				"default": "None",
+				"field": "String",
+				"db_field": "Series"
+			}
+		},
+		{
+			"name": "Volume",
+			"desc": "Vol of current titles run (eg. N52 Batgirl is Vol 4 of Batgirl)",
+			"type": "Int",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "other",
+				"default": "None",
+				"db_field": "Volume"
+			}
+		}
+	],
+	"order": [
+		"Story",
+		"Collected",
+		"Issues",
+		"Series",
+		"Volume"
+	]
+},
+{
+	"_id": {
+		"$oid": "5e24bcdd83590969bd861981"
+	},
+	"_cls": "Meta",
+	"name": "TableTopRPG",
+	"subtype": "Book",
+	"attrs": [
+		{
+			"name": "Name",
+			"desc": "",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": true,
+				"display": "nodisplay",
+				"db_field": "Name"
+			}
+		},
+		{
+			"name": "System",
+			"desc": "Gaming system used, DnD, Pathfinder, D20, GURPS, ect.",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "tertiary",
+				"default": "None",
+				"db_field": "System"
+			}
+		},
+		{
+			"name": "Edition",
+			"desc": "Version of the system, 3.5e DnD, 4e GURPS, ect.",
+			"type": "String",
+			"args": {
+				"unique": false,
+				"required": false,
+				"display": "secondary",
+				"default": "None",
+				"db_field": "Edition"
+			}
+		}
+	],
+	"order": [
+		"System",
+		"Edition"
+	]
+}]
+

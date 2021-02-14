@@ -1,0 +1,7553 @@
+[
+	{
+		"Author": "James Duncan",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Paperback",
+		"Genres": [
+			"Writing Reference, Worldbuilding"
+		],
+		"Isbn": "978-1-59963-140-0",
+		"Name": "Writing Fantasy & Science Fiction",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Writer's Digest Books",
+		"Series": null,
+		"Subtitle": "How to Create Out-of-This-World Novels and Short Stories",
+		"_cls": "Asset.Book.Prose",
+		"_id": "00351647a"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Paperback",
+		"Genres": [
+			"Supernatural, Action"
+		],
+		"Isbn": "978-1-63215-173-5",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"Name": "Wayward",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "Image",
+		"Series": [
+			"Wayward"
+		],
+		"Story": "String Theory",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "009e3f85f"
+	},
+	{
+		"Author": "C. S. Lewis",
+		"Combos": null,
+		"Copyright": 1952,
+		"Format": "Paperback",
+		"Genres": [
+			"Religion"
+		],
+		"Isbn": "978-0-06-065292-0",
+		"Name": "Mere Christianity",
+		"Notes": null,
+		"Pics": null,
+		"Price": 15.99,
+		"Publisher": "HarperCollins",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "0233ac691"
+	},
+	{
+		"Author": "John Jackson Miller",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Mass Market",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-553-39147-3",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "A New Dawn",
+		"_cls": "Asset.Book.Prose",
+		"_id": "04f52db83"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2012,
+		"Edition": "Pathfinder",
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-60125-449-8",
+		"Name": "Ultimate Equipment",
+		"Notes": null,
+		"Pics": null,
+		"Price": 49.99,
+		"Publisher": "Paizo",
+		"System": "Pathfinder",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "055c02e61"
+	},
+	{
+		"Collected": "c1",
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-0-7851-9778-2",
+		"Issues": null,
+		"Name": "Miles Morales",
+		"Notes": "- Ultimate Comics Spider-Man 1\r\n- Ultimate Comics Spider-Man 2\r\n- Ultimate Comics Spider-Man 3\r\n- Ultimate Comics Spider-Man 4\r\n- Ultimate Comics Spider-Man 5\r\n- Ultimate Comics Spider-Man 6\r\n- Ultimate Comics Spider-Man 7\r\n- Ultimate Comics Spider-Man 8\r\n- Ultimate Comics Spider-Man 9\r\n- Ultimate Comics Spider-Man 10\r\n- Ultimate Comics Spider-Man 11\r\n- Ultimate Comics Spider-Man 12\r\n- Spider-Men 1\r\n- Spider-Men 2\r\n- Spider-Men 3\r\n- Spider-Men 4\r\n- Spider-Men 5\r\n- Ultimate Fallout 4",
+		"Pics": null,
+		"Price": 34.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Spider-Man"
+		],
+		"Story": "The Ultimate Spider-Man",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "071f28d3b"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6910-4",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Batgirl",
+		"Notes": null,
+		"Pics": null,
+		"Price": 29.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl"
+		],
+		"Story": "Stephanie Brown Volume 1",
+		"Volume": 3,
+		"_cls": "Asset.Book.Comic",
+		"_id": "0875c28e0"
+	},
+	{
+		"Author": "Alix E. Harrow",
+		"Combos": null,
+		"Copyright": 2020,
+		"Format": "Hardcover",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-0-316-42204-8",
+		"Name": "The Once and Future Witches",
+		"Notes": null,
+		"Pics": null,
+		"Price": 28.0,
+		"Publisher": "Hachette Book Group",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "089f24043"
+	},
+	{
+		"Collected": "v4",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-63215-899-4",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"Name": "Rat Queens",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Image",
+		"Series": [
+			"Rat Queens"
+		],
+		"Story": "High Fantasies",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "08a2aa55f"
+	},
+	{
+		"Collected": "v6",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-68415-028-1",
+		"Issues": [
+			21,
+			22,
+			23,
+			24
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 6",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "08ebbd38e"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-302-91427-1",
+		"Issues": [
+			6,
+			7,
+			8,
+			9,
+			10
+		],
+		"Name": "The Unstoppable Wasp",
+		"Notes": null,
+		"Pics": null,
+		"Price": 15.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Wasp"
+		],
+		"Story": "G.I.R.L. VS. A.I.M.",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "0a1939988"
+	},
+	{
+		"Author": "James Kakalios",
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Paperback",
+		"Genres": [
+			"Science, Popular Culture"
+		],
+		"Isbn": "978-1-59240-508-4",
+		"Name": "The Physics of Superheroes",
+		"Notes": null,
+		"Pics": null,
+		"Price": 18.0,
+		"Publisher": "Gotham Books",
+		"Series": null,
+		"Subtitle": "Spectacular Second Edition",
+		"_cls": "Asset.Book.Prose",
+		"_id": "0ac7d6eef"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4494-1",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Batman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 12.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman: Li'l Gotham"
+		],
+		"Story": "Li'l Gotham",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "0adf66338"
+	},
+	{
+		"Collected": "Deluxe Edition",
+		"Combos": null,
+		"Copyright": 1988,
+		"Format": "Hardcover",
+		"Genres": [
+			"Superhero, What If"
+		],
+		"Isbn": "978-1-4012-1667-2",
+		"Issues": [
+			1
+		],
+		"Name": "Batman",
+		"Notes": "One Shot",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman"
+		],
+		"Story": "The Killing Joke",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "0da2554f1"
+	},
+	{
+		"Author": "Tim Marshall",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Paperback",
+		"Genres": [
+			"Geography"
+		],
+		"Isbn": "978-1-5011-2147-0",
+		"Name": "Prisoners of Geography",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.0,
+		"Publisher": "Scribner",
+		"Series": null,
+		"Subtitle": "Ten Maps That Explain Everything About the World",
+		"_cls": "Asset.Book.Prose",
+		"_id": "0e886b055"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 1998,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "1-56389-552-8",
+		"Issues": [
+			1,
+			2,
+			3,
+			10,
+			11,
+			12,
+			13
+		],
+		"Name": "Astro City",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Wildstorm",
+		"Series": [
+			"Astro City"
+		],
+		"Story": "Family Album",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "0eb58a955"
+	},
+	{
+		"Author": "Jason Rekulak",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Advance Reading Copy",
+		"Genres": [
+			"Fiction"
+		],
+		"Isbn": "978-1-5011-5813-1",
+		"Name": "The Impossible Fortress",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Simon & Schuster",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "15132794a"
+	},
+	{
+		"Author": "Matthew Stover",
+		"Combos": null,
+		"Copyright": 2005,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "0-345-42883-8",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 25.95,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "Episode III Revenge of the Sith",
+		"_cls": "Asset.Book.Prose",
+		"_id": "1523aaab9"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-2317-5",
+		"Issues": [
+			608,
+			609,
+			610,
+			611,
+			612,
+			613,
+			614,
+			615,
+			616,
+			617,
+			618,
+			619
+		],
+		"Name": "Batman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman"
+		],
+		"Story": "Hush",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "18e610904"
+	},
+	{
+		"Author": "Jeremy Scott",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction, Superhero"
+		],
+		"Isbn": "978-1-940262-65-9",
+		"Name": "The Ables",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Clovercroft Publishing",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "1ac4488bf"
+	},
+	{
+		"Author": null,
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Paperback",
+		"Genres": [
+			"Reference"
+		],
+		"Isbn": "0-7894-9106-0",
+		"Name": "Rocks and Minerals",
+		"Notes": null,
+		"Pics": null,
+		"Price": 20.0,
+		"Publisher": "DK Publishing",
+		"Series": "Smithsonian Handbooks",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "1b32c4c0b"
+	},
+	{
+		"Author": "Steven R. Boyett",
+		"Combos": null,
+		"Copyright": 1983,
+		"Format": "Mass Market",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-0-441-01794-2",
+		"Name": "Ariel",
+		"Notes": null,
+		"Pics": null,
+		"Price": 7.99,
+		"Publisher": "Ace Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "1b6591c8a"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 1994,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-3115-6",
+		"Issues": null,
+		"Name": "Batman",
+		"Notes": "- Batman Adventures Annual #1-2\r\n- Batman Adventures Holiday Special\r\n- Adventures in the DC Universe #3\r\n- Batman Black and White #1",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman"
+		],
+		"Story": "Mad Love and Other Stories",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "1c943c01a"
+	},
+	{
+		"Author": "Stephen L. Gillett",
+		"Combos": null,
+		"Copyright": 1996,
+		"Format": "Paperback",
+		"Genres": [
+			"Writing Reference, Worldbuilding"
+		],
+		"Isbn": "1-58297-134-X",
+		"Name": "World-Building",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "Writer's Digest Books",
+		"Series": null,
+		"Subtitle": "A Writer's Guide to Constructing Star Systems and Life-Supporting Planets",
+		"_cls": "Asset.Book.Prose",
+		"_id": "1d8749c84"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4027-1",
+		"Issues": [
+			0,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Nightwing",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Nightwing, New 52"
+		],
+		"Story": "Night of the Owls",
+		"Volume": 3,
+		"_cls": "Asset.Book.Comic",
+		"_id": "1fa3851e9"
+	},
+	{
+		"Author": "James S. A. Corey",
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-316-51598-6",
+		"Name": "Leviathan Wakes",
+		"Notes": "#1 in Series",
+		"Pics": null,
+		"Price": 17.0,
+		"Publisher": "Orbit",
+		"Series": "The Expanse",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "1fd9fa36b"
+	},
+	{
+		"Collected": "v7",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Fantasy"
+		],
+		"Isbn": "978-1-5343-0060-6",
+		"Issues": [
+			37,
+			38,
+			39,
+			40,
+			41,
+			42
+		],
+		"Name": "Saga",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Image",
+		"Series": [
+			"Saga"
+		],
+		"Story": "Volume Seven",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "201f17ade"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Sports"
+		],
+		"Isbn": "978-1-5343-0551-9",
+		"Issues": [
+			6,
+			7,
+			8,
+			9,
+			10,
+			11
+		],
+		"Name": "Motor Crush",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "Image",
+		"Series": [
+			"Motor Crush"
+		],
+		"Story": "Vol. 2",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "216218321"
+	},
+	{
+		"Collected": "v4",
+		"Combos": null,
+		"Copyright": 2012,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-3539-0",
+		"Issues": [
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25
+		],
+		"Name": "Batman & Robin",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman, Robin, Batman & Robin"
+		],
+		"Story": "Dark Knight Vs. White Knight",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "2406286be"
+	},
+	{
+		"Collected": "v4",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-60886-938-1",
+		"Issues": [
+			13,
+			14,
+			15,
+			16
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 4",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "24f54dcad"
+	},
+	{
+		"Author": "Robert Conroy",
+		"Combos": null,
+		"Copyright": 2007,
+		"Format": "Paperback",
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"Isbn": "978-0-645-494789-5",
+		"Name": "1945",
+		"Notes": "",
+		"Pics": null,
+		"Price": 14.95,
+		"Publisher": "Ballantine Books",
+		"Series": "",
+		"Subtitle": "",
+		"_cls": "Asset.Book.Prose",
+		"_id": "255c5905d"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": null,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-63215-403-3",
+		"Issues": [
+			6,
+			7,
+			8,
+			9,
+			10
+		],
+		"Name": "Wayward",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "Image",
+		"Series": [
+			"Wayward"
+		],
+		"Story": "Ties That Bind",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "25f396f98"
+	},
+	{
+		"Author": "Kevin Hearne",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Mass Market",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-345-64486-5",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "Heir to the Jedi",
+		"_cls": "Asset.Book.Prose",
+		"_id": "2637fa5e3"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Picture Book",
+		"Genres": [
+			"Picture"
+		],
+		"Isbn": "978-0-316-51900-7",
+		"Name": "The Proudest Blue",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Little, Brown and Company",
+		"_cls": "Asset.Book",
+		"_id": "26ac0be00"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 1986,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-0752-6",
+		"Issues": [
+			404,
+			405,
+			406,
+			407
+		],
+		"Name": "Batman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman, Year One"
+		],
+		"Story": "Year One",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "27046dd31"
+	},
+	{
+		"Collected": "v8",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Fantasy"
+		],
+		"Isbn": "978-1-5343-0349-2",
+		"Issues": [
+			43,
+			44,
+			45,
+			46,
+			47,
+			48
+		],
+		"Name": "Saga",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Image",
+		"Series": [
+			"Saga"
+		],
+		"Story": "Volume Eight",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "271c8b04a"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Hardcover",
+		"Genres": [
+			"Media Tie-In, Science Fiction"
+		],
+		"Isbn": "978-1-61655-272-5",
+		"Issues": [
+			1,
+			2,
+			3,
+			4
+		],
+		"Name": "Eve",
+		"Notes": null,
+		"Pics": null,
+		"Price": 12.99,
+		"Publisher": "Dark Horse",
+		"Series": [
+			"Eve Online"
+		],
+		"Story": "True Stories",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "276240c64"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2008,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6724-7",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Teen Titans",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans, Year One"
+		],
+		"Story": "Year One",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "27d342d49"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-8623-1",
+		"Issues": null,
+		"Name": "Teen Titans: Raven",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans"
+		],
+		"Story": null,
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "27ef7a2ab"
+	},
+	{
+		"Author": "Tsukumizu",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Tankobon",
+		"Genres": [
+			"Seinen",
+			"Iyashikei",
+			"Post-apocalyptic",
+			"Science Fiction"
+		],
+		"Isbn": "978-0-316-47062-9",
+		"Name": "Girls' Last Tour",
+		"Notes": "",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Yen Press",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "298abac5d"
+	},
+	{
+		"Author": "Donald F. Glut",
+		"Combos": null,
+		"Copyright": 1980,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": null,
+		"Name": "Star Wars",
+		"Notes": "Book Club Edition",
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "The Empire Strikes Back",
+		"_cls": "Asset.Book.Prose",
+		"_id": "2a0d34552"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2013,
+		"Edition": "4th",
+		"Format": "Pocket",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-61317-050-2",
+		"Name": "Fate System Toolkit",
+		"Notes": null,
+		"Pics": null,
+		"Price": 20.0,
+		"Publisher": "Evil Hat Productions",
+		"System": "Fate",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "2a913fd16"
+	},
+	{
+		"Author": "James Luceno",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Mass Market",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-553-39290-6",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "Tarkin",
+		"_cls": "Asset.Book.Prose",
+		"_id": "2b23064fc"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4413-2",
+		"Issues": [
+			13,
+			14,
+			15,
+			16,
+			17,
+			18
+		],
+		"Name": "Nightwing",
+		"Notes": "- Batman 17\r\n- Young Romance 1",
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Nightwing, New 52"
+		],
+		"Story": "Death of the Family",
+		"Volume": 3,
+		"_cls": "Asset.Book.Comic",
+		"_id": "2d47e5316"
+	},
+	{
+		"Collected": "b4",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Post Apocalypse, Dystopian"
+		],
+		"Isbn": "978-1-4012-6186-9",
+		"Issues": [
+			37,
+			38,
+			39,
+			40,
+			41,
+			42,
+			43,
+			44,
+			45,
+			46,
+			47,
+			48
+		],
+		"Name": "Y: The Last Man",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Vertigo",
+		"Series": [
+			"Y: The Last Man"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "313b751f6"
+	},
+	{
+		"Collected": "v5",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-60886-982-4",
+		"Issues": [
+			17,
+			18,
+			19,
+			20
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 5",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "315e60059"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2017,
+		"Edition": "Pathfinder",
+		"Format": "Pocket",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-60125-980-6",
+		"Name": "Bestiary 2",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Paizo",
+		"System": "Pathfinder",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "320f85b1c"
+	},
+	{
+		"Author": "Robert Conroy",
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Paperback",
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"Isbn": "978-0-345-50607-8",
+		"Name": "1942",
+		"Notes": "",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Ballantine Books",
+		"Series": "",
+		"Subtitle": "",
+		"_cls": "Asset.Book.Prose",
+		"_id": "32d055b42"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-60886-789-9",
+		"Issues": [
+			1,
+			2,
+			3,
+			4
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 1",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "358f296fc"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-302-90005-2",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Moon Girl and Devil Dinosaur",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Moon Girl and Devil Dinosaur"
+		],
+		"Story": "BFF",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "35d5e9bcf"
+	},
+	{
+		"Author": "Hiro Mashima",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25,
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34,
+			35,
+			36,
+			37,
+			38,
+			39
+		],
+		"Combos": null,
+		"Copyright": 2008,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-63236-221-6",
+		"Name": "Fairy Tail: Master's Edition",
+		"Notes": "",
+		"Pics": null,
+		"Price": 39.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "35dc563bb"
+	},
+	{
+		"Author": "Alan Dean Foster",
+		"Combos": null,
+		"Copyright": 1978,
+		"Format": "Mass Market",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-345-32023-0",
+		"Name": "Splinter of the Mind's Eye",
+		"Notes": null,
+		"Pics": null,
+		"Price": 7.99,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars Legends",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "37034fa41"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-5472-8",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Gotham Academy",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Gotham Academy"
+		],
+		"Story": "Welcome to Gotham Academy",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "393416752"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2000,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6627-1",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Batgirl",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl"
+		],
+		"Story": "Silent Knight",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "39786784c"
+	},
+	{
+		"Combos": null,
+		"Copyright": null,
+		"Format": null,
+		"Genres": null,
+		"Isbn": "978-0-316-51900-7",
+		"Name": "The Proudest Blue",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.0,
+		"Publisher": null,
+		"_cls": "Asset.Book",
+		"_id": "3a3e11f4a"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Paperback",
+		"Genres": [
+			"Slice of Life, Fantasy, Childrens"
+		],
+		"Isbn": "878-1-941302-67-5",
+		"Issues": null,
+		"Name": "Sheets",
+		"Notes": "Brenna Thummler",
+		"Pics": null,
+		"Price": 12.99,
+		"Publisher": "Caracal",
+		"Series": [
+			"Sheets"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "3be9021ac"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-1-61655-425-5",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Name": "The Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Dark Horse",
+		"Series": [
+			"Star Wars"
+		],
+		"Story": null,
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "3bf5e5a2d"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6478-9",
+		"Issues": [
+			13,
+			14,
+			15,
+			16,
+			17,
+			18
+		],
+		"Name": "Gotham Academy",
+		"Notes": "- Annual 1",
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Gotham Academy"
+		],
+		"Story": "Yearbook",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "3e0136455"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2014,
+		"Edition": null,
+		"Format": "Hardcover",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-934547-47-2",
+		"Name": "A Song of Ice and Fire Roleplaying",
+		"Notes": null,
+		"Pics": null,
+		"Price": 49.95,
+		"Publisher": "Green Ronin Publishing",
+		"System": "Game of Thrones",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "40a9d4247"
+	},
+	{
+		"Author": null,
+		"Combos": null,
+		"Copyright": 2003,
+		"Format": "Paperback",
+		"Genres": [
+			"Reference"
+		],
+		"Isbn": "978-0-7894-9361-3",
+		"Name": "Dinosaurs and Prehistoric Life",
+		"Notes": null,
+		"Pics": null,
+		"Price": 22.0,
+		"Publisher": "DK Publishing",
+		"Series": "Smithsonian Handbooks",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "4121c33f5"
+	},
+	{
+		"Combos": null,
+		"Copyright": null,
+		"Edition": "1st",
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "1-55634-233-0",
+		"Name": "GURPS Robots",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Steve Jackson Games",
+		"System": "GURPS",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "425c9ff28"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2003,
+		"Edition": null,
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "1-904577-00-8",
+		"Name": "Ultimate Games Designer's Companion",
+		"Notes": null,
+		"Pics": null,
+		"Price": 34.95,
+		"Publisher": "Mongoose Publishing",
+		"System": "d20",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "4268b4c5f"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": null,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-7508-2",
+		"Issues": null,
+		"Name": "Teen Titans",
+		"Notes": "- Brave and the Bold #54\r\n- Brave and the Bold #60\r\n- Showcase #59\r\n- Teen Titans #1\r\n- Teen Titans #2\r\n- Teen Titans #3\r\n- Teen Titans #5\r\n- Teen Titans #6\r\n- Teen Titans #7\r\n- Teen Titans #8\r\n- Teen Titans #9\r\n- Teen Titans #10\r\n- Teen Titans #11",
+		"Pics": null,
+		"Price": 29.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans"
+		],
+		"Story": "Silver Age",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "42923fd40"
+	},
+	{
+		"Collected": "v9",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Fantasy"
+		],
+		"Isbn": "978-1-5343-0837-4",
+		"Issues": [
+			49,
+			50,
+			51,
+			52,
+			53,
+			54
+		],
+		"Name": "Saga",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Image",
+		"Series": [
+			"Saga"
+		],
+		"Story": "Volume Nine",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "42b9c4983"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "43840ca81"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Hardcover",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-60886-767-7",
+		"Issues": [
+			1,
+			2,
+			3,
+			4
+		],
+		"Name": "Mouse Guard",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Archaia",
+		"Series": [
+			"Mouse Guard"
+		],
+		"Story": "Legends of the Guard",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "460ed76e9"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2012,
+		"Edition": null,
+		"Format": "Pocket",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-937013-20-2",
+		"Name": "Savage Worlds Deluxe: Explorer's Edition",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Pinnacle Entertainment Group",
+		"System": "Savage Worlds",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "468ede104"
+	},
+	{
+		"Combos": null,
+		"Copyright": 1994,
+		"Edition": "2nd",
+		"Format": "Paperback",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "1-55634-286-1",
+		"Name": "GURPS Magic",
+		"Notes": null,
+		"Pics": null,
+		"Price": null,
+		"Publisher": "Steve Jackson Games",
+		"System": "GURPS",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "47c4490ad"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 1986,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4525-2",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Watchmen",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Watchmen"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "48ed969ae"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2013,
+		"Edition": "4th",
+		"Format": "Pocket",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-61317-029-8",
+		"Name": "Fate Core System",
+		"Notes": null,
+		"Pics": null,
+		"Price": 25.0,
+		"Publisher": "Evil Hat Productions",
+		"System": "Fate",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "4b77ccc02"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": null,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-0-7851-9036-3",
+		"Issues": null,
+		"Name": "Spider-Verse",
+		"Notes": "Amazing Spider-Man #7-15, \r\nSuperior Spider-Man #32-33, \r\nSpider-Verse #1-2, \r\nSpider-Verse Team-Up #1-3, \r\nScarlet Spiders #1-3, \r\nSpider-Woman #1-4, \r\nSpider-Man 2099 #5-8, \r\nFree Comic Book Day 2014 (Guardians of the Galaxy) #1",
+		"Pics": null,
+		"Price": 50.0,
+		"Publisher": "Marvel",
+		"Series": [
+			"Spider-Verse"
+		],
+		"Story": "Spider-Verse",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "4c23c3371"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": null,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-302-91426-4",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"Name": "The Unstoppable Wasp: Unlimited",
+		"Notes": null,
+		"Pics": null,
+		"Price": 15.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Wasp"
+		],
+		"Story": "Fix Everything",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "4cbd1bc3c"
+	},
+	{
+		"Author": "Liza Mundy",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Hardcover",
+		"Genres": [
+			"History, World War II, Cryptography"
+		],
+		"Isbn": "978-0-316-35253-6",
+		"Name": "Code Girls",
+		"Notes": null,
+		"Pics": null,
+		"Price": 28.0,
+		"Publisher": "Hachette Books",
+		"Series": null,
+		"Subtitle": "The Untold Story of the American Women Code Breakers of World War II",
+		"_cls": "Asset.Book.Prose",
+		"_id": "4e6abf45d"
+	},
+	{
+		"Author": "Kory Stamper",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Hardcover",
+		"Genres": [
+			"Reference, History, Lexicography"
+		],
+		"Isbn": "978-1-101-97094-5",
+		"Name": "Word by Word",
+		"Notes": null,
+		"Pics": null,
+		"Price": 26.95,
+		"Publisher": "Pantheon Books",
+		"Series": null,
+		"Subtitle": "The Secret Life of Dictionaries",
+		"_cls": "Asset.Book.Prose",
+		"_id": "4ee2fe978"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2012,
+		"Edition": "Pathfinder",
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-60125-467-2",
+		"Name": "NPC Codex",
+		"Notes": null,
+		"Pics": null,
+		"Price": 39.99,
+		"Publisher": "Paizo",
+		"System": "Pathfinder",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "4f0f538c7"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2001,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6352-2",
+		"Issues": [
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25
+		],
+		"Name": "Batgirl",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl"
+		],
+		"Story": "To the Death",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "50f9d1c3c"
+	},
+	{
+		"Author": "Ursula K. Le Guin",
+		"Combos": null,
+		"Copyright": 1968,
+		"Format": "Mass Market",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-0-547-77374-2",
+		"Name": "Earthsea",
+		"Notes": null,
+		"Pics": null,
+		"Price": 8.99,
+		"Publisher": "Houghton Mifflin Harcourt",
+		"Series": "Earthsea Cycle",
+		"Subtitle": "A Wizard of Earthsea",
+		"_cls": "Asset.Book.Prose",
+		"_id": "514dc593e"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "523ea2f56"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 1980,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-5143-7",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Name": "The New Teen Titans",
+		"Notes": "- DC Comics Presents #26",
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "54bf7b035"
+	},
+	{
+		"Author": "Lunarbaboon",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Paperback",
+		"Genres": [
+			"Webcomic"
+		],
+		"Isbn": null,
+		"Name": "Lunarbaboon",
+		"Notes": "Kickstarter",
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Selfpublished",
+		"Series": "Lunarbaboon",
+		"Subtitle": "Volume 1",
+		"_cls": "Asset.Book.Prose",
+		"_id": "557c8cff0"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Fantasy, Drama"
+		],
+		"Isbn": "978-1-60706-985-0",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"Name": "I Kill Giants",
+		"Notes": "5th Anniversary Edition",
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Image",
+		"Series": null,
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "56d7a1c68"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2018,
+		"Edition": "Pathfinder",
+		"Format": "Pocket",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-64078-006-4",
+		"Name": "Bestiary 3",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Paizo",
+		"System": "Pathfinder",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "5749e7842"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2012,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-3698-4",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"Name": "Teen Titans",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans, New 52"
+		],
+		"Story": "It's Our Right to Fight",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "576059ae0"
+	},
+	{
+		"Author": "Joseph Menn",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Hardcover",
+		"Genres": [
+			"Nonfiction, Science, Computers"
+		],
+		"Isbn": "978-1-5417-6238-1",
+		"Name": "Cult of the Dead Cow",
+		"Notes": null,
+		"Pics": null,
+		"Price": 28.0,
+		"Publisher": "PublicAffairs",
+		"Series": null,
+		"Subtitle": "How the Original Hacking Supergroup Might Just Save the World",
+		"_cls": "Asset.Book.Prose",
+		"_id": "59e37e316"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2003,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4033-2",
+		"Issues": null,
+		"Name": "Batgirl / Robin: Year One",
+		"Notes": "Batgirl: Year One - 1,2,3,4,5,6,7,8,9\r\nRobin: Year One - 1,2,3,4",
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl, Robin"
+		],
+		"Story": "Year One",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "5af7bd1fe"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Punk"
+		],
+		"Isbn": "9781782760641",
+		"Issues": null,
+		"Name": "The Power of Tank Girl",
+		"Notes": "- The Grifting\r\n- Visions of Booga\r\n- The Royal Escape",
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "Titan Comics",
+		"Series": [
+			"Tank Girl"
+		],
+		"Story": null,
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "5c5312153"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2016,
+		"Edition": null,
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-944413-22-4",
+		"Name": "Rifts: The Tomorrow Legion Player's Guide",
+		"Notes": null,
+		"Pics": null,
+		"Price": 29.99,
+		"Publisher": "Pinnacle Entertainment Group",
+		"System": "Savage Worlds",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "60a48ca67"
+	},
+	{
+		"Author": "James Kahn",
+		"Combos": null,
+		"Copyright": 1983,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": null,
+		"Name": "Star Wars",
+		"Notes": "Book Club Edition",
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "Return of the Jedi",
+		"_cls": "Asset.Book.Prose",
+		"_id": "62407ee4c"
+	},
+	{
+		"Combos": null,
+		"Copyright": 1994,
+		"Edition": "3rd",
+		"Format": "Paperback",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "1-55634-127-X",
+		"Name": "GURPS Basic Set",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Steve Jackson Games",
+		"System": "GURPS",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "63a3c2392"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2003,
+		"Edition": "3.5",
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-0-7869-6244-0",
+		"Name": "Monster Manual",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Wizards of the Coast",
+		"System": "D&D",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "64fe96f06"
+	},
+	{
+		"Collected": "v9",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-68415-310-7",
+		"Issues": [
+			33,
+			34,
+			35,
+			36
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 9",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "65aca2c1b"
+	},
+	{
+		"Author": "George Lucas",
+		"Combos": null,
+		"Copyright": 1976,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": null,
+		"Name": "Star Wars",
+		"Notes": "Book Club Edition",
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "From the Adventures of Luke Skywalker",
+		"_cls": "Asset.Book.Prose",
+		"_id": "665c64a3b"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4628-0",
+		"Issues": [
+			14,
+			15,
+			16,
+			17,
+			18,
+			19
+		],
+		"Name": "Batgirl",
+		"Notes": "- Annual 1\r\n- Batman 17\r\n- Young Romance 1",
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl, New 52"
+		],
+		"Story": "Death of the Family",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "68a09c8a8"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-60886-851-3",
+		"Issues": [
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 3",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "6a19c8ee1"
+	},
+	{
+		"Author": "Edward Forsyth",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-1-5272-4458-0",
+		"Name": "Bodega",
+		"Notes": "The price is converted from GBP to USD at rate of 1 USD to 0.7683 GBP. Price was \u00a315.34 GBP with \u00a310.00 GBP shipping. Total was 32.98 USD.",
+		"Pics": null,
+		"Price": 19.97,
+		"Publisher": "Yogscast",
+		"Series": "Bodega",
+		"Subtitle": "Tales from the Bodegaverse",
+		"_cls": "Asset.Book.Prose",
+		"_id": "6a627edf2"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Trade Hardcover",
+		"Genres": [
+			"Fantasy, Action"
+		],
+		"Isbn": "978-1-60886-809-4",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Name": "Lumberjanes",
+		"Notes": null,
+		"Pics": null,
+		"Price": 39.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Lumberjanes"
+		],
+		"Story": "To The Max",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "6c2cf849d"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4723-2",
+		"Issues": [
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Batman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 12.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman: Li'l Gotham"
+		],
+		"Story": "Li'l Gotham",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "6f111d3c4"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "72b047644"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2013,
+		"Edition": "3.5",
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-0-7869-6449-9",
+		"Name": "Magic Item Compendium",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Wizards of the Coast",
+		"System": "D&D",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "7450e3d63"
+	},
+	{
+		"Collected": "v8",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-68415-207-0",
+		"Issues": [
+			29,
+			30,
+			31,
+			32
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 8",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "75c7b9034"
+	},
+	{
+		"Collected": "b2",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction,    Post Apocalypse,    Dystopian"
+		],
+		"Isbn": "978-1-4012-5439-1",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10
+		],
+		"Name": "Y: The Last Man",
+		"Notes": "",
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Vertigo",
+		"Series": [
+			"Y: The Last Man"
+		],
+		"Story": "Long",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "77a7bd671"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "781955320"
+	},
+	{
+		"Collected": "b3",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Post Apocalypse, Dystopian"
+		],
+		"Isbn": "978-1-4012-5880-1",
+		"Issues": [
+			24,
+			25,
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34,
+			35,
+			36
+		],
+		"Name": "Y: The Last Man",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Vertigo",
+		"Series": [
+			"Y: The Last Man"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "794b42700"
+	},
+	{
+		"Collected": "c1",
+		"Combos": null,
+		"Copyright": 2004,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6378-2",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "DC",
+		"Notes": "- Justice League: The New Frontier Special 1",
+		"Pics": null,
+		"Price": 34.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Justice League, Mini Series"
+		],
+		"Story": "The New Frontier",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "7a99ce4cc"
+	},
+	{
+		"Author": "Alexander Freed",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-425-28702-6",
+		"Name": "Rogue One",
+		"Notes": null,
+		"Pics": null,
+		"Price": 28.99,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "A Star Wars Story",
+		"_cls": "Asset.Book.Prose",
+		"_id": "7abc293ea"
+	},
+	{
+		"Author": "Orson Scott Card",
+		"Combos": null,
+		"Copyright": 1996,
+		"Format": "Mass Market",
+		"Genres": [
+			"Science Fiction, Alternate History"
+		],
+		"Isbn": "978-0-8125-0864-2",
+		"Name": "Pastwatch",
+		"Notes": null,
+		"Pics": null,
+		"Price": 7.99,
+		"Publisher": "TOR",
+		"Series": null,
+		"Subtitle": "The Redemption of Christopher Columbus",
+		"_cls": "Asset.Book.Prose",
+		"_id": "7b9e5ee40"
+	},
+	{
+		"Author": "Nina Willner",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Advance Reading Copy",
+		"Genres": [
+			"Memoir"
+		],
+		"Isbn": "978-0-06-249691-1",
+		"Name": "Forty Autumns",
+		"Notes": null,
+		"Pics": null,
+		"Price": 27.99,
+		"Publisher": "William Morrow",
+		"Series": null,
+		"Subtitle": "A Family's Story of Courage and Survival on Both Sides of the Berlin Wall",
+		"_cls": "Asset.Book.Prose",
+		"_id": "7c2818cae"
+	},
+	{
+		"Author": "John Scalzi",
+		"Combos": null,
+		"Copyright": 2012,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-7653-3479-4",
+		"Name": "Redshirts",
+		"Notes": null,
+		"Pics": null,
+		"Price": 15.99,
+		"Publisher": "TOR",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "7e566efbd"
+	},
+	{
+		"Collected": "v4",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-5040-9",
+		"Issues": [
+			20,
+			21,
+			22,
+			23,
+			24,
+			25,
+			26
+		],
+		"Name": "Batgirl",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl, New 52"
+		],
+		"Story": "Wanted",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "7f7a15c7f"
+	},
+	{
+		"Author": "Mur Lafferty",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-1-9848-0070-1",
+		"Name": "Solo",
+		"Notes": null,
+		"Pics": null,
+		"Price": 28.99,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "A Star Wars Story",
+		"_cls": "Asset.Book.Prose",
+		"_id": "8030873bc"
+	},
+	{
+		"Author": "Shea Fontana",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Hardcover",
+		"Genres": [
+			"Nonfiction, Superhero"
+		],
+		"Isbn": "978-1-4521-7394-8",
+		"Name": "DC",
+		"Notes": null,
+		"Pics": null,
+		"Price": 29.95,
+		"Publisher": "Chronicle Books",
+		"Series": null,
+		"Subtitle": "Women of Action",
+		"_cls": "Asset.Book.Prose",
+		"_id": "8058e855a"
+	},
+	{
+		"Combos": null,
+		"Copyright": 1993,
+		"Edition": "2nd",
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "1-55634-172-5",
+		"Name": "GURPS Space",
+		"Notes": null,
+		"Pics": null,
+		"Price": null,
+		"Publisher": "Steve Jackson Games",
+		"System": "GURPS",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "811ffc4d4"
+	},
+	{
+		"Author": "Terry Pratchett",
+		"Combos": null,
+		"Copyright": 1983,
+		"Format": "Mass Market",
+		"Genres": [
+			"Fantasy, Humor"
+		],
+		"Isbn": "978-0-06-222567-2",
+		"Name": "The Color of Magic",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Harper",
+		"Series": "Discworld",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "81656ea03"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-8620-0",
+		"Issues": null,
+		"Name": "Black Canary",
+		"Notes": "DC Zoom imprint.\r\nBy: Meg Cabot\r\nIllustrated: Cara McGee",
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Black Canary"
+		],
+		"Story": "Ignite",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "81c9a1e5b"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4103-2",
+		"Issues": [
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14
+		],
+		"Name": "Teen Titans",
+		"Notes": "- DC Universe Presents 12",
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans, New 52"
+		],
+		"Story": "The Culling",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "8296233cb"
+	},
+	{
+		"Collected": "c3",
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-0-7851-9780-5",
+		"Issues": null,
+		"Name": "Miles Morales",
+		"Notes": "- Cataclysm: Ultimate Comis Spider-Man 1\r\n- Cataclysm: Ultimate Comis Spider-Man 2\r\n- Cataclysm: Ultimate Comis Spider-Man 3\r\n- Ultimate Spider-Man 200\r\n- Miles Morales: The Ultimate Spider-Man 1\r\n- Miles Morales: The Ultimate Spider-Man 2\r\n- Miles Morales: The Ultimate Spider-Man 3\r\n- Miles Morales: The Ultimate Spider-Man 4\r\n- Miles Morales: The Ultimate Spider-Man 5\r\n- Miles Morales: The Ultimate Spider-Man 6\r\n- Miles Morales: The Ultimate Spider-Man 7\r\n- Miles Morales: The Ultimate Spider-Man 8\r\n- Miles Morales: The Ultimate Spider-Man 9\r\n- Miles Morales: The Ultimate Spider-Man 10\r\n- Miles Morales: The Ultimate Spider-Man 11\r\n- Miles Morales: The Ultimate Spider-Man 12",
+		"Pics": null,
+		"Price": 34.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Spider-Man"
+		],
+		"Story": "The Ultimate Spider-Man",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "8629aa7b4"
+	},
+	{
+		"Collected": "v11",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-68415-437-1",
+		"Issues": [
+			41,
+			42,
+			43,
+			44
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 11",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "864af72e6"
+	},
+	{
+		"Author": "David J. Peterson",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Paperback",
+		"Genres": [
+			"Language, Linguistics"
+		],
+		"Isbn": "978-0-14-312646-1",
+		"Name": "The Art of Language Invention",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.0,
+		"Publisher": "Penguin Books",
+		"Series": null,
+		"Subtitle": "From Horse-Lords to Dark Elves, the Words Behind World Building",
+		"_cls": "Asset.Book.Prose",
+		"_id": "874cbd871"
+	},
+	{
+		"Author": "Jess Harrold",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Hardcover",
+		"Genres": [
+			"Comics"
+		],
+		"Isbn": "978-1-302-91765-4",
+		"Name": "The Marvel Art of Skottie Young",
+		"Notes": null,
+		"Pics": null,
+		"Price": 50.0,
+		"Publisher": "Marvel",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "8b0e9be45"
+	},
+	{
+		"Author": "Terry Pratchett",
+		"Combos": null,
+		"Copyright": 1987,
+		"Format": "Mass Market",
+		"Genres": [
+			"Fantasy, Humor"
+		],
+		"Isbn": "978-0-06-222569-6",
+		"Name": "Equal Rites",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Harper",
+		"Series": "Discworld",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "8dc60a7b3"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-8889-1",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Catwoman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Catwoman"
+		],
+		"Story": "Copycats",
+		"Volume": 5,
+		"_cls": "Asset.Book.Comic",
+		"_id": "8e684b827"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 1996,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "1-56389-551-X",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Astro City",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.95,
+		"Publisher": "Homage Comics",
+		"Series": [
+			"Astro City"
+		],
+		"Story": "Life in the Big City",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "8fe2fd84f"
+	},
+	{
+		"Author": "Keith Houston",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Paperback",
+		"Genres": [
+			"Reference, History"
+		],
+		"Isbn": "978-0-393-34972-6",
+		"Name": "Shady Characters",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.95,
+		"Publisher": "W. W. Norton",
+		"Series": null,
+		"Subtitle": "The Secret Life of Punctuation, Symbols & Other Typographical Marks",
+		"_cls": "Asset.Book.Prose",
+		"_id": "8fec76f28"
+	},
+	{
+		"Collected": "v5",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-5511-4",
+		"Issues": [
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34
+		],
+		"Name": "Batgirl",
+		"Notes": "- Annual 2\r\n- Batgirl: Futures End 1",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl, New 52"
+		],
+		"Story": "Deadline",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "90372212c"
+	},
+	{
+		"Combos": null,
+		"Copyright": 1996,
+		"Edition": "2nd",
+		"Format": "Paperback",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "1-55634-325-6",
+		"Name": "GURPS Vehicles",
+		"Notes": null,
+		"Pics": null,
+		"Price": 12.99,
+		"Publisher": "Steve Jackson Games",
+		"System": "GURPS",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "91e191951"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "950d211a4"
+	},
+	{
+		"Author": "Steven Kotler & Jamie Wheal",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Advance Reading Copy",
+		"Genres": [
+			"Business"
+		],
+		"Isbn": "978-0-06-242965-0",
+		"Name": "Stealing Fire",
+		"Notes": null,
+		"Pics": null,
+		"Price": 27.99,
+		"Publisher": "Dey St.",
+		"Series": null,
+		"Subtitle": "How Silicon Valley, the Navy SEALs, and Maverick Scientists Are REvolutionizing the Way We Live and Work",
+		"_cls": "Asset.Book.Prose",
+		"_id": "9522c1b53"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 1996,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-3259-7",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13
+		],
+		"Name": "Batman",
+		"Notes": "Published as \"The Long Halloween\" miniseries.",
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batman"
+		],
+		"Story": "The Long Halloween",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "9581355d8"
+	},
+	{
+		"Combos": null,
+		"Copyright": 1992,
+		"Edition": null,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction, Alternate History"
+		],
+		"Isbn": "1-55634-238-1",
+		"Name": "GURPS Timeline",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.96,
+		"Publisher": "Steve Jackson Games",
+		"System": "GURPS",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "9809c58b0"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-5681-4",
+		"Issues": [
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Gotham Academy",
+		"Notes": "- DC Sneak Peek: Gotham Academy 1",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Gotham Academy"
+		],
+		"Story": "Calamity",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "9839de49b"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "986185c5b"
+	},
+	{
+		"Combos": null,
+		"Copyright": null,
+		"Edition": null,
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "158994020-2",
+		"Name": "Traps & Treachery",
+		"Notes": null,
+		"Pics": null,
+		"Price": 24.95,
+		"Publisher": "Fantasy Flight Games",
+		"System": "d20",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "987bc7660"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2005,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-0717-5",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Catwoman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Catwoman"
+		],
+		"Story": "When in Rome",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "98f24e68e"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Hardcover",
+		"Genres": [
+			"Humor"
+		],
+		"Isbn": "978-1-250-05039-7",
+		"Issues": null,
+		"Name": "The Gigantic Beard that was Evil",
+		"Notes": null,
+		"Pics": null,
+		"Price": 20.0,
+		"Publisher": "Picador",
+		"Series": null,
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "99937aed4"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Hardcover",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6816-9",
+		"Issues": null,
+		"Name": "Batgirl",
+		"Notes": "- Batman #139 - \"Bat-Girl!\"\r\n- Detective Comics #359 - \"The Million Dollar Debut of Batgirl!\"\r\n- Batgirl: Year One #4 - \"Cave Dwellers\"\r\n- Detective Comics #371 - \"Batgirl's Costume Cut-Ups!\"\r\n- Detective Comics #422 - \"The Unmasking of Batgirl!\"\r\n- Detective Comics #423 - \"Candidate for Danger!\"\r\n- Detective Comics #424 - \"Batgirl's Last Case\"\r\n- Batman Family #9 - \"Startling Secret of the Devilish Daughters!\"\r\n- Detective Comics #518 - \"He with Secrets Fears the Sound...\"\r\n- Detective Comics #519 - \"...When Velvet Paws Caress the Ground!\"\r\n- Batgirl Special #1 - \"The Last Batgirl Story\"\r\n- Batman Chronicles #5 - \"Oracle -- Year One: Born of Hope\"\r\n- Birds of Prey #8 - \"On Wings\"\r\n- Batman: Legends of the Dark Knight #120 - \"Assembly\"\r\n- Batgirl #8\r\n- Batgirl #45 - \"Soul\"\r\n- Batgirl (Volume 3) #4 - \"Batgirl Rising: Field Test\"\r\n- Batgirl (Volume 3) #13 - \"Trust\"\r\n- Batgirl (Volume 4) #0 - \"A Fire in the Heavens\"\r\n- Batgirl (Volume 4) #35 - \"Burned\" ",
+		"Pics": null,
+		"Price": 39.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl"
+		],
+		"Story": "A Celebration of 50 Years",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "99c2c9f50"
+	},
+	{
+		"Author": "Andrew L. Seidel",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Hardcover",
+		"Genres": [
+			"Nonfiction",
+			"Politics",
+			"Religion"
+		],
+		"Isbn": "978-1-4549-3327-4",
+		"Name": "The Founding Myth",
+		"Notes": "",
+		"Pics": null,
+		"Price": 24.95,
+		"Publisher": "Sterling Publishing",
+		"Series": "",
+		"Subtitle": "Why Christian Nationalism Is Un-American",
+		"_cls": "Asset.Book.Prose",
+		"_id": "9bb9d9981"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Paperback",
+		"Genres": [
+			"Nonfiction"
+		],
+		"Isbn": "978-1-4012-7797-0",
+		"Issues": null,
+		"Name": "DC Comics",
+		"Notes": null,
+		"Pics": null,
+		"Price": 29.99,
+		"Publisher": "DC Comics",
+		"Series": null,
+		"Story": "The Art of Darwyn Cooke",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "9cf791b71"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "9e89f71f3"
+	},
+	{
+		"Author": "Hidenori Kusaka",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25,
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34,
+			35,
+			36,
+			37,
+			38,
+			39,
+			40
+		],
+		"Combos": null,
+		"Copyright": 2020,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-9747-0964-9",
+		"Name": "Pok\u00e9mon Adventures",
+		"Notes": "Vols 1,2,3",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "9e9c62c31"
+	},
+	{
+		"Author": "Bruce Schneier",
+		"Combos": null,
+		"Copyright": null,
+		"Format": "Paperback",
+		"Genres": [
+			"Science, Technology"
+		],
+		"Isbn": "978-0-393-35217-7",
+		"Name": "Data and Goliath",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.95,
+		"Publisher": "W. W. Norton",
+		"Series": null,
+		"Subtitle": "The Hidden Battles to Collect Your Data and Control Your World",
+		"_cls": "Asset.Book.Prose",
+		"_id": "a051dd3f1"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 1996,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-9096-2",
+		"Issues": [
+			1,
+			2,
+			3,
+			4
+		],
+		"Name": "Kingdom Come",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "DC Comics",
+		"Series": null,
+		"Story": "20th Anniversary Deluxe Edition",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "a06060ea0"
+	},
+	{
+		"Collected": "c2",
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-0-7851-9779-9",
+		"Issues": [
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25,
+			26
+		],
+		"Name": "Miles Morales",
+		"Notes": "- Ultimate Comics Spider-Man 16.1",
+		"Pics": null,
+		"Price": 34.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Spider-Man"
+		],
+		"Story": "The Ultimate Spider-Man",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "a0690fa1c"
+	},
+	{
+		"Author": "Andy Weir",
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-553-41802-6",
+		"Name": "The Martian",
+		"Notes": null,
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Broadway Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "a09edecf5"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2012,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-3705-9",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"Name": "Nightwing",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Nightwing, New 52"
+		],
+		"Story": "Traps and Trapeses",
+		"Volume": 3,
+		"_cls": "Asset.Book.Comic",
+		"_id": "a133ca445"
+	},
+	{
+		"Combos": null,
+		"Copyright": 1989,
+		"Edition": null,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "0-87431-175-6",
+		"Name": "Star Wars Imperial Sourcebook",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "West End Games",
+		"System": "Star Wars WEG",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "a1c1b50fe"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-68415-265-0",
+		"Issues": [
+			1,
+			2,
+			3
+		],
+		"Name": "Giant Days",
+		"Notes": "The original self-published comics.",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Early Registration",
+		"Volume": 0,
+		"_cls": "Asset.Book.Comic",
+		"_id": "a1e461064"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Hardcover",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-93238-657-8",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Mouse Guard",
+		"Notes": null,
+		"Pics": null,
+		"Price": 24.95,
+		"Publisher": "Archaia",
+		"Series": [
+			"Mouse Guard"
+		],
+		"Story": "Fall 1152",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "a27ed224b"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2010,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-3146-0",
+		"Issues": [
+			854,
+			855,
+			856,
+			857,
+			858,
+			859,
+			860
+		],
+		"Name": "Batwoman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Detective Comics, Batwoman"
+		],
+		"Story": "Elegy",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "a3595b0f8"
+	},
+	{
+		"Author": "Justin Peters",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Paperback",
+		"Genres": [
+			"Biography, Technology"
+		],
+		"Isbn": "978-1-4767-6774-1",
+		"Name": "The Idealist",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.0,
+		"Publisher": "Scribner",
+		"Series": null,
+		"Subtitle": "Aaron Swartz and the Rise of Free Culture on the Internet",
+		"_cls": "Asset.Book.Prose",
+		"_id": "a55e939d6"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-0-7851-9658-7",
+		"Issues": [
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "The Vision",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Vision"
+		],
+		"Story": "Little Better than a Beast",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "a67ef3d6a"
+	},
+	{
+		"Author": null,
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction, Anthology"
+		],
+		"Isbn": "978-0-345-51147-8",
+		"Name": "Star Wars",
+		"Notes": "- Raymus (Gary Whitta)\r\n- The Bucket (Christie Golden)\r\n- The Sith of Datawork (Ken Liu)\r\n- Stories in the Sand (Griffin McElroy)\r\n- Reirin (Sabaa Tahir)\r\n- The Red One (Rae Carson)\r\n- Rites (John Jackson Miller)\r\n- Master and Apprentice (Claudia Gray)\r\n- Beru Whitesun Lars (Meg Cabot)\r\n- The Luckless Rodian (Ren\u00e9e Ahdieh)\r\n- Not for Nothing (Mur Lafferty)\r\n- We Don't Serve Their Kind Here (Chuck Wendig)\r\n- The Kloo Horn Cantina Caper (Kelly Sue DeConnick and Matt Fraction)\r\n- Added Muscle (Paul Dini)\r\n- You Owe Me a Ride (Zoraida C\u00f3rdova)\r\n- The Secrets of Long Snoot (Delilah S. Dawson)\r\n- Born in the Storm (Daniel Jos\u00e9 Older)\r\n- Laina (Wil Wheaton)\r\n- Fully Operational (Beth Revis)\r\n- An Incident Report (Mallory Ortberg)\r\n- Change of Heart (Elizabeth Wein)\r\n- Eclipse (Madeleine Roux)\r\n- Verge of Greatness (Pablo Hidalgo)\r\n- Far Too Remote (Jeffrey Brown (Writer and illustrator))\r\n- The Trigger (Kieron Gillen)\r\n- Of MSE-6 and Men (Glen Weldon)\r\n- Bump (Ben Acker and Ben Blacker)\r\n- End of Watch (Adam Christopher)\r\n- The Baptist (Nnedi Okorafor)\r\n- Time of Death (Cavan Scott)\r\n- There is Another (Gary D. Schmidt)\r\n- Palpatine (Ian Doescher)\r\n- Sparks (Paul S. Kemp)\r\n- Duty Roster (Jason Fry)\r\n- Desert Son (Pierce Brown)\r\n- Grounded (Greg Rucka)\r\n- Contingency Plan (Alexander Freed)\r\n- The Angle (Charles Soule)\r\n- By Whatever Sun (E. K. Johnston and Ashley Eckstein)\r\n- Whills (Tom Angleberger)",
+		"Pics": null,
+		"Price": 35.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "From a Certain Point of View",
+		"_cls": "Asset.Book.Prose",
+		"_id": "a9a910d05"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2016,
+		"Edition": "Pathfinder",
+		"Format": "Pocket",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-60125-887-8",
+		"Name": "Core Rulebook",
+		"Notes": null,
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "Paizo",
+		"System": "Pathfinder",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "a9b57b24e"
+	},
+	{
+		"Author": "Robert Conroy",
+		"Combos": null,
+		"Copyright": 2010,
+		"Format": "Paperback",
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"Isbn": "978-0-345-50606-1",
+		"Name": "Red Inferno",
+		"Notes": null,
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Ballantine Books",
+		"Series": null,
+		"Subtitle": "1945",
+		"_cls": "Asset.Book.Prose",
+		"_id": "a9d6310b2"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Sports"
+		],
+		"Isbn": "978-1-5343-0189-4",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"Name": "Motor Crush",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Image",
+		"Series": [
+			"Motor Crush"
+		],
+		"Story": "Vol. 1",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "abbeb815b"
+	},
+	{
+		"Collected": "b5",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Post Apocalypse, Dystopian"
+		],
+		"Isbn": "978-1-4012-6372-0",
+		"Issues": [
+			49,
+			50,
+			51,
+			52,
+			53,
+			54,
+			55,
+			56,
+			57,
+			58,
+			59,
+			60
+		],
+		"Name": "Y: The Last Man",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Vertigo",
+		"Series": [
+			"Y: The Last Man"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "ac9c4053d"
+	},
+	{
+		"Collected": "v6",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-5343-1069-8",
+		"Issues": [
+			11,
+			12,
+			13,
+			14,
+			15
+		],
+		"Name": "Rat Queens",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "Image",
+		"Series": [
+			"Rat Queens"
+		],
+		"Story": "The Infernal Path",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "ad4d3cbc3"
+	},
+	{
+		"Author": "Tim Leong",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Paperback",
+		"Genres": [
+			"Comics, Reference"
+		],
+		"Isbn": "978-1-5421-1388-3",
+		"Name": "Super Graphic",
+		"Notes": null,
+		"Pics": null,
+		"Price": 18.95,
+		"Publisher": "Chronicle Books",
+		"Series": null,
+		"Subtitle": "A Visual Guide ot the Comic Book Universe",
+		"_cls": "Asset.Book.Prose",
+		"_id": "adc96031f"
+	},
+	{
+		"Author": "Terry Pratchett",
+		"Combos": null,
+		"Copyright": 1986,
+		"Format": "Mass Market",
+		"Genres": [
+			"Fantasy, Humor"
+		],
+		"Isbn": "978-0-06-222568-9",
+		"Name": "The Light Fantastic",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Harper",
+		"Series": "Discworld",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "ae9e280ac"
+	},
+	{
+		"Author": "R. A. Salvatore",
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "0-345-42881-1",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 26.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "Episode II Attack of the Clones",
+		"_cls": "Asset.Book.Prose",
+		"_id": "aeed06b0f"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Paperback",
+		"Genres": [
+			"Reference"
+		],
+		"Isbn": "978-1-4012-5707-1",
+		"Issues": null,
+		"Name": "DC Entertainment Essential Graphic Novels and Chronology 2015",
+		"Notes": "Free Giveaway",
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "DC Comics",
+		"Series": null,
+		"Story": null,
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "b168371da"
+	},
+	{
+		"Author": "Peter Bishop & Michael Darton",
+		"Combos": null,
+		"Copyright": 1987,
+		"Format": "Hardcover",
+		"Genres": [
+			"Reference, Religion"
+		],
+		"Isbn": "0-8160-1860-X",
+		"Name": "The Encyclopedia of World Faiths",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Facts On File Publications",
+		"Series": null,
+		"Subtitle": "An Illustrated Survey of the World's Living Religions",
+		"_cls": "Asset.Book.Prose",
+		"_id": "b222e54bb"
+	},
+	{
+		"Collected": "b1",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-1-84918-352-9",
+		"Issues": null,
+		"Name": "Valerian",
+		"Notes": "- v0: Bad dreams\r\n- v1: The City of Shifting Waters\r\n- v2: Empire of a Thousand Planets",
+		"Pics": null,
+		"Price": 29.99,
+		"Publisher": "9th Cinebook",
+		"Series": [
+			"Valerian"
+		],
+		"Story": "The Complete Collection",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "b57480f2b"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2015,
+		"Edition": "2nd",
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-60886-756-1",
+		"Name": "Mouse Guard Roleplaying Game",
+		"Notes": null,
+		"Pics": null,
+		"Price": 34.99,
+		"Publisher": "The Burning Wheel",
+		"System": "Mouse Guard",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "b8c6fbe8b"
+	},
+	{
+		"Author": null,
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Paperback",
+		"Genres": [
+			"Sketchbook"
+		],
+		"Isbn": "978-1-4521-4216-6",
+		"Name": "The Animator's Sketchbook",
+		"Notes": null,
+		"Pics": null,
+		"Price": 18.95,
+		"Publisher": "Chronicle Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "be5fd7926"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Paperback",
+		"Genres": [
+			"Media Tie-In"
+		],
+		"Isbn": "978-1-4012-6837-4",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "The Flintstones",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Flintstones"
+		],
+		"Story": "Vol. 1",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "beecf13de"
+	},
+	{
+		"Collected": "v5",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-5343-0677-6",
+		"Issues": [
+			6,
+			7,
+			8,
+			9,
+			10
+		],
+		"Name": "Rat Queens",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "Image",
+		"Series": [
+			"Rat Queens"
+		],
+		"Story": "The Colossal Magic Nothing",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "bff671770"
+	},
+	{
+		"Author": "Lunarbaboon",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Paperback",
+		"Genres": [
+			"Webcomic"
+		],
+		"Isbn": null,
+		"Name": "Lunarbaboon",
+		"Notes": "Kickstarter",
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Selfpublished",
+		"Series": "Lunarbaboon",
+		"Subtitle": "Volume 2",
+		"_cls": "Asset.Book.Prose",
+		"_id": "c003a9f24"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-60886-804-9",
+		"Issues": [
+			5,
+			6,
+			7,
+			8
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 2",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "c019908fb"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2016,
+		"Edition": "Pathfinder",
+		"Format": "Pocket",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "978-1-60125-888-5",
+		"Name": "Bestiary",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Paizo",
+		"System": "Pathfinder",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "c069ffbdf"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Fantasy"
+		],
+		"Isbn": "978-1-60706-601-9",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Saga",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Image",
+		"Series": [
+			"Saga"
+		],
+		"Story": "Volume One",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "c0bb40fd0"
+	},
+	{
+		"Collected": "v4",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4624-2",
+		"Issues": [
+			18,
+			19,
+			20,
+			21,
+			22,
+			23
+		],
+		"Name": "Teen Titans",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans, New 52"
+		],
+		"Story": "Light and Dark",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "c149bb73a"
+	},
+	{
+		"Collected": "v4",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4630-3",
+		"Issues": [
+			19,
+			20,
+			21,
+			22,
+			23,
+			24
+		],
+		"Name": "Nightwing",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Nightwing, New 52"
+		],
+		"Story": "Second City",
+		"Volume": 3,
+		"_cls": "Asset.Book.Comic",
+		"_id": "c16f01eea"
+	},
+	{
+		"Author": "Mark Adams",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Paperback",
+		"Genres": [
+			"History, Travel"
+		],
+		"Isbn": "978-1-101-98393-5",
+		"Name": "Meet Me In Atlantis",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.0,
+		"Publisher": "Dutton",
+		"Series": null,
+		"Subtitle": "Across Three Continents In Search of the Legendary Sunken City",
+		"_cls": "Asset.Book.Prose",
+		"_id": "c2c1c2f1a"
+	},
+	{
+		"Author": "Terry Brooks",
+		"Combos": null,
+		"Copyright": 1999,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "0-345-42765-3",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 25.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "Episode I The Phantom Menace",
+		"_cls": "Asset.Book.Prose",
+		"_id": "c58e6d5a0"
+	},
+	{
+		"Author": "Tim Leong",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Paperback",
+		"Genres": [
+			"Pop Culture"
+		],
+		"Isbn": "978-1-4521-6120-4",
+		"Name": "Star Wars Super Graphic",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.95,
+		"Publisher": "Chronicle Books",
+		"Series": "Star Wars",
+		"Subtitle": "A Visual Guide to a Galaxy Far, Far Away",
+		"_cls": "Asset.Book.Prose",
+		"_id": "c6329422d"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2004,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero, What If"
+		],
+		"Isbn": "978-1-4012-0191-3",
+		"Issues": [
+			1,
+			2,
+			3
+		],
+		"Name": "Superman",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Superman, What If"
+		],
+		"Story": "Red Son",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "c71ea849f"
+	},
+	{
+		"Author": "Samwise Didier",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Hardcover",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-60887-919-9",
+		"Name": "Grimbeard",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Insight Editions",
+		"Series": null,
+		"Subtitle": "Tales of the Last Dwarf",
+		"_cls": "Asset.Book.Prose",
+		"_id": "c9a709517"
+	},
+	{
+		"Collected": "b1",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-1-61655-178-0",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19
+		],
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 34.99,
+		"Publisher": "Dark Horse",
+		"Series": [
+			"Star Wars Legends"
+		],
+		"Story": "Legacy",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "cbd839f45"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Paperback",
+		"Genres": [
+			"Media Tie-In"
+		],
+		"Isbn": "978-1-4012-7398-9",
+		"Issues": [
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "The Flintstones",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Flintstones"
+		],
+		"Story": "Vol. 2",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "cc3a7d9d4"
+	},
+	{
+		"Author": "Yevgeny Zamyatin",
+		"Combos": null,
+		"Copyright": 1920,
+		"Format": "Mass Market",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-380-63313-5",
+		"Name": "We",
+		"Notes": "Translation: Mirra Ginsburg (1972)",
+		"Pics": null,
+		"Price": 7.99,
+		"Publisher": "EOS",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "ce94b5113"
+	},
+	{
+		"Author": "Lynn Sherr",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Paperback",
+		"Genres": [
+			"Biography, Science"
+		],
+		"Isbn": "978-1-4767-2577-2",
+		"Name": "Sally Ride",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "Simon & Schuster",
+		"Series": null,
+		"Subtitle": "America's First Women in Space",
+		"_cls": "Asset.Book.Prose",
+		"_id": "ceebdd0f8"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-7788-8",
+		"Issues": [
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			18,
+			20,
+			21,
+			22,
+			23,
+			24
+		],
+		"Name": "Batgirl",
+		"Notes": "- Bruce Wayne: The Road Home: Batgirl #1\r\n- Batman Incorporated: Leviathan Strikes! #1",
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl"
+		],
+		"Story": "Stephanie Brown Volume 2",
+		"Volume": 3,
+		"_cls": "Asset.Book.Comic",
+		"_id": "d195f412a"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-0-7851-9657-0",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "The Vision",
+		"Notes": null,
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Vision"
+		],
+		"Story": "Little Worse Than a Man",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "d1a609a97"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2003,
+		"Edition": "3rd",
+		"Format": "Hardcover",
+		"Genres": [
+			"Roleplaying"
+		],
+		"Isbn": "1-58994-095-4",
+		"Name": "Dungeon Craft",
+		"Notes": null,
+		"Pics": null,
+		"Price": 24.95,
+		"Publisher": "Fantasy Flight Games",
+		"System": "d20",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "d3d3758a1"
+	},
+	{
+		"Author": "Mark Rosenfelder",
+		"Combos": null,
+		"Copyright": 2010,
+		"Format": "Paperback",
+		"Genres": [
+			"Reference, Worldbuilding"
+		],
+		"Isbn": "978-0-9844700-3-7",
+		"Name": "The Planet Construction Kit",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.95,
+		"Publisher": "Yonagu Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "d4c45cebc"
+	},
+	{
+		"Author": "Alan Dean Foster",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-1-101-88555-0",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 28.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "The Force Awakens",
+		"_cls": "Asset.Book.Prose",
+		"_id": "d7870015e"
+	},
+	{
+		"Collected": "v5",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-5053-9",
+		"Issues": [
+			24,
+			25,
+			26,
+			27,
+			28,
+			29,
+			30
+		],
+		"Name": "Teen Titans",
+		"Notes": "Annual 2, Annual 3",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans, New 52"
+		],
+		"Story": "The Trial of Kid Flash",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "d7a3e8ac2"
+	},
+	{
+		"Author": "Scott McCloud",
+		"Combos": null,
+		"Copyright": 1993,
+		"Format": "Paperback",
+		"Genres": [
+			"Comics, Reference"
+		],
+		"Isbn": "978-0-06-097625-5",
+		"Name": "Understanding Comics",
+		"Notes": null,
+		"Pics": null,
+		"Price": 23.99,
+		"Publisher": "William Morrow",
+		"Series": null,
+		"Subtitle": "The Invisible Art",
+		"_cls": "Asset.Book.Prose",
+		"_id": "d8cc25481"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-6586-4",
+		"Issues": [
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34,
+			35,
+			36,
+			37
+		],
+		"Name": "Batgirl",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Batgirl"
+		],
+		"Story": "Point Blank",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "d918a71df"
+	},
+	{
+		"Author": "Orson Scott Card",
+		"Combos": null,
+		"Copyright": 1990,
+		"Format": "Paperback",
+		"Genres": [
+			"Writing Reference, Worldbuilding"
+		],
+		"Isbn": "978-1-58297-103-2",
+		"Name": "How to Write Science Fiction and Fantasy",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Writer's Digest Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "d9f6d94cd"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 1997,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-56389-550-0",
+		"Issues": [
+			4,
+			5,
+			6,
+			7,
+			8,
+			9
+		],
+		"Name": "Astro City",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Wildstorm",
+		"Series": [
+			"Astro City"
+		],
+		"Story": "Confession",
+		"Volume": 2,
+		"_cls": "Asset.Book.Comic",
+		"_id": "dae69009f"
+	},
+	{
+		"Collected": "v7",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-68415-131-8",
+		"Issues": [
+			25,
+			26,
+			27,
+			28
+		],
+		"Name": "Giant Days",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Volume 7",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "dc5891b96"
+	},
+	{
+		"Author": "Jason Fry",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-525-61888-1",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 28.99,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "The Last Jedi",
+		"_cls": "Asset.Book.Prose",
+		"_id": "dd13df936"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Trade Hardcover",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-93238-674-5",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Mouse Guard",
+		"Notes": null,
+		"Pics": null,
+		"Price": 24.95,
+		"Publisher": "Archaia",
+		"Series": [
+			"Mouse Guard"
+		],
+		"Story": "Winter 1152",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "dd2741799"
+	},
+	{
+		"Author": "Andrew L. Seidel",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Hardcover",
+		"Genres": [
+			"Nonfiction",
+			"Politics",
+			"Religion"
+		],
+		"Isbn": "978-1-4549-3327-4",
+		"Name": "The Founding Myth",
+		"Notes": "",
+		"Pics": null,
+		"Price": 24.95,
+		"Publisher": "Sterling Publishing",
+		"Series": "",
+		"Subtitle": "Why Christian Nationalism Is Un-American",
+		"_cls": "Asset.Book.Prose",
+		"_id": "df1f9b7ac"
+	},
+	{
+		"Genres": [
+			"Historical Fiction, Alternate History"
+		],
+		"_id": "df42afbad"
+	},
+	{
+		"Author": "Ernest Cline",
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-0-307-88744-3",
+		"Name": "Ready Player One",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.0,
+		"Publisher": "Broadway Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "df6d38f5d"
+	},
+	{
+		"Author": "Candice Millard",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Advance Reading Copy",
+		"Genres": [
+			"History"
+		],
+		"Isbn": null,
+		"Name": "Hero of the Empire",
+		"Notes": null,
+		"Pics": null,
+		"Price": 30.0,
+		"Publisher": "Doubleday",
+		"Series": null,
+		"Subtitle": "The Boer War, a Daring Escape and the Making of Winston Churchill",
+		"_cls": "Asset.Book.Prose",
+		"_id": "e076675ca"
+	},
+	{
+		"Collected": "b1",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction, Post Apocalypse, Dystopian"
+		],
+		"Isbn": "978-1-4012-5151-2",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10
+		],
+		"Name": "Y: The Last Man",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Vertigo",
+		"Series": [
+			"Y: The Last Man"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "e0eee6e78"
+	},
+	{
+		"Author": "David Farland",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Advance Reading Copy",
+		"Genres": [
+			"Anthology, Science Fiction, Fantasy"
+		],
+		"Isbn": "978-1-61986-529-7",
+		"Name": "L. Ron Hubbard presents Writers of the Future",
+		"Notes": "- \u201cIntroduction\u201d by David Farland\r\n- \u201cMoonlight One\u201d by Stephen Lawson, Illustrated by Jason Park\r\n- \u201cThe Armor Embrace\u201d by Doug C. Souza, Illustrated by Christopher Kiklowicz\r\n- \u201cEnvoy in the Ice\u201d by Dustin Steinacker, Illustrated by Yader Fonseca\r\n- \u201cSearch for Research\u201d by L. Ron Hubbard\r\n- \u201cThe Devil\u2019s Rescue\u201d by L. Ron Hubbard, Illustrated by Preston Stone\r\n- \u201cTears for Sh\u00fclna\u201d by Andrew L. Roberts, Illustrated by Rachel Quinlan\r\n- \u201cThe Drake Equation\u201d by C.L. Kagmi, Illustrated by Michael Michera\r\n- \u201cAcquisition\u201d by Jake Marley, Illustrated by Ryan Richmond\r\n- \u201cObsidian Spire\u201d by Molly Elizabeth Atkins, Illustrated by Aituar Manas\r\n- \u201cA Thousand or So Words of Wisdom\u201d by Anne McCaffrey\r\n- \u201cGator\u201d by Robert J. Sawyer, Illustrated by Joshua Meehan\r\n- \u201cA Glowing Heart\u201d by Anton Rose, Illustrated by Anthony Moravian\r\n- \u201cThe Long Dizzy Down\u201d by Ziporah Hildebrandt, Illustrated by Asher Ben Alpay\r\n- \u201cThe Woodcutters\u2019 Deity\u201d by Walter Dinjos, Illustrated by Chan ha Kim\r\n- \u201cHow to Become an Illustrator\u201d by Larry Elmore\r\n- \u201cThe Dragon Killer\u2019s Daughter\u201d by Todd McCaffrey, Inspired by Larry Elmore\u2019s \u201cCrimson Dawn\u201d\r\n- \u201cUseless Magic\u201d by Andrew Peery, Illustrated by Hanna Al-Shaer\r\n- \u201cAdramelech\u201d by Sean Hazlett, Illustrated by Aituar Manas\r\n- \u201cThe Fox, the Wolf, and the Dove\u201d by Ville Meril\u00e4inen, Illustrated by David Furnal\r\n- \u201cThe Magnificent Bhajan\u201d by David VonAllmen, Illustrated by Chan ha Kim\r\n- \u201cNotes on Art Direction\u201d by Bob Eggleton",
+		"Pics": null,
+		"Price": 15.95,
+		"Publisher": "Galaxy Press",
+		"Series": null,
+		"Subtitle": "Volume 33",
+		"_cls": "Asset.Book.Prose",
+		"_id": "e1d621b51"
+	},
+	{
+		"Author": null,
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction, Anthology"
+		],
+		"Isbn": "978-1-101-96503-0",
+		"Name": "Star Wars",
+		"Notes": "Novels: \r\n- Star Wars: Tarkin (James Luceno)\r\n- Star Wars: A New Dawn (John Jackson Miller)\r\n\r\nShort Stories:\r\n- Mercy Mission (Melissa Scott)\r\n- Bottleneck (John Jackson Miller)\r\n- The Levers of Power (Jason Fry)",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Del Rey",
+		"Series": "Star Wars",
+		"Subtitle": "The Rise of the Empire",
+		"_cls": "Asset.Book.Prose",
+		"_id": "e242e1a16"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07387-5",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "e24452f09"
+	},
+	{
+		"Collected": "o1",
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-4012-4083-7",
+		"Issues": null,
+		"Name": "The League of Extraordinary Gentlemen",
+		"Notes": "- Volume 1 (1999): 1-6\r\n- Volume 2 (2002): 1-6",
+		"Pics": null,
+		"Price": 29.99,
+		"Publisher": "Vertigo",
+		"Series": [
+			"League of Extraordinary Gentlemen"
+		],
+		"Story": "The Omnibus Edition",
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "e424f6957"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-4321-0",
+		"Issues": [
+			0,
+			15,
+			16,
+			17
+		],
+		"Name": "Teen Titans",
+		"Notes": "- Red Hood and the Outlaws 16\r\n- Batman 17",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Teen Titans, New 52"
+		],
+		"Story": "Death of the Family",
+		"Volume": 4,
+		"_cls": "Asset.Book.Comic",
+		"_id": "e524b43c6"
+	},
+	{
+		"Collected": "v2",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-7474-0",
+		"Issues": [
+			4,
+			9,
+			10,
+			11,
+			12
+		],
+		"Name": "Gotham Academy: Second Semester",
+		"Notes": null,
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Gotham Academy"
+		],
+		"Story": "The Ballad of Olive Silverlock",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "e54013477"
+	},
+	{
+		"Author": "Andrew L. Seidel",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Hardcover",
+		"Genres": [
+			"Nonfiction",
+			"Politics",
+			"Religion"
+		],
+		"Isbn": "978-1-4549-3327-4",
+		"Name": "The Founding Myth",
+		"Notes": "",
+		"Pics": null,
+		"Price": 24.95,
+		"Publisher": "Sterling Publishing",
+		"Series": "",
+		"Subtitle": "Why Christian Nationalism Is Un-American",
+		"_cls": "Asset.Book.Prose",
+		"_id": "e5b3517ff"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-302-91733-3",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Spider-Man",
+		"Notes": null,
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "Marvel",
+		"Series": [
+			"Spider-Man"
+		],
+		"Story": "Life Story",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "e6dfcb2f9"
+	},
+	{
+		"Author": null,
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Paperback",
+		"Genres": [
+			"Reference"
+		],
+		"Isbn": "0-7894-8404-8",
+		"Name": "Mammals",
+		"Notes": null,
+		"Pics": null,
+		"Price": 20.0,
+		"Publisher": "DK Publishing",
+		"Series": "Smithsonian Handbooks",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "e797df02b"
+	},
+	{
+		"Author": "Jean Meeus",
+		"Combos": null,
+		"Copyright": 1998,
+		"Format": "Hardcover",
+		"Genres": [
+			"Mathematics, Reference"
+		],
+		"Isbn": "0-943396-61-1",
+		"Name": "Astronomical Algorithms",
+		"Notes": null,
+		"Pics": null,
+		"Price": 0.0,
+		"Publisher": "Willmann-Bell, Inc.",
+		"Series": null,
+		"Subtitle": "Second Edition",
+		"_cls": "Asset.Book.Prose",
+		"_id": "e833b66d7"
+	},
+	{
+		"Author": "Kim Stanley Robinson",
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Mass Market",
+		"Genres": [
+			"Alternate History"
+		],
+		"Isbn": "0-553-58007-8",
+		"Name": "The Years of Rice and Salt",
+		"Notes": null,
+		"Pics": null,
+		"Price": 7.99,
+		"Publisher": "Bantam Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "e93e017ed"
+	},
+	{
+		"Author": "Geof Smith",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Golden Book",
+		"Genres": [
+			"Science Fiction, Childrens"
+		],
+		"Isbn": "978-0-7364-3538-3",
+		"Name": "Star Wars",
+		"Notes": null,
+		"Pics": null,
+		"Price": 4.99,
+		"Publisher": "Golden Books",
+		"Series": "Star Wars",
+		"Subtitle": "A New Hope",
+		"_cls": "Asset.Book.Prose",
+		"_id": "eb93d3ff4"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-60886-945-9",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Lumberjanes / Gotham Academy",
+		"Notes": "Cross Over",
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Lumberjanes, Gotham Academy"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "ec46caf26"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-7119-0",
+		"Issues": [
+			1,
+			2,
+			3,
+			5,
+			6,
+			7,
+			8
+		],
+		"Name": "Gotham Academy: Second Semester",
+		"Notes": null,
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Gotham Academy"
+		],
+		"Story": "Welcome Back",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "edd16a05d"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Slice of Life, Comedy"
+		],
+		"Isbn": "978-1-68415-222-3",
+		"Issues": null,
+		"Name": "Giant Days",
+		"Notes": "- Giant Days: 2016 Holiday Special\r\n- Giant Days: 2017 Holiday Special\r\n- \"Fridge Raider\" (BOOM! Box Mix Tape 2015 short story)\r\n- \"Music Is Important\" (BOOM! Box Mix Tape 2016 short story)",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Boom! Box",
+		"Series": [
+			"Giant Days"
+		],
+		"Story": "Extra Credit",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "ee2719e8b"
+	},
+	{
+		"Collected": "v5",
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Superhero"
+		],
+		"Isbn": "978-1-4012-5011-9",
+		"Issues": [
+			25,
+			26,
+			27,
+			28,
+			29,
+			30
+		],
+		"Name": "Nightwing",
+		"Notes": "- Annual 1",
+		"Pics": null,
+		"Price": 16.99,
+		"Publisher": "DC Comics",
+		"Series": [
+			"Nightwing, New 52"
+		],
+		"Story": "Setting Son",
+		"Volume": 3,
+		"_cls": "Asset.Book.Comic",
+		"_id": "ee9acf04e"
+	},
+	{
+		"Author": "Brandon Sanderson",
+		"Combos": null,
+		"Copyright": null,
+		"Format": "Mass Market",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-0-7653-5038-1",
+		"Name": "Mistborn",
+		"Notes": null,
+		"Pics": null,
+		"Price": 7.99,
+		"Publisher": "TOR",
+		"Series": "Mistborn",
+		"Subtitle": "The Final Empire",
+		"_cls": "Asset.Book.Prose",
+		"_id": "ef7df6d05"
+	},
+	{
+		"Author": "Col. Christ Hadfield",
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Paperback",
+		"Genres": [
+			"Business,    Self-Help"
+		],
+		"Isbn": "978-0-316-25303-1",
+		"Name": "An Astronaut's Guide to Life on Earth",
+		"Notes": "",
+		"Pics": null,
+		"Price": 17.0,
+		"Publisher": "Back Bay Books",
+		"Series": "",
+		"Subtitle": "What Going to Space Taught Me About Ingenuity, Determination, and Being Prepared For Anything",
+		"_cls": "Asset.Book.Prose",
+		"_id": "f01eb0008"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 1982,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Dystopian"
+		],
+		"Isbn": "978-1-4012-0841-7",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10
+		],
+		"Name": "V for Vendetta",
+		"Notes": null,
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Vertigo",
+		"Series": [
+			"V for Vendetta"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "f28580210"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "978-1-63215-426-2",
+		"Issues": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Name": "Descender",
+		"Notes": null,
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Image",
+		"Series": [
+			"Descender"
+		],
+		"Story": "Tin Stars",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "f2cae7a33"
+	},
+	{
+		"Author": "John Birmingham",
+		"Combos": null,
+		"Copyright": 2004,
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction, Alternate History"
+		],
+		"Isbn": "0-345-45713-7",
+		"Name": "Weapons of Choice",
+		"Notes": null,
+		"Pics": null,
+		"Price": 7.99,
+		"Publisher": "Ballantine Books",
+		"Series": null,
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "f40c7310e"
+	},
+	{
+		"Collected": "b1",
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-5343-0014-9",
+		"Issues": null,
+		"Name": "Kill Six Billion Demons",
+		"Notes": "Originally Webcomic",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Image",
+		"Series": [
+			"Kill Six Billion Demons"
+		],
+		"Story": null,
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "f9a93e4da"
+	},
+	{
+		"Combos": null,
+		"Copyright": 2002,
+		"Edition": "1.0",
+		"Format": "Paperback",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "0-9724826-2-8",
+		"Name": "Metal Gods",
+		"Notes": "Suggests using D&D 3rd Edition",
+		"Pics": null,
+		"Price": 14.95,
+		"Publisher": "RPGObjects",
+		"System": "d20",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "fb827bdd6"
+	},
+	{
+		"Collected": null,
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Trade Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-338-08951-6",
+		"Issues": null,
+		"Name": "The Witch Boy",
+		"Notes": null,
+		"Pics": null,
+		"Price": 12.99,
+		"Publisher": "Scholastic",
+		"Series": null,
+		"Story": null,
+		"Volume": null,
+		"_cls": "Asset.Book.Comic",
+		"_id": "fbd977e8e"
+	},
+	{
+		"Author": null,
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Paperback",
+		"Genres": [
+			"Reference"
+		],
+		"Isbn": "0-7894-8989-9",
+		"Name": "Trees",
+		"Notes": null,
+		"Pics": null,
+		"Price": 20.0,
+		"Publisher": "DK Publishing",
+		"Series": "Smithsonian Handbooks",
+		"Subtitle": null,
+		"_cls": "Asset.Book.Prose",
+		"_id": "fc1c8e57e"
+	},
+	{
+		"Combos": null,
+		"Copyright": 1987,
+		"Edition": null,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction"
+		],
+		"Isbn": "0-87431-066-0",
+		"Name": "Star Wars Sourcebook",
+		"Notes": null,
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "West End Games",
+		"System": "Star Wars WEG",
+		"_cls": "Asset.Book.TableTopRPG",
+		"_id": "fe7e3c08b"
+	},
+	{
+		"Author": "Hiromu Arakawa",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Combos": null,
+		"Copyright": 2002,
+		"Format": "Tokyopop Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Dark fantasy",
+			"Steampunk"
+		],
+		"Isbn": "978-1-4215-4018-4",
+		"Name": "Fullmetal Alchemist",
+		"Notes": "Vols 1,2,3",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Viz Media",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "95d871460"
+	},
+	{
+		"Author": "Hiromu Arakawa",
+		"Chapters": [
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25
+		],
+		"Combos": null,
+		"Copyright": 2003,
+		"Format": "Tokyopop Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Dark fantasy",
+			"Steampunk"
+		],
+		"Isbn": "978-1-4215-4019-1",
+		"Name": "Fullmetal Alchemist",
+		"Notes": "Vols 4,5,6",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Viz Media",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "a4bce8ccf"
+	},
+	{
+		"Author": "Hiromu Arakawa",
+		"Chapters": [
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34,
+			35,
+			36,
+			37
+		],
+		"Combos": null,
+		"Copyright": 2004,
+		"Format": "Tokyopop Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Dark fantasy",
+			"Steampunk"
+		],
+		"Isbn": "978-1-4125-4020-7",
+		"Name": "Fullmetal Alchemist",
+		"Notes": "Vols 7,8,9",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Viz Media",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "3104bf25e"
+	},
+	{
+		"Author": "Hiromu Arakawa",
+		"Chapters": [
+			38,
+			39,
+			40,
+			41,
+			42,
+			43,
+			44,
+			45,
+			46,
+			47,
+			48,
+			49
+		],
+		"Combos": null,
+		"Copyright": 2005,
+		"Format": "Tokyopop Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Dark fantasy",
+			"Steampunk"
+		],
+		"Isbn": "978-1-4215-5491-4",
+		"Name": "Fullmetal Alchemist",
+		"Notes": "Vols 10,11,12",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Viz Media",
+		"Vol": 4,
+		"_cls": "Asset.Book.Manga",
+		"_id": "8a3b2578d"
+	},
+	{
+		"Author": "Hiromu Arakawa",
+		"Chapters": [
+			50,
+			51,
+			52,
+			53,
+			54,
+			55,
+			56,
+			57,
+			58,
+			59,
+			60,
+			61
+		],
+		"Combos": null,
+		"Copyright": 2006,
+		"Format": "Tokyopop Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Dark fantasy",
+			"Steampunk"
+		],
+		"Isbn": "978-1-4215-5492-1",
+		"Name": "Fullmetal Alchemist",
+		"Notes": "Vols 13,14,15",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Viz Media",
+		"Vol": 5,
+		"_cls": "Asset.Book.Manga",
+		"_id": "5bb3b2597"
+	},
+	{
+		"Author": "Katsuhiro Otomo",
+		"Chapters": null,
+		"Combos": null,
+		"Copyright": 1984,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Seinen",
+			"Cyberpunk",
+			"Political thriller",
+			"Post-apocalyptic"
+		],
+		"Isbn": "978-1-935-42900-5",
+		"Name": "Akira",
+		"Notes": "Part 1: Tetsuo",
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "a7cc81381"
+	},
+	{
+		"Author": "Katsuhiro Otomo",
+		"Chapters": [
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25,
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33
+		],
+		"Combos": null,
+		"Copyright": 1985,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Seinen",
+			"Cyberpunk",
+			"Political thriller",
+			"Post-apocalyptic"
+		],
+		"Isbn": "978-1-935-42902-9",
+		"Name": "Akira",
+		"Notes": "Part 2: Akira I",
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "ec8fd19f9"
+	},
+	{
+		"Author": "Katsuhiro Otomo",
+		"Chapters": [
+			34,
+			35,
+			36,
+			37,
+			38,
+			39,
+			40,
+			41,
+			42,
+			43,
+			44,
+			45,
+			46,
+			47,
+			48
+		],
+		"Combos": null,
+		"Copyright": 1986,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Seinen",
+			"Cyberpunk",
+			"Political thriller",
+			"Post-apocalyptic"
+		],
+		"Isbn": "978-1-935-42904-3",
+		"Name": "Akira",
+		"Notes": "Part 3: Akira II",
+		"Pics": null,
+		"Price": 24.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "9a304b7f6"
+	},
+	{
+		"Author": "Katsuhiro Otomo",
+		"Chapters": [
+			49,
+			50,
+			51,
+			52,
+			53,
+			54,
+			55,
+			56,
+			57,
+			58,
+			59,
+			60,
+			61,
+			62,
+			63,
+			64,
+			65,
+			66,
+			67,
+			68,
+			69,
+			70,
+			71
+		],
+		"Combos": null,
+		"Copyright": 1987,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Seinen",
+			"Cyberpunk",
+			"Political thriller",
+			"Post-apocalyptic"
+		],
+		"Isbn": "978-1-935-42906-7",
+		"Name": "Akira",
+		"Notes": "Part 4: Kei I",
+		"Pics": null,
+		"Price": 27.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 4,
+		"_cls": "Asset.Book.Manga",
+		"_id": "de8e6a1b7"
+	},
+	{
+		"Author": "Katsuhiro Otomo",
+		"Chapters": [
+			72,
+			73,
+			74,
+			75,
+			76,
+			77,
+			78,
+			79,
+			80,
+			81,
+			82,
+			83,
+			84,
+			85,
+			86,
+			87,
+			88,
+			89,
+			90,
+			91,
+			92,
+			93,
+			94,
+			95,
+			96
+		],
+		"Combos": null,
+		"Copyright": 1990,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Seinen",
+			"Cyberpunk",
+			"Political thriller",
+			"Post-apocalyptic"
+		],
+		"Isbn": "978-1-935-42907-4",
+		"Name": "Akira",
+		"Notes": "Part 5: Kei II",
+		"Pics": null,
+		"Price": 27.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 5,
+		"_cls": "Asset.Book.Manga",
+		"_id": "f17ce357a"
+	},
+	{
+		"Author": "Katsuhiro Otomo",
+		"Chapters": [
+			97,
+			98,
+			99,
+			100,
+			101,
+			102,
+			103,
+			104,
+			105,
+			106,
+			107,
+			108,
+			109,
+			110,
+			111,
+			112,
+			113,
+			114,
+			115,
+			116,
+			117,
+			118,
+			119,
+			120
+		],
+		"Combos": null,
+		"Copyright": 1993,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Seinen",
+			"Cyberpunk",
+			"Political thriller",
+			"Post-apocalyptic"
+		],
+		"Isbn": "978-1-935-42908-1",
+		"Name": "Akira",
+		"Notes": "Part 6: Kaneda",
+		"Pics": null,
+		"Price": 29.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 6,
+		"_cls": "Asset.Book.Manga",
+		"_id": "44b82392c"
+	},
+	{
+		"Author": "Hiro Mashima",
+		"Chapters": [
+			40,
+			41,
+			42,
+			43,
+			44,
+			45,
+			46,
+			47,
+			48,
+			49,
+			50,
+			51,
+			52,
+			53,
+			54,
+			55,
+			56,
+			57,
+			58,
+			59,
+			60,
+			61,
+			62,
+			63,
+			64,
+			65,
+			66,
+			67,
+			68,
+			69,
+			70,
+			71,
+			72,
+			73,
+			74,
+			75,
+			76,
+			77,
+			78,
+			79,
+			80,
+			81,
+			82
+		],
+		"Combos": null,
+		"Copyright": 2007,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-63263-277-3",
+		"Name": "Fairy Tail: Master's Edition",
+		"Notes": "",
+		"Pics": null,
+		"Price": 39.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "c581fe524"
+	},
+	{
+		"Author": "Hiro Mashima",
+		"Chapters": [
+			83,
+			84,
+			85,
+			86,
+			87,
+			88,
+			89,
+			90,
+			91,
+			92,
+			93,
+			94,
+			95,
+			96,
+			97,
+			98,
+			99,
+			100,
+			101,
+			102,
+			103,
+			104,
+			105,
+			106,
+			107,
+			108,
+			109,
+			110,
+			111,
+			112,
+			113,
+			114,
+			115,
+			116,
+			117,
+			118,
+			119,
+			120,
+			121,
+			122,
+			123,
+			124,
+			125,
+			126
+		],
+		"Combos": null,
+		"Copyright": 2008,
+		"Format": "Aizoban Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978163236-296-4",
+		"Name": "Fairy Tail: Master's Edition",
+		"Notes": "",
+		"Pics": null,
+		"Price": 39.99,
+		"Publisher": "Kodansha Comics",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "7a5af4efc"
+	},
+	{
+		"Author": "Hayao Miyazaki",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Combos": null,
+		"Copyright": 1983,
+		"Format": "Aizoban",
+		"Genres": [
+			"Adventure",
+			"Fantasy",
+			"science Fiction"
+		],
+		"Isbn": "978-1-59116-408-1",
+		"Name": "Nausica\u00e4 of the Valley of the Wind",
+		"Notes": "",
+		"Pics": null,
+		"Price": 12.99,
+		"Publisher": "Viz Media",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "45f5ab480"
+	},
+	{
+		"Author": "Yoshikazu Yasuhiko",
+		"Chapters": [],
+		"Combos": null,
+		"Copyright": 2005,
+		"Format": "Aizoban",
+		"Genres": [
+			"Shonen",
+			"Mecha",
+			"Military Science Fiction",
+			"Space Opera"
+		],
+		"Isbn": "978-1-935654-87-2",
+		"Name": "Mobile Suit Gundam: The Origin",
+		"Notes": "",
+		"Pics": null,
+		"Price": 29.95,
+		"Publisher": "Vertical, Inc.",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "5fe5b1b1a"
+	},
+	{
+		"Author": "Yoshikazu Yasuhiko",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Combos": null,
+		"Copyright": 2005,
+		"Format": "Aizoban",
+		"Genres": [
+			"Shonen",
+			"Mecha",
+			"Military Science Fiction",
+			"Space Opera"
+		],
+		"Isbn": "978-1-935654-87-2",
+		"Name": "Mobile Suit Gundam: The Origin",
+		"Notes": "",
+		"Pics": null,
+		"Price": 29.95,
+		"Publisher": "Vertical, Inc.",
+		"Story": "Activation",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "fd1adb916"
+	},
+	{
+		"Author": "Yoshikazu Yasuhiko",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Combos": null,
+		"Copyright": 2006,
+		"Format": "Aizoban",
+		"Genres": [
+			"Shonen",
+			"Mecha",
+			"Military Science Fiction",
+			"Space Opera"
+		],
+		"Isbn": "978-1-935654-88-9",
+		"Name": "Mobile Suit Gundam: The Origin",
+		"Notes": "",
+		"Pics": null,
+		"Price": 29.95,
+		"Publisher": "Vertical, Inc.",
+		"Story": "Garma",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "acbb0fa60"
+	},
+	{
+		"Author": "Yoshikazu Yasuhiko",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Combos": null,
+		"Copyright": 2007,
+		"Format": "Aizoban",
+		"Genres": [
+			"Shonen",
+			"Mecha",
+			"Military Science Fiction",
+			"Space Opera"
+		],
+		"Isbn": "978-1-935654-97-1",
+		"Name": "Mobile Suit Gundam: The Origin",
+		"Notes": "",
+		"Pics": null,
+		"Price": 29.95,
+		"Publisher": "Vertical, Inc.",
+		"Story": "Ramba Ral",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "4481d321e"
+	},
+	{
+		"Author": "Yoshiyuki Sadamoto",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19
+		],
+		"Combos": null,
+		"Copyright": 1995,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Shonen",
+			"Seinen",
+			"Apocalyptic",
+			"Mecha",
+			"Psychological Drama"
+		],
+		"Isbn": "978-1-4215-5079-4",
+		"Name": "Neon Genesis Evangelion",
+		"Notes": "Vols 1,2,3",
+		"Pics": null,
+		"Price": 19.99,
+		"Publisher": "Viz Media",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "caee80597"
+	},
+	{
+		"Author": "Tsukumizu",
+		"Chapters": [
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15,
+			16
+		],
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Tankobon",
+		"Genres": [
+			"Seinen",
+			"Iyashikei",
+			"Post-apocalyptic",
+			"Science Fiction"
+		],
+		"Isbn": "978-0-316-47064-3",
+		"Name": "Girls' Last Tour",
+		"Notes": "",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Yen Press",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "87c000f9b"
+	},
+	{
+		"Author": "Tsukumizu",
+		"Chapters": [
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24
+		],
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Tankobon",
+		"Genres": [
+			"Seinen",
+			"Iyashikei",
+			"Post-apocalyptic",
+			"Science Fiction"
+		],
+		"Isbn": "978-0-316-47068-1",
+		"Name": "Girls' Last Tour",
+		"Notes": "",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Yen Press",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "07eebbf9c"
+	},
+	{
+		"Author": "Tsukumizu",
+		"Chapters": [
+			25,
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32
+		],
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Tankobon",
+		"Genres": [
+			"Seinen",
+			"Iyashikei",
+			"Post-apocalyptic",
+			"Science Fiction"
+		],
+		"Isbn": "978-0-316-41598-9",
+		"Name": "Girls' Last Tour",
+		"Notes": "",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Yen Press",
+		"Vol": 4,
+		"_cls": "Asset.Book.Manga",
+		"_id": "3ca3e02af"
+	},
+	{
+		"Author": "Tsukumizu",
+		"Chapters": [
+			33,
+			34,
+			35,
+			36,
+			37,
+			38,
+			39,
+			40
+		],
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Tankobon",
+		"Genres": [
+			"Seinen",
+			"Iyashikei",
+			"Post-apocalyptic",
+			"Science Fiction"
+		],
+		"Isbn": "978-1-9753-8093-9",
+		"Name": "Girls' Last Tour",
+		"Notes": "",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Yen Press",
+		"Vol": 5,
+		"_cls": "Asset.Book.Manga",
+		"_id": "14a9a18c9"
+	},
+	{
+		"Author": "Tsukumizu",
+		"Chapters": [
+			41,
+			42,
+			43,
+			44,
+			45,
+			46,
+			47
+		],
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Tankobon",
+		"Genres": [
+			"Seinen",
+			"Iyashikei",
+			"Post-apocalyptic",
+			"Science Fiction"
+		],
+		"Isbn": "978-1-9753-2903-7",
+		"Name": "Girls' Last Tour",
+		"Notes": "",
+		"Pics": null,
+		"Price": 15.0,
+		"Publisher": "Yen Press",
+		"Vol": 6,
+		"_cls": "Asset.Book.Manga",
+		"_id": "3491992e4"
+	},
+	{
+		"Author": "Akira Himekawa",
+		"Chapters": [],
+		"Combos": null,
+		"Copyright": 1991,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-4215-8961-9",
+		"Name": "The Legend of Zelda - Legendary Edition",
+		"Notes": "",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Story": "Majora's Mask; A Link to the Past",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "02fb317b1"
+	},
+	{
+		"Author": "Akira Himekawa",
+		"Chapters": [],
+		"Combos": null,
+		"Copyright": 1998,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-4215-8959-6",
+		"Name": "The Legend of Zelda - Legendary Edition ",
+		"Notes": "",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Story": "Ocarina of Time",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "0d1af2a55"
+	},
+	{
+		"Author": "Akira Himekawa",
+		"Chapters": [],
+		"Combos": null,
+		"Copyright": 2001,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-4215-8960-2",
+		"Name": "The Legend of Zelda - Legendary Edition ",
+		"Notes": "",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Story": "Oracle of Seasons; Oracle of Ages",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "bf7f84ff9"
+	},
+	{
+		"Author": "One",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8
+		],
+		"Combos": null,
+		"Copyright": 2012,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Seinen",
+			"Action",
+			"Comedy",
+			"Superhero"
+		],
+		"Isbn": "978-1-4215-8564-2",
+		"Name": "One-Punch Man",
+		"Notes": "",
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Viz Media",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "e45bc4c65"
+	},
+	{
+		"Author": "One",
+		"Chapters": [
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15
+		],
+		"Combos": null,
+		"Copyright": 2012,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Seinen",
+			"Action",
+			"Comedy",
+			"Superhero"
+		],
+		"Isbn": "978-1-4215-8565-9",
+		"Name": "One-Punch Man",
+		"Notes": "",
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Viz Media",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "9d1690ce0"
+	},
+	{
+		"Author": "One",
+		"Chapters": [
+			16,
+			17,
+			18,
+			19,
+			20
+		],
+		"Combos": null,
+		"Copyright": 2012,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Seinen",
+			"Action",
+			"Comedy",
+			"Superhero"
+		],
+		"Isbn": "978-1-4215-6461-6",
+		"Name": "One-Punch Man",
+		"Notes": "",
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Viz Media",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "6e1bf0bf8"
+	},
+	{
+		"Author": "Tatsuya Endo",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Action",
+			"Comedy",
+			"Spy"
+		],
+		"Isbn": "978-1-9747-1546-6",
+		"Name": "Spy x Family",
+		"Notes": "",
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Viz Media",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "0176492dc"
+	},
+	{
+		"Author": "Tatsuya Endo",
+		"Chapters": [
+			6,
+			7,
+			8,
+			9,
+			10,
+			11
+		],
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Action",
+			"Comedy",
+			"Spy"
+		],
+		"Isbn": "978-1-9747-1724-8",
+		"Name": "Spy x Family",
+		"Notes": "",
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Viz Media",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "379e8b3b8"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14
+		],
+		"Combos": null,
+		"Copyright": 2004,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07389-9",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "dd528197d"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21
+		],
+		"Combos": null,
+		"Copyright": 2004,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07390-5",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "5bdf7e6f3"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			22,
+			23,
+			24,
+			25,
+			26,
+			27
+		],
+		"Combos": null,
+		"Copyright": 2005,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07391-2",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 4,
+		"_cls": "Asset.Book.Manga",
+		"_id": "af6f11a58"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34
+		],
+		"Combos": null,
+		"Copyright": 2006,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07692-9",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 5,
+		"_cls": "Asset.Book.Manga",
+		"_id": "0078e55ed"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			35,
+			36,
+			37,
+			38,
+			39,
+			40,
+			41
+		],
+		"Combos": null,
+		"Copyright": 2006,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07324-0",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 6,
+		"_cls": "Asset.Book.Manga",
+		"_id": "03d83fc94"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			42,
+			43,
+			44,
+			45,
+			46,
+			47,
+			48
+		],
+		"Combos": null,
+		"Copyright": 2007,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07325-7",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 7,
+		"_cls": "Asset.Book.Manga",
+		"_id": "50e166e77"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			49,
+			50,
+			51,
+			52,
+			53,
+			54,
+			55
+		],
+		"Combos": null,
+		"Copyright": 2008,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-07327-1",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 8,
+		"_cls": "Asset.Book.Manga",
+		"_id": "505476777"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			56,
+			57,
+			58,
+			59,
+			60,
+			61,
+			62
+		],
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-12679-3",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 9,
+		"_cls": "Asset.Book.Manga",
+		"_id": "058696cbc"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			70,
+			71,
+			72,
+			73,
+			74,
+			75,
+			76
+		],
+		"Combos": null,
+		"Copyright": 2011,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-22539-7",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 11,
+		"_cls": "Asset.Book.Manga",
+		"_id": "bd64fd27b"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			77,
+			78,
+			79,
+			80,
+			81,
+			82
+		],
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-32232-4",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 12,
+		"_cls": "Asset.Book.Manga",
+		"_id": "cd73b871d"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			83,
+			84,
+			85,
+			86,
+			87,
+			88,
+			89,
+			90
+		],
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-31921-8",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 13,
+		"_cls": "Asset.Book.Manga",
+		"_id": "00664b9e5"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			91,
+			92,
+			93,
+			94,
+			95,
+			96,
+			97
+		],
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-1-9753-2818-4",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 14,
+		"_cls": "Asset.Book.Manga",
+		"_id": "36be4be7f"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			37,
+			38,
+			39,
+			40,
+			41,
+			42
+		],
+		"Combos": null,
+		"Copyright": 2018,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-947194-61-8",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Vol": 7,
+		"_cls": "Asset.Book.Manga",
+		"_id": "d75d9b265"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			43,
+			44,
+			45,
+			46,
+			47,
+			48
+		],
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-949980-15-8",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Vol": 8,
+		"_cls": "Asset.Book.Manga",
+		"_id": "94afff0ea"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25,
+			26,
+			27,
+			28,
+			29,
+			30,
+			31,
+			32,
+			33,
+			34,
+			35,
+			36,
+			37,
+			38,
+			39,
+			40,
+			41,
+			42,
+			43,
+			44,
+			45,
+			46,
+			47,
+			48,
+			49,
+			50,
+			51,
+			52,
+			53,
+			54,
+			55,
+			56,
+			57,
+			58,
+			59,
+			60,
+			61,
+			62,
+			63,
+			64
+		],
+		"Combos": null,
+		"Copyright": 2009,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-0-316-07738-5",
+		"Name": "Azumanga Daioh",
+		"Notes": "",
+		"Pics": null,
+		"Price": 25.0,
+		"Publisher": "Yen Press",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "356e44dad"
+	},
+	{
+		"Author": "Hidenori Kusaka",
+		"Chapters": [
+			41,
+			42,
+			43,
+			44,
+			45,
+			46,
+			47,
+			48,
+			49,
+			50,
+			51,
+			52,
+			53,
+			54,
+			55,
+			56,
+			57,
+			58,
+			59,
+			60,
+			61,
+			62,
+			63,
+			64,
+			65,
+			66,
+			67,
+			68,
+			69,
+			70,
+			71,
+			72,
+			73,
+			74,
+			75,
+			76,
+			77,
+			78
+		],
+		"Combos": null,
+		"Copyright": 1997,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-9747-1122-2",
+		"Name": "Pok\u00e9mon Adventures",
+		"Notes": "Vols 4,5,6",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "679c156f0"
+	},
+	{
+		"Author": "Hidenori Kusaka",
+		"Chapters": [
+			79,
+			80,
+			81,
+			82,
+			83,
+			84,
+			85,
+			86,
+			87,
+			88,
+			89,
+			90,
+			91,
+			92,
+			93,
+			94,
+			95,
+			96,
+			97,
+			98,
+			99,
+			100,
+			101,
+			102,
+			103,
+			104,
+			105,
+			106,
+			107,
+			108,
+			109,
+			110,
+			111,
+			112,
+			113,
+			114,
+			115,
+			116
+		],
+		"Combos": null,
+		"Copyright": 1997,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-9747-1123-9",
+		"Name": "Pok\u00e9mon Adventures",
+		"Notes": "Vols 7,8,9",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "3ef21eec0"
+	},
+	{
+		"Author": "Hidenori Kusaka",
+		"Chapters": [
+			117,
+			118,
+			119,
+			120,
+			121,
+			122,
+			123,
+			124,
+			125,
+			126,
+			127,
+			128,
+			129,
+			130,
+			131,
+			132,
+			133,
+			134,
+			135,
+			136,
+			137,
+			138,
+			139,
+			140,
+			141,
+			142,
+			143,
+			144,
+			145,
+			146,
+			147,
+			148,
+			149,
+			150,
+			151,
+			152,
+			153,
+			154
+		],
+		"Combos": null,
+		"Copyright": 1997,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-9747-1124-6",
+		"Name": "Pok\u00e9mon Adventures",
+		"Notes": "Vols 10,11,12",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Vol": 4,
+		"_cls": "Asset.Book.Manga",
+		"_id": "9e31ff82a"
+	},
+	{
+		"Author": "Akira Himekawa",
+		"Chapters": [],
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-4215-8962-6",
+		"Name": "The Legend of Zelda - Legendary Edition",
+		"Notes": "",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Story": "The Minish Cap; Phantom Hourglass",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "812a20c0d"
+	},
+	{
+		"Author": "Akira Himekawa",
+		"Chapters": [],
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Tankobon Omnibus",
+		"Genres": [
+			"Adventure",
+			"Fantasy"
+		],
+		"Isbn": "978-1-4215-8963-3",
+		"Name": "The Legend of Zelda - Legendary Edition",
+		"Notes": "",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "Viz Media",
+		"Story": "Four Swords",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "1e3486006"
+	},
+	{
+		"Author": "Kiyohiko Azuma",
+		"Chapters": [
+			63,
+			64,
+			65,
+			66,
+			67,
+			68,
+			69
+		],
+		"Combos": null,
+		"Copyright": 2010,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of Life"
+		],
+		"Isbn": "978-0-316-19033-6",
+		"Name": "Yotsuba&!",
+		"Notes": "",
+		"Pics": null,
+		"Price": 13.0,
+		"Publisher": "Yen Press",
+		"Vol": 10,
+		"_cls": "Asset.Book.Manga",
+		"_id": "061bddf1f"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6
+		],
+		"Combos": null,
+		"Copyright": 2013,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-945054-09-9",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Vol": 1,
+		"_cls": "Asset.Book.Manga",
+		"_id": "e109816db"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			19,
+			20,
+			21,
+			22,
+			23,
+			24
+		],
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-945054-12-9",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Vol": 4,
+		"_cls": "Asset.Book.Manga",
+		"_id": "8408eb6de"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			25,
+			26,
+			27,
+			28,
+			29,
+			30
+		],
+		"Combos": null,
+		"Copyright": 2016,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-945054-67-9",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Vol": 5,
+		"_cls": "Asset.Book.Manga",
+		"_id": "8e4f481ef"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			31,
+			32,
+			33,
+			34,
+			35,
+			36
+		],
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-947194-04-5",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Vol": 6,
+		"_cls": "Asset.Book.Manga",
+		"_id": "ee936d8da"
+	},
+	{
+		"Author": "",
+		"Combos": null,
+		"Copyright": 2020,
+		"Format": "Hardcover",
+		"Genres": [
+			"Science Fiction",
+			"Anthology"
+		],
+		"Isbn": "978-0-593-15774-9",
+		"Name": "Star Wars",
+		"Notes": "- Eyes of the Empire (Kiersten White) - Hunger (Mark Oshiro) - Ion Control (Emily Skrutskie) - A Good Kiss (C.B. Lee) - She Will Keep Them Warm (Delilah S. Dawson) - Heroes of the Rebellion (Amy Ratcliffe) - Rogue Two (Gary Whitta) - Kendal (Charles Yu) - Against All Odds (R.F. Kuang) - Beyond Hope (Michael Moreci) - The Truest Duty (Christie Golden) - A Naturalist on Hoth (Hank Green) - The Dragonsnake Saves R2-D2 (Katie Cook) - For the Last Time (Beth Revis) - Rendezvous Point (Jason Fry) - The Final Order (Seth Dickinson) - Amara Kel's Rules for TIE Pilot Survival (Probably) (Django Wexler) - The First Lesson (Jim Zub) - Disturbance (Mike Chen) - This Is No Cave\u200e (Catherynne M. Valente) - Lord Vader Will See You Now (John Jackson Miller) - Vergence (Tracy Deonn) - Tooth and Claw (Michael Kogge) - STET! (Daniel Jos\u00e9 Older) - Wait for It (Zoraida C\u00f3rdova) - Standard Imperial Procedure (Sarwat Chadda) - There Is Always Another (Mackenzi Lee) - Fake It Till You Make It (Cavan Scott) - But What Does He Eat? (S.A. Chakraborty) - Beyond the Clouds (Lilliam Rivera) - No Time for Poetry (Austin Walker) - Bespin Escape (Martha Wells) - Faith in an Old Friend (Brittany N. Williams) - Due on Batuu (Rob Hart) - Into the Clouds (Karen Strong) - The Witness (Adam Christopher) - The Man Who Built Cloud City (Alexander Freed) - The Backup Backup Plan (Anne Toole) - Right-Hand Man (Lydia Kang) - The Whills Strike Back (Tom Angleberger)",
+		"Pics": null,
+		"Price": 35.0,
+		"Publisher": "Del Ray",
+		"Series": "Star Wars",
+		"Subtitle": "From a Certain Point of View: The Empire Strikes Back",
+		"_cls": "Asset.Book.Prose",
+		"_id": "66eac05f2"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			13,
+			14,
+			15,
+			16,
+			17,
+			18
+		],
+		"Combos": null,
+		"Copyright": 2015,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-945054-11-2",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Story": "",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "6a6433268"
+	},
+	{
+		"Author": "Chihiro Ishizuka",
+		"Chapters": [
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		],
+		"Combos": null,
+		"Copyright": 2014,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Slice of life",
+			"Supernatural",
+			"Surreal Comedy"
+		],
+		"Isbn": "978-1-945054-10-5",
+		"Name": "Flying Witch",
+		"Notes": "",
+		"Pics": null,
+		"Price": 10.95,
+		"Publisher": "Vertical, Inc.",
+		"Story": "",
+		"Vol": 2,
+		"_cls": "Asset.Book.Manga",
+		"_id": "f73f8419f"
+	},
+	{
+		"Author": "Hiromu Arakawa",
+		"Chapters": [
+			62,
+			63,
+			64,
+			65,
+			66,
+			67,
+			68,
+			69,
+			70,
+			71,
+			72,
+			73
+		],
+		"Combos": null,
+		"Copyright": 2007,
+		"Format": "Tokyopop Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Dark fantasy",
+			"Steampunk"
+		],
+		"Isbn": "978-1-4215-5493-8",
+		"Name": "Fullmetal Alchemist",
+		"Notes": "Vols 16,17,18",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Viz Media",
+		"Story": "",
+		"Vol": 6,
+		"_cls": "Asset.Book.Manga",
+		"_id": "e76db3340"
+	},
+	{
+		"Author": "Hiromu Arakawa",
+		"Chapters": [
+			74,
+			75,
+			76,
+			77,
+			78,
+			79,
+			80,
+			81,
+			82,
+			83,
+			84,
+			85,
+			86,
+			87
+		],
+		"Combos": null,
+		"Copyright": 2007,
+		"Format": "Tokyopop Omnibus",
+		"Genres": [
+			"Shonen",
+			"Adventure",
+			"Dark fantasy",
+			"Steampunk"
+		],
+		"Isbn": "978-1-4215-5494-5",
+		"Name": "Fullmetal Alchemist",
+		"Notes": "Vols 19,20,21",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Viz Media",
+		"Story": "",
+		"Vol": 7,
+		"_cls": "Asset.Book.Manga",
+		"_id": "d5bf228dd"
+	},
+	{
+		"Author": "Tatsuya Endo",
+		"Chapters": [
+			12,
+			13,
+			14,
+			15,
+			16,
+			17
+		],
+		"Combos": null,
+		"Copyright": 2019,
+		"Format": "Tokyopop",
+		"Genres": [
+			"Shonen",
+			"Action",
+			"Comedy",
+			"Spy"
+		],
+		"Isbn": "978-1-9747-1816-0",
+		"Name": "Spy x Family",
+		"Notes": "",
+		"Pics": null,
+		"Price": 9.99,
+		"Publisher": "Viz Media",
+		"Story": "",
+		"Vol": 3,
+		"_cls": "Asset.Book.Manga",
+		"_id": "aa590688f"
+	},
+	{
+		"Collected": "v3",
+		"Combos": null,
+		"Copyright": 2017,
+		"Format": "Paperback",
+		"Genres": [
+			"Fantasy"
+		],
+		"Isbn": "978-1-63215-735-5",
+		"Issues": [
+			11,
+			12,
+			13,
+			14,
+			15
+		],
+		"Name": "Rat Queens",
+		"Notes": "",
+		"Pics": null,
+		"Price": 14.99,
+		"Publisher": "Image",
+		"Series": [
+			"Rat Queens"
+		],
+		"Story": "Demons",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "9553e77be"
+	},
+	{
+		"Collected": "v1",
+		"Combos": null,
+		"Copyright": 2020,
+		"Format": "Paperback",
+		"Genres": [
+			"Superhero",
+			"Science Fiction",
+			"Supernatural"
+		],
+		"Isbn": "978-1-68405-716-0",
+		"Issues": [
+			1,
+			2,
+			3
+		],
+		"Name": "Teenage Mutant Ninja Turtles: Jennika",
+		"Notes": "",
+		"Pics": null,
+		"Price": 17.99,
+		"Publisher": "IDW",
+		"Series": [
+			"TMNT"
+		],
+		"Story": "",
+		"Volume": 1,
+		"_cls": "Asset.Book.Comic",
+		"_id": "11c4e5273"
+	}
+]
