@@ -1,0 +1,5 @@
+Flask==1.1.2
+flask_pymongo==2.3.0
+flask_wtf==0.14.3
+python-dotenv==0.15.0
+shortuuid==1.0.1
