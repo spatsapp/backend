@@ -9,45 +9,17 @@ from .database import Database
 app = Flask(__name__)
 app.config.from_pyfile('backend.cfg')
 
-# mongo = PyMongo()
-# mongo.init_app(app)
 db = Database()
 db.init_app(app)
 
 csrf = CSRFProtect()
 csrf.init_app(app)
 
-# https://pypi.org/project/shortuuid/
-uuid_length = 7
-short_uuid = ShortUUID(alphabet="abcdfghijklnoqrstuwxyz") # removed p (q), m (n), e (c), v (u & w)
-def suuid():
-	return short_uuid.random(length=uuid_length)
-
 @app.before_request
 def clear_trailing():
 	path = request.path
 	if path != '/' and path.endswith('/'):
 		return redirect(path[:-1])
-
-
-def merge_docs(src, dest):
-	dest['inherit'] = src['_id']
-
-	dest_field_names = []
-	for name, field in dest['fields'].items():
-		dest_field_names.append(name)
-		field['inherited'] = False
-
-	added_field_names = []
-	for name, field in src['fields'].items():
-		if name not in dest_field_names:
-			field['inherited'] = True
-			dest['fields'][name] = field
-			added_field_names.append(name)
-
-	unordered = [ name for name in added_field_names if name not in dest['order'] ]
-	dest['order'].extend(unordered)
-	return dest
 
 
 @app.route('/', methods=['GET'])
@@ -74,63 +46,35 @@ def query_api():
 @app.route('/asset/all', methods=['GET'])
 @csrf.exempt
 def asset_all():
-	# docs = list(db.asset.find({}))
 	docs = db.asset_all()
 	return jsonify(docs)
 
 @app.route('/asset/<string:_id>', methods=['GET'])
 @csrf.exempt
 def asset_get(_id):
-	doc = db.asset.find_one({'_id': _id})
+	doc = db.asset_get(_id)
 	return jsonify(doc)
 
 @app.route('/asset/create', methods=['POST'])
 @csrf.exempt
 def asset_create():
-	json_list = request.get_json(force=True)
-	if not isinstance(json_list, list):
-		json_list = [json_list]
-	for json in json_list:
-		json['_id'] = suuid()
-		inherit = json.get('inherit')
-		if inherit:
-			doc = None
-			if inherit[0] == '_':
-				doc = {'name': inherit[1:]}
-			elif len(inherit) == 7:
-				doc = {'_id': inherit}
-			res = db.asset.find_one(doc)
-			if res:
-				merged = merge_docs(src=res, dest=json)
-				json = merged
-	res = db.asset.insert_many(json_list)
-	return jsonify({'ids': res.inserted_ids})
+	json = request.get_json(force=True)
+	res = db.asset_create(json)
+	return jsonify(res)
 
 @app.route('/asset/update', methods=['PUT'])
 @csrf.exempt
 def asset_update():
-	json_list = request.get_json(force=True)
-	if not isinstance(json_list, list):
-		json_list = [json_list]
-
-	responses = []
-	for json in json_list:
-		res = db.asset.update_one({"_id": json["_id"]}, {"$set": json}, upsert=False)
-		responses.append(res.raw_result)
-	return jsonify(responses)
+	json = request.get_json(force=True)
+	res = db.asset_update(json)
+	return jsonify(res)
 
 @app.route('/asset/delete', methods=['DELETE'])
 @csrf.exempt
 def asset_delete():
 	json = request.get_json(force=True)
-	if not isinstance(json_list, list):
-		json_list = [json_list]
-
-	deleted_count = 0
-	for json in json_list:
-		res = db.asset.delete_one({"_id": json["_id"]})
-		deleted_count += res.deleted_count
-	return jsonify({'count': deleted_count})
+	res = db.asset_delete(json)
+	return jsonify(res)
 
 
 
