@@ -35,7 +35,7 @@ class FieldParser:
 		return_value = None
 		if field == "boolean":
 			return_value = FieldParser.boolean_field(value, params)
-		elif filed_type == "string":
+		elif field == "string":
 			return_value = FieldParser.string_field(value, params)
 		elif field == "integer":
 			return_value = FieldParser.integer_field(value, params)
@@ -60,7 +60,7 @@ class FieldParser:
 		str_value = str(value)
 		min_length = params.get('min_length')
 		max_length = params.get('max_length')
-		if (min_length is not None and (len(str_value) < min_length))
+		if ((min_length is not None and (len(str_value) < min_length))
 			or (max_length is not None and len(str_value) > max_length)):
 			raise InvalidLengthError(f'"{value}" does is either under {min_length} or over {max_length}')
 		return str_value
@@ -242,25 +242,26 @@ class Database:
 				thing_res = self._get_many('thing', {'asset': asset_res['_id']})
 		else:
 			thing_res = self._get_many('thing')
-		return thing_res
+		return list(thing_res)
 
 	def thing_get(self, _id):
-		return self._get('thing', '_id', _id)
+		return self._get('thing', {'_id': _id})
 
 	def _verify(self, json, template):
 		transformed = {}
 		fields = template['fields']
-		for name, field in fields:
+		for name, field in fields.items():
 			field_type = field['type']
-			params = field['parameters']
-			if params['required'] and name not in json:
+			params = field.get('parameters')
+			params = params if params is not None else {}
+			required = params.get('required', False)
+			if required and name not in json:
 				raise RequiredAttributeError(f'"{name}" required field when creating asset "{template["name"]}"')
-			if name not in json and default in params:
+			if name not in json and 'default' in params:
 				transformed[name] = params['default']
 			elif name in json:
-				transformed[name] = FieldParser.parse(field_type, json[name, params])
+				transformed[name] = FieldParser.parse(field_type, json[name], params)
 		return transformed
-
 
 	def thing_create(self, json_list):
 		created = []
@@ -280,6 +281,18 @@ class Database:
 				current = self._verify(json, template)
 				current['_id'] = suuid()
 				transformed.append(current)
-			res = self._insert_many('things', transformed)
+			res = self._insert_many('thing', transformed)
 			created = res.inserted_ids
 		return {'created': created}
+
+	def thing_update(self, json_list):
+		pass
+
+	def thing_delete(self, json_list):
+		deleted = 0
+		if json_list:
+			json_list = self._to_list(json_list)
+			for json in json_list:
+				res = self._delete('thing', {"_id": json["_id"]})
+				deleted += res.deleted_count
+		return {'deleted': deleted}

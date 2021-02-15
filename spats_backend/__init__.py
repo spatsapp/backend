@@ -77,6 +77,40 @@ def asset_delete():
 	return jsonify(res)
 
 
+@app.route('/thing/all', methods=['GET'])
+@csrf.exempt
+def thing_all():
+	docs = db.thing_all()
+	return jsonify(docs)
+
+@app.route('/thing/<string:_id>', methods=['GET'])
+@csrf.exempt
+def thing_get(_id):
+	doc = db.thing_get(_id)
+	return jsonify(doc)
+
+@app.route('/thing/create', methods=['POST'])
+@csrf.exempt
+def thing_create():
+	json = request.get_json(force=True)
+	res = db.thing_create(json)
+	return jsonify(res)
+
+@app.route('/thing/update', methods=['PUT'])
+@csrf.exempt
+def thing_update():
+	json = request.get_json(force=True)
+	res = db.thing_update(json)
+	return jsonify(res)
+
+@app.route('/thing/delete', methods=['DELETE'])
+@csrf.exempt
+def thing_delete():
+	json = request.get_json(force=True)
+	res = db.thing_delete(json)
+	return jsonify(res)
+
+
 
 if __name__ == "__main__":
 	app.run()
