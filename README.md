@@ -27,6 +27,14 @@ This is the backend for SPATS. It is a RESTful api that interfaces with a Mongo 
 `/group/delete` - GET, DELTE - Delete a group based on it's _id, GET will give info on the call  
 
 
+## Collections
+* asset
+* thing
+* combo
+* group
+* extra (or other) [pics, files, ect.]
+
+
 ## Types
 The following types are permited for fields
 * boolean
@@ -50,16 +58,19 @@ field: {
 		type: string
 		inherited: boolean
 		parameters: {
-			required,
-			unique,
-			default,
-			min_value,
-			max_value,
-			ordered,
-			precision,
-			list_type,
-			(date/time/datetime),
-			range_type
+			required (any),
+			unique (any),
+			default (any),
+			min_value (integer, decimal, datetime),
+			max_value (integer, decimal, datetime),
+			ordered (list),
+			precision (decimal),
+			list_type (list),
+			range_type (range [int, decimal, datetime]),
+			min_length (string)
+			max_length (string)
+			reference_endpoint (string, point to collection)
+			date_format (string)
 		}
 	}, ...
 }
