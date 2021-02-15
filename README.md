@@ -42,8 +42,7 @@ The following types are permited for fields
 * int
 * decimal (2 ints [whole, fraction]; precision)
 * string
-* list (sorted) (one of the other )
-* range (lower, upper; int or decimal)
+* list (sorted) (one of the other)
 * reference (string, from shortuuid)
 
 
@@ -61,15 +60,14 @@ field: {
 			required (any),
 			unique (any),
 			default (any),
-			min_value (integer, decimal, datetime),
-			max_value (integer, decimal, datetime),
+			min_value (integer, decimal, date),
+			max_value (integer, decimal, date),
 			ordered (list),
 			precision (decimal),
 			list_type (list),
-			range_type (range [int, decimal, datetime]),
 			min_length (string)
 			max_length (string)
-			reference_endpoint (string, point to collection)
+			reference_collection (string, point to collection)
 			date_format (string)
 		}
 	}, ...
