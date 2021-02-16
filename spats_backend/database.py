@@ -8,6 +8,7 @@ class Error(Exception):
 	def __init__(self, message):
 		self.message = message
 
+class InvalidAssetTypeError(Error): pass
 class InvalidInheritedAssetError(Error): pass
 class InvalidDecimalError(Error): pass
 class InvalidLengthError(Error): pass
@@ -17,15 +18,22 @@ class OutOfBoundsError(Error): pass
 class RequiredAttributeError(Error): pass
 class UnknownFieldError(Error): pass
 
-
-# https://pypi.org/project/shortuuid/
-uuid_length = 7
-suuid_alphabet = "abcdfghijklnoqrstuwxyz"
-short_uuid = ShortUUID(alphabet=suuid_alphabet) # removed p (q), m (n), e (c), v (u & w)
-def suuid():
-	return short_uuid.random(length=uuid_length)
-
 Decimal = namedtuple('Decimal', ('whole', 'fraction'))
+
+class Suuid:
+	# https://pypi.org/project/shortuuid/
+	def __init__(self, length=7, alphabet="abcdfghijklnoqrstuwxyz"):
+		self.alphabet = alphabet
+		self.length = length
+		self.short_uuid = ShortUUID(alphabet=self.alphabet)
+
+	def generate(self):
+		return self.short_uuid.random(length=self.length)
+
+	def validate(self, value):
+		return len(value) == 7 and all([char in self.alphabet for char in value])
+
+suuid = Suuid()
 
 class FieldParser:
 	truthy = ['t', 'true', 'T', 'True', True]
@@ -87,7 +95,7 @@ class FieldParser:
 			raise InvalidDecimalError(f'Decimal value "{str_value}" has too many decimal points')
 		if precision is not None and len(fraction) != precision:
 			fraction = fraction.ljust(precision, '0')[:precision]
-		if '-' == whole[0]:
+		if whole.startswith('-'):
 			fraction = '-' + fraction
 		return {'whole': int(whole), 'fraction': int(fraction)}
 
@@ -131,7 +139,7 @@ class FieldParser:
 
 	def reference_field(value, params):
 		str_value = str(value)
-		if len(str_value) != 7 or not all([char in suuid_alphabet for char in str_value]):
+		if not suuid.validate(str_value):
 			raise InvalidSuuidError(f'{value} is not a valid suuid')
 		return str_value
 
@@ -192,42 +200,49 @@ class Database:
 				dest['fields'][name] = field
 				added_field_names.append(name)
 
+		dest['type_list'] = src['type_list'] + [dest['_id']]
 		unordered = [ name for name in added_field_names if name not in dest['order'] ]
 		dest['order'].extend(unordered)
 		return dest
 
+	def _name_or_id(self, value):
+		if value.startswith('_'):
+			return {'name': value[1:]}
+		elif suuid.validate(value):
+			return {'_id': value}
+		return None
+
 	def asset_all(self):
 		return list(self._get_many('asset'))
 
-	def asset_get(self, _id=None, name=None):
-		if _id is not None:
-			return self._get('asset', {'_id': _id})
-		elif name is not None:
-			if '_' == name[0]:
-				name = name[1:]
-			return self._get('asset', {'name': name})
-		return None
+	def asset_get(self, value):
+		doc = self._name_or_id(value)
+		if doc is None:
+			raise InvalidAssetTypeError(f'"{value}" is not a valid asset name or id')
+		return self._get('asset', doc)
 
 	def asset_create(self, json_list):
 		created = []
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
-				json['_id'] = self.suuid()
+				json['_id'] = suuid.generate()
 				inherit = json.get('inherit')
-				if inherit:
-					doc = None
-					if inherit[0] == '_':
-						doc = {'name': inherit[1:]}
-					elif len(inherit) == 7:
-						doc = {'_id': inherit}
+				doc = None
+				if inherit is not None:
+					doc = self._name_or_id(inherit)
+				if doc:
 					res = self._get('asset', doc)
 					if res:
-						json = merge_docs(src=res, dest=json)
+						json = self._merge_docs(src=res, dest=json)
 					else:
-						raise InvalidInheritedAssetError(f'"{inherit}" is not a valid asset type')
-			res = self._insert_many('asset', json_list)
-			created = res.inserted_ids
+						raise InvalidInheritedAssetError(f'"{inherit}" is not an existing asset type')
+				elif json['name'] != 'Asset':
+					raise InvalidInheritedAssetError(f'"{inherit}" is not a valid asset type')
+				else:
+					json['type_list'] = [json['_id']]
+				res = self._insert('asset', json)
+				created.append(res.inserted_id)
 		return {'created': created}
 
 	def asset_update(self, json_list):
@@ -251,12 +266,10 @@ class Database:
 	def thing_all(self, asset=None):
 		thing_res = []
 		if asset:
-			if '_' == asset[0]:
-				asset_res = self._get('asset', 'name', asset[1:])
-			else:
-				asset_res = self._get('asset', '_id', asset)
+			doc = self._name_or_id(asset)
+			asset_res = self._get('asset', doc)
 			if asset_res:
-				thing_res = self._get_many('thing', {'asset': asset_res['_id']})
+				thing_res = self._get_many('thing', {'type_list': asset_res['_id']})
 		else:
 			thing_res = self._get_many('thing')
 		return list(thing_res)
@@ -286,24 +299,27 @@ class Database:
 			transformed = []
 			json_list = self._to_list(json_list)
 			for json in json_list:
-				template = None
-				asset_lookup = json.get('asset_id')
+				asset_lookup = json.get('type')
 				if asset_lookup is None:
-					asset_lookup = json.get('asset_name')
-					if asset_lookup is None:
-						raise MissingAssetTypeError('No asset given to create thing')
-					template = self.asset_get(name=asset_lookup)
-				else:
-					template = self.asset_get(_id=asset_lookup)
-				current = self._verify(json, template)
-				current['_id'] = suuid()
-				transformed.append(current)
-			res = self._insert_many('thing', transformed)
-			created = res.inserted_ids
+					raise MissingAssetTypeError('No asset given to create thing')
+				template = self.asset_get(asset_lookup)
+				current = {}
+				current['_id'] = suuid.generate()
+				current['type'] = template['_id']
+				current['type_list'] = template['type_list']
+				current['fields'] = self._verify(json['fields'], template)
+				res = self._insert('thing', current)
+				created.append(res.inserted_id)
 		return {'created': created}
 
 	def thing_update(self, json_list):
-		pass
+		updated = 0
+		if json_list:
+			json_list = self._to_list(json_list)
+			for json in json_list:
+				res = self._update('thing', {'_id': json['_id']}, json)
+				updated += res.matched_count
+		return {'updated': updated}
 
 	def thing_delete(self, json_list):
 		deleted = 0

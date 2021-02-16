@@ -83,6 +83,12 @@ def thing_all():
 	docs = db.thing_all()
 	return jsonify(docs)
 
+@app.route('/thing/asset/<string:_id>', methods=['GET'])
+@csrf.exempt
+def thing_asset(_id):
+	docs = db.thing_all(_id)
+	return jsonify(docs)
+
 @app.route('/thing/<string:_id>', methods=['GET'])
 @csrf.exempt
 def thing_get(_id):

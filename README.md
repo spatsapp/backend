@@ -51,7 +51,7 @@ The following types are permited for fields
 _id: suuid
 name: string
 inherit: asset_suuid or None / null
-field: {
+fields: {
 	name: {
 		description: strings
 		type: string
@@ -76,6 +76,18 @@ order: [ field_name, ... ]
 primary: field_name
 secondary: field_name
 tertiary: [ field_name, ... ]
+type_list [ asset_id, ... ]
+```
+
+## Thing Structure
+```
+_id: suuid
+type: asset_id
+type_list: [ asset_id, ... ]
+fields: {
+	name: value,
+	...
+}
 ```
 
 ## License
