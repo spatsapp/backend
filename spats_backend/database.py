@@ -16,6 +16,7 @@ class InvalidSuuidError(Error): pass
 class MissingAssetTypeError(Error): pass
 class OutOfBoundsError(Error): pass
 class RequiredAttributeError(Error): pass
+class UniqueAttributeNotUniqueError(Error): pass
 class UnknownFieldError(Error): pass
 
 Decimal = namedtuple('Decimal', ('whole', 'fraction'))
@@ -75,10 +76,10 @@ class FieldParser:
 		return str_value
 
 	def integer_field(value, params):
-		new_value = int(json[name])
+		new_value = int(value)
 		min_value = params.get('min_value', -math.inf)
 		max_value = params.get('max_value', math.inf)
-		if not (min_value <= new_vale <= max_value):
+		if not (min_value <= new_value <= max_value):
 			raise OutOfBoundsError(f'"{value}" does not fall into required range of {min_value} and {max_value}')
 		return new_value
 
@@ -164,6 +165,7 @@ class Database:
 		return json if isinstance(json, list) else [json]
 
 	def _flatten(self, dic, parent_key='', sep='.'):
+		# https://stackoverflow.com/a/6027615
 		items = []
 		for key, value in dic.items():
 			new_key = parent_key + sep + key if parent_key else key
@@ -186,7 +188,12 @@ class Database:
 		return self.db[collection].insert_many(documents)
 
 	def _update(self, collection, filter, update):
-		flat_update = self._flatten(update)
+		preflat = update.get('_preflat', False)
+		if preflat:
+			del update['_preflat']
+			flat_update = update
+		else:
+			flat_update = self._flatten(update)
 		return self.db[collection].update_one(filter, {"$set": flat_update}, upsert=False)
 
 	def _update_many(self, collection, filter, update):
@@ -206,6 +213,7 @@ class Database:
 		for name, field in dest['fields'].items():
 			dest_field_names.append(name)
 			field['inherited'] = False
+			field['origin'] = dest['_id']
 		for name, field in src['fields'].items():
 			if name not in dest_field_names:
 				field['inherited'] = True
@@ -216,6 +224,10 @@ class Database:
 		unordered = [ name for name in added_field_names if name not in dest['order'] ]
 		dest['order'].extend(unordered)
 		return dest
+
+	def _check_unique(self, value, name, origin):
+		existing_doc = self._get('thing', {'type_list': origin, f'fields.{name}': value})
+		return existing_doc is None
 
 	def _name_or_id(self, value):
 		if value.startswith('_'):
@@ -262,7 +274,9 @@ class Database:
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
-				res = self._update('asset', {'_id': json['_id']}, json)
+				_id = json['_id']
+				del json['_id']
+				res = self._update('asset', {'_id': _id}, json)
 				updated += res.matched_count
 		return {'updated': updated}
 
@@ -297,12 +311,15 @@ class Database:
 			params = field.get('parameters')
 			params = params if params is not None else {}
 			required = params.get('required', False)
+			unique = params.get('unique', False)
 			if required and name not in json:
 				raise RequiredAttributeError(f'"{name}" required field when creating asset "{template["name"]}"')
 			if name not in json and 'default' in params:
 				transformed[name] = params['default']
 			elif name in json:
 				transformed[name] = FieldParser.parse(field_type, json[name], params)
+			if unique and not self._check_unique(transformed[name], name, field['origin']):
+				raise UniqueAttributeNotUniqueError(f'"{name}" is a unique field and matches another document')
 		return transformed
 
 	def thing_create(self, json_list):
