@@ -1,6 +1,6 @@
 from flask_pymongo import PyMongo
 from shortuuid import ShortUUID
-from collections import namedtuple
+from collections import namedtuple, MutableMapping
 from datetime import datetime, date, MINYEAR, MAXYEAR
 import math
 
@@ -163,6 +163,16 @@ class Database:
 	def _to_list(self, json):
 		return json if isinstance(json, list) else [json]
 
+	def _flatten(self, dic, parent_key='', sep='.'):
+		items = []
+		for key, value in dic.items():
+			new_key = parent_key + sep + key if parent_key else key
+			if isinstance(value, MutableMapping):
+				items.extend(self._flatten(value, new_key, sep=sep).items())
+			else:
+				items.append((new_key, value))
+		return dict(items)
+
 	def _get(self, collection, filter):
 		return self.db[collection].find_one(filter)
 
@@ -176,10 +186,12 @@ class Database:
 		return self.db[collection].insert_many(documents)
 
 	def _update(self, collection, filter, update):
-		return self.db[collection].update_one(filter, {"$set": update}, upsert=False)
+		flat_update = self._flatten(update)
+		return self.db[collection].update_one(filter, {"$set": flat_update}, upsert=False)
 
 	def _update_many(self, collection, filter, update):
-		return self.db[collection].update_many(filter, {"$set": update}, upsert=False)
+		flat_update = self._flatten(update)
+		return self.db[collection].update_many(filter, {"$set": flat_update}, upsert=False)
 
 	def _delete(self, collection, filter):
 		return self.db[collection].delete_one(filter)
