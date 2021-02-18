@@ -12,7 +12,7 @@ class InvalidAssetTypeError(Error): pass
 class InvalidInheritedAssetError(Error): pass
 class InvalidDecimalError(Error): pass
 class InvalidLengthError(Error): pass
-class InvalidSuuidError(Error): pass
+class InvalidSuidError(Error): pass
 class MissingAssetTypeError(Error): pass
 class OutOfBoundsError(Error): pass
 class RequiredAttributeError(Error): pass
@@ -21,7 +21,7 @@ class UnknownFieldError(Error): pass
 
 Decimal = namedtuple('Decimal', ('whole', 'fraction'))
 
-class Suuid:
+class Suid:
 	# https://pypi.org/project/shortuuid/
 	def __init__(self, length=7, alphabet="abcdfghijklnoqrstuwxyz"):
 		self.alphabet = alphabet
@@ -34,7 +34,7 @@ class Suuid:
 	def validate(self, value):
 		return len(value) == 7 and all([char in self.alphabet for char in value])
 
-suuid = Suuid()
+suuid = Suid()
 
 class FieldParser:
 	truthy = ['t', 'true', 'T', 'True', True]
@@ -108,11 +108,15 @@ class FieldParser:
 		new_value = Decimal(**new_dic)
 
 		param_min = params.get('min_value')
-		min_dic = FieldParser._split_decimal(param_min, precision) if param_min is not None else {'whole': -math.inf, 'fraction': -math.inf}
+		min_dic = (FieldParser._split_decimal(param_min, precision)
+			if param_min is not None
+			else {'whole': -math.inf, 'fraction': -math.inf})
 		min_value = Decimal(**min_dic)
 
 		param_max = params.get('max_value')
-		max_dic = FieldParser._split_decimal(param_max, precision) if param_max is not None else {'whole': math.inf, 'fraction': math.inf}
+		max_dic = (FieldParser._split_decimal(param_max, precision)
+			if param_max is not None
+			else {'whole': math.inf, 'fraction': math.inf})
 		max_value = Decimal(**max_dic)
 
 		if not (min_value <= new_value <= max_value):
@@ -141,7 +145,7 @@ class FieldParser:
 	def reference_field(value, params):
 		str_value = str(value)
 		if not suuid.validate(str_value):
-			raise InvalidSuuidError(f'{value} is not a valid suuid')
+			raise InvalidSuidError(f'{value} is not a valid suuid')
 		return str_value
 
 
@@ -318,7 +322,7 @@ class Database:
 				transformed[name] = params['default']
 			elif name in json:
 				transformed[name] = FieldParser.parse(field_type, json[name], params)
-			if unique and not self._check_unique(transformed[name], name, field['origin']):
+			if unique and name in transformed and not self._check_unique(transformed[name], name, field['origin']):
 				raise UniqueAttributeNotUniqueError(f'"{name}" is a unique field and matches another document')
 		return transformed
 
@@ -328,17 +332,20 @@ class Database:
 			transformed = []
 			json_list = self._to_list(json_list)
 			for json in json_list:
-				asset_lookup = json.get('type')
-				if asset_lookup is None:
-					raise MissingAssetTypeError('No asset given to create thing')
-				template = self.asset_get(asset_lookup)
-				current = {}
-				current['_id'] = suuid.generate()
-				current['type'] = template['_id']
-				current['type_list'] = template['type_list']
-				current['fields'] = self._verify(json['fields'], template)
-				res = self._insert('thing', current)
-				created.append(res.inserted_id)
+				try:
+					asset_lookup = json.get('type')
+					if asset_lookup is None:
+						raise MissingAssetTypeError('No asset given to create thing')
+					template = self.asset_get(asset_lookup)
+					current = {}
+					current['_id'] = suuid.generate()
+					current['type'] = template['_id']
+					current['type_list'] = template['type_list']
+					current['fields'] = self._verify(json['fields'], template)
+					res = self._insert('thing', current)
+					created.append(res.inserted_id)
+				except UniqueAttributeNotUniqueError:
+					print(current)
 		return {'created': created}
 
 	def thing_update(self, json_list):
