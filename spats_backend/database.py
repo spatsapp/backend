@@ -12,8 +12,10 @@ class InvalidAssetTypeError(Error): pass
 class InvalidInheritedAssetError(Error): pass
 class InvalidDecimalError(Error): pass
 class InvalidLengthError(Error): pass
+class InvalidNameOrId(Error): pass
 class InvalidSuidError(Error): pass
 class MissingAssetTypeError(Error): pass
+class NoDocumentFound(Error): pass
 class OutOfBoundsError(Error): pass
 class RequiredAttributeError(Error): pass
 class UniqueAttributeNotUniqueError(Error): pass
@@ -180,9 +182,18 @@ class Database:
 		return dict(items)
 
 	def _get(self, collection, filter):
-		return self.db[collection].find_one(filter)
+		doc = self.db[collection].find_one(filter)
+		if doc is None:
+			raise NoDocumentFound(f'No document in collection "{collection}" matches filter: {filter}')
+		return doc
 
 	def _get_many(self, collection, filter={}):
+		docs = self.db[collection].find(filter)
+		if len(docs) == 0:
+			raise NoDocumentFound(f'No documents in collection "{collection}" matches filter: {filter}')
+		return docs
+
+	def _search(self, collection, filter={}):
 		return self.db[collection].find(filter)
 
 	def _insert(self, collection, document):
@@ -238,60 +249,90 @@ class Database:
 			return {'name': value[1:]}
 		elif suuid.validate(value):
 			return {'_id': value}
-		return None
+		else:
+			raise InvalidAssetTypeError(f'"{value}" is not a valid name or suid')
 
 	def asset_all(self):
 		return list(self._get_many('asset'))
 
 	def asset_get(self, value):
-		doc = self._name_or_id(value)
-		if doc is None:
-			raise InvalidAssetTypeError(f'"{value}" is not a valid asset name or id')
-		return self._get('asset', doc)
+		try:
+			doc = self._name_or_id(value)
+			res = self._get('asset', doc)
+		except Exception as e:
+			return {'error': e.message, 'value': value}
+		else:
+			return res
 
 	def asset_create(self, json_list):
 		created = []
+		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
 				json['_id'] = suuid.generate()
 				inherit = json.get('inherit')
-				doc = None
-				if inherit is not None:
-					doc = self._name_or_id(inherit)
-				if doc:
-					res = self._get('asset', doc)
-					if res:
-						json = self._merge_docs(src=res, dest=json)
-					else:
-						raise InvalidInheritedAssetError(f'"{inherit}" is not an existing asset type')
-				elif json['name'] != 'Asset':
-					raise InvalidInheritedAssetError(f'"{inherit}" is not a valid asset type')
+				try:
+					try:
+						doc = self._name_or_id(inherit)
+						asset = self._get('asset', doc)
+					except NoDocumentFound as e:
+						raise InvalidInheritedAssetError(f'"{inherit}" is not an existing asset type, create before inheriting from it')
+				except Exception as e:
+					errors.append({
+						'message': e.message,
+						'document': json
+					})
 				else:
-					json['type_list'] = [json['_id']]
-				res = self._insert('asset', json)
-				created.append(res.inserted_id)
-		return {'created': created}
+					json = self._merge_docs(src=asset, dest=json)
+					res = self._insert('asset', json)
+					created.append(res.inserted_id)
+		return {'created': created, 'errored': errors}
 
 	def asset_update(self, json_list):
 		updated = 0
+		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
 				_id = json['_id']
-				del json['_id']
-				res = self._update('asset', {'_id': _id}, json)
-				updated += res.matched_count
-		return {'updated': updated}
+				if not suuid.validate(_id):
+					errors.append({
+						'message': f'"{_id}" is an invalid suid.',
+						'document': json
+					})
+				else:
+					res = self._update('asset', {'_id': _id}, json)
+					if not res.matched_count:
+						errors.append({
+							'message': f'"{_id}" does not match any documents to update',
+							'document': json
+						})
+					else:
+						updated += res.matched_count
+		return {'updated': updated, 'errored': errors}
 
 	def asset_delete(self, json_list):
 		deleted = 0
+		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
-				res = self._delete('asset', {"_id": json["_id"]})
-				deleted += res.deleted_count
-		return {'deleted': deleted}
+				_id = json['_id']
+				if not suid.validate(_id):
+					errors.append({
+						'message': f'"{_id}" is an invalid suid.',
+						'document': json
+					})
+				res = self._delete('asset', {'_id': _id})
+				if not res.deleted_count:
+					errors.append({
+						'message': f'"{_id}" does not match any documents to delete',
+						'document': json
+					})
+				else:
+					deleted += res.deleted_count
+		return {'deleted': deleted, 'errored': errors}
 
 	def thing_all(self, asset=None):
 		thing_res = []
@@ -305,7 +346,14 @@ class Database:
 		return list(thing_res)
 
 	def thing_get(self, _id):
-		return self._get('thing', {'_id': _id})
+		try:
+			if not suid.validate(_id):
+				raise InvalidSuidError(f'"{_id}" is an invalid suid')
+			res = self._get('thing', {'_id': _id})
+		except Exception as e:
+			return {'error': e.message, 'value': _id}
+		else:
+			return res
 
 	def _verify(self, json, template):
 		transformed = {}
@@ -328,15 +376,17 @@ class Database:
 
 	def thing_create(self, json_list):
 		created = []
+		errors = []
 		if json_list:
 			transformed = []
 			json_list = self._to_list(json_list)
 			for json in json_list:
 				try:
-					asset_lookup = json.get('type')
-					if asset_lookup is None:
+					asset_type = json.get('type')
+					if asset_type is None:
 						raise MissingAssetTypeError('No asset given to create thing')
-					template = self.asset_get(asset_lookup)
+					asset_doc = self._name_or_id(asset_typek)
+					template = self._get('asset', asset_lookup)
 					current = {}
 					current['_id'] = suuid.generate()
 					current['type'] = template['_id']
@@ -344,24 +394,55 @@ class Database:
 					current['fields'] = self._verify(json['fields'], template)
 					res = self._insert('thing', current)
 					created.append(res.inserted_id)
-				except UniqueAttributeNotUniqueError:
-					print(current)
-		return {'created': created}
+				except Exception as e:
+					errors.append({
+						'message': e.message,
+						'document': json
+					})
+		return {'created': created, 'errored': errors}
 
 	def thing_update(self, json_list):
 		updated = 0
+		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
-				res = self._update('thing', {'_id': json['_id']}, json)
-				updated += res.matched_count
-		return {'updated': updated}
+				_id = json['_id']
+				if not suuid.validate(_id):
+					errors.append({
+						'message': f'"{_id}" is an invalid suid.',
+						'document': json
+					})
+				else:
+					res = self._update('thing', {'_id': _id}, json)
+					if not res.modified_count:
+						errors.append({
+							'message': f'"{_id}" does not match any documents to update',
+							'document': json
+						})
+					else:
+						updated += res.matched_count
+		return {'updated': updated, 'errored': errors}
 
 	def thing_delete(self, json_list):
 		deleted = 0
+		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
-				res = self._delete('thing', {"_id": json["_id"]})
-				deleted += res.deleted_count
-		return {'deleted': deleted}
+				_id = json['_id']
+				if not suuid.validate(_id):
+					errors.append({
+						'message': f'"{_id}" is an invalid suid.',
+						'document': json
+					})
+				else:
+					res = self._delete('thing', {'_id': _id})
+					if not res.deleted_count:
+						errors.append({
+							'message': f'"{_id}" does not match any documents to delete',
+							'document': json
+						})
+					else:
+						deleted += res.deleted_count
+		return {'deleted': deleted, 'errored': errors}
