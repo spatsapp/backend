@@ -188,7 +188,7 @@ class Database:
 		return doc
 
 	def _get_many(self, collection, filter={}):
-		docs = self.db[collection].find(filter)
+		docs = list(self.db[collection].find(filter))
 		if len(docs) == 0:
 			raise NoDocumentFound(f'No documents in collection "{collection}" matches filter: {filter}')
 		return docs
@@ -253,7 +253,7 @@ class Database:
 			raise InvalidAssetTypeError(f'"{value}" is not a valid name or suid')
 
 	def asset_all(self):
-		return list(self._get_many('asset'))
+		return self._get_many('asset')
 
 	def asset_get(self, value):
 		try:
@@ -302,6 +302,11 @@ class Database:
 						'document': json
 					})
 				else:
+					if "fields" in json:
+						to_update = self._get('asset', {'_id': _id})
+						for name in json['fields']:
+							if to_update['fields'][name]['inherited']:
+								json['fields'][name]['inherited'] = False
 					res = self._update('asset', {'_id': _id}, json)
 					if not res.matched_count:
 						errors.append({
@@ -309,7 +314,18 @@ class Database:
 							'document': json
 						})
 					else:
-						updated += res.matched_count
+						child_matches = 0
+						if "fields" in json:
+							children = self._get_many('asset', {'type_list': _id})
+							for child in children:
+								child_update = {}
+								for name, update in json['fields'].items():
+									if child['fields'][name]['inherited']:
+										child_update[name] = update
+								if child_update:
+									child_res = self._update('asset', {'_id': child['_id']}, {'fields': child_update})
+									child_matches += child_res.matched_count
+						updated += (res.matched_count + child_matches)
 		return {'updated': updated, 'errored': errors}
 
 	def asset_delete(self, json_list):
