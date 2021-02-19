@@ -117,6 +117,39 @@ def thing_delete():
 	return jsonify(res)
 
 
+@app.route('/combo/all', methods=['GET'])
+@csrf.exempt
+def combo_all():
+	docs = db.combo_all()
+	return jsonify(docs)
+
+@app.route('/combo/<string:_id>', methods=['GET'])
+@csrf.exempt
+def combo_get(_id):
+	doc = db.combo_get(_id)
+	return jsonify(doc)
+
+@app.route('/combo/create', methods=['POST'])
+@csrf.exempt
+def combo_create():
+	json = request.get_json(force=True)
+	res = db.combo_create(json)
+	return jsonify(res)
+
+@app.route('/combo/update', methods=['PUT'])
+@csrf.exempt
+def combo_update():
+	json = request.get_json(force=True)
+	res = db.combo_update(json)
+	return jsonify(res)
+
+@app.route('/combo/delete', methods=['DELETE'])
+@csrf.exempt
+def combo_delete():
+	json = request.get_json(force=True)
+	res = db.combo_delete(json)
+	return jsonify(res)
+
 
 if __name__ == "__main__":
 	app.run()

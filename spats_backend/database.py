@@ -10,6 +10,7 @@ class Error(Exception):
 
 class InvalidAssetTypeError(Error): pass
 class InvalidInheritedAssetError(Error): pass
+class InvalidInheritedComboError(Error): pass
 class InvalidDecimalError(Error): pass
 class InvalidLengthError(Error): pass
 class InvalidNameOrId(Error): pass
@@ -462,3 +463,47 @@ class Database:
 					else:
 						deleted += res.deleted_count
 		return {'deleted': deleted, 'errored': errors}
+
+
+	def combo_all(self):
+		return self._get_many('combo')
+
+	def combo_get(self, value)
+		try:
+			doc = self._name_or_id(value)
+			res = self._get('combo', doc)
+		except Exception as e:
+			return {'error': e.message, 'value': value}
+		else:
+			return res
+
+	def combo_create(self, json_list):
+		created = []
+		errors = []
+		if json_list:
+			json_list = self._to_list(json_list)
+			for json in json_list:
+				json['_id'] = suuid.generate()
+				inherit = json.get('inherit')
+				try:
+					try:
+						doc = self._name_or_id(inherit)
+						combo = self._get('combo', doc)
+					except NoDocumentFound as e:
+						raise InvalidInheritedComboError(f'"{inherit}" is not an existing combo type, create before inheriting from it')
+				except Exception as e:
+					errors.append({
+						'message': e.message,
+						'document': json
+					})
+				else:
+					json = self._merge_docs(src=combo, dest=json)
+					res = self._insert('combo', json)
+					created.append(res.inserted_id)
+		return {'created': created, 'errored': errors}
+
+	def combo_update(self, json_list):
+		pass
+
+	def combo_delete(self, json_list):
+		pass
