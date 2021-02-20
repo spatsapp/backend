@@ -151,5 +151,44 @@ def combo_delete():
 	return jsonify(res)
 
 
+@app.route('/group/all', methods=['GET'])
+@csrf.exempt
+def group_all():
+	docs = db.group_all()
+	return jsonify(docs)
+
+@app.route('/group/combo/<string:_id>', methods=['GET'])
+@csrf.exempt
+def group_asset(_id):
+	docs = db.group_all(_id)
+	return jsonify(docs)
+
+@app.route('/group/<string:_id>', methods=['GET'])
+@csrf.exempt
+def group_get(_id):
+	doc = db.group_get(_id)
+	return jsonify(doc)
+
+@app.route('/group/create', methods=['POST'])
+@csrf.exempt
+def group_create():
+	json = request.get_json(force=True)
+	res = db.group_create(json)
+	return jsonify(res)
+
+@app.route('/group/update', methods=['PUT'])
+@csrf.exempt
+def group_update():
+	json = request.get_json(force=True)
+	res = db.group_update(json)
+	return jsonify(res)
+
+@app.route('/group/delete', methods=['DELETE'])
+@csrf.exempt
+def group_delete():
+	json = request.get_json(force=True)
+	res = db.group_delete(json)
+	return jsonify(res)
+
 if __name__ == "__main__":
 	app.run()
