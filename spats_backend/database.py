@@ -399,7 +399,8 @@ class Database:
 		return self._material_delete('group', json_list)
 
 
-	def _document_retrieve(self, gridfs, _id):
+	def _document_retrieve(self, gridfs, name):
+		_id, ext = splitext(name)
 		if self.suid.validate(_id):
 			# https://stackoverflow.com/a/58382158
 			try:
