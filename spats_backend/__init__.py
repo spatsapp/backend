@@ -28,18 +28,39 @@ def query_api():
 	return jsonify({
 		'version': 0.1,
 		'endpoints': [
-			{
-				'uri': '/',
-				'description': 'Get information on the api.'
-			},
-			{
-				'uri': '/asset/all',
-				'description': 'Retrieve a list of all asset types.'
-			},
-			{
-				'uri': '/asset/{_id}',
-				'description': 'Get info on asset with id {_id}'
-			}
+			{ 'uri': '/', 'methods': ['GET'], 'description': 'Get information on the api.' },
+			{ 'uri': '/asset/all', 'methods': ['GET'], 'description': 'Retrieve a list of all asset types.' },
+			{ 'uri': '/asset/{_id}', 'methods': ['GET'], 'description': 'Get info on asset with id {_id}' },
+			{ 'url': '/asset/create', 'methods': ['POST'], 'description': 'Create new asset' },
+			{ 'url': '/asset/update', 'methods': ['PUT'], 'description': 'Update existing asset' },
+			{ 'url': '/asset/delete', 'methods': ['DELETE'], 'description': 'Delete asset' },
+			{ 'uri': '/thing/all', 'methods': ['GET'], 'description': 'Get all things' },
+			{ 'uri': '/thing/asset/{_id}', 'methods': ['GET'], 'description': 'Get all things belonging to asset with id {_id}' },
+			{ 'uri': '/thing/{_id}', 'methods': ['GET'], 'description': 'Get thing with id {_id}' },
+			{ 'uri': '/thing/create', 'methods': ['POST'], 'description': 'Create new thing' },
+			{ 'uri': '/thing/update', 'methods': ['PUT'], 'description': 'Update existing thing' },
+			{ 'uri': '/thing/delete', 'methods': ['DELETE'], 'description': 'Delete thing' },
+			{ 'uri': '/combo/all', 'methods': ['GET'], 'description': 'Get all combos' },
+			{ 'uri': '/combo/{_id}', 'methods': ['GET'], 'description': 'Get combo with id {_id}' },
+			{ 'uri': '/combo/create', 'methods': ['POST'], 'description': 'Create new combo' },
+			{ 'uri': '/combo/update', 'methods': ['PUT'], 'description': 'Update existing combo' },
+			{ 'uri': '/combo/delete', 'methods': ['DELETE'], 'description': 'Delete combo' },
+			{ 'uri': '/group/all', 'methods': ['GET'], 'description': 'Get all groups' },
+			{ 'uri': '/group/combo/{_id}', 'methods': ['GET'], 'description': 'Get all groups of combo with id {_id}' },
+			{ 'uri': '/group/{_id}', 'methods': ['GET'], 'description': 'Get group with id {_id}' },
+			{ 'uri': '/group/create', 'methods': ['POST'], 'description': 'Create new group' },
+			{ 'uri': '/group/update', 'methods': ['PUT'], 'description': 'Update existing group' },
+			{ 'uri': '/group/delete', 'methods': ['DELETE'], 'description': 'Delete group' },
+			{ 'uri': '/image/{_id}', 'methods': ['GET'], 'description': 'Get image with id {_id}' },
+			{ 'uri': '/image/{_id}/info', 'methods': ['GET'], 'description': 'Get info about image with id {_id}' },
+			{ 'uri': '/image/create', 'methods': ['POST'], 'description': 'Create image' },
+			{ 'uri': '/image/update', 'methods': ['PUT'], 'description': 'Update image' },
+			{ 'uri': '/image/delete', 'methods': ['DELETE'], 'description': 'Delete image' },
+			{ 'uri': '/extra/{_id}', 'methods': ['GET'], 'description': 'Get extra file with id {_id}' },
+			{ 'uri': '/extra/{_id}/info', 'methods': ['GET'], 'description': 'Get info about extra file with id {_id}' },
+			{ 'uri': '/extra/create', 'methods': ['POST'], 'description': 'Create extra file' },
+			{ 'uri': '/extra/update', 'methods': ['PUT'], 'description': 'Update extra file' },
+			{ 'uri': '/extra/delete', 'methods': ['DELETE'], 'description': 'Delete extra file' }
 		]
 	})
 
