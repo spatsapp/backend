@@ -210,13 +210,53 @@ def image_create():
 	res = db.image_create(files)
 	return jsonify(res)
 
-@app.route('/image/update', methods=['POST'])
+@app.route('/image/update', methods=['PUT'])
 @csrf.exempt
 def image_update():
 	json = request.get_json(force=True)
 	res = db.image_update(json)
 	return jsonify(res)
 
+@app.route('/image/delete', methods=['DELETE'])
+@csrf.exempt
+def image_delete():
+	json = request.get_json(force=True)
+	res = db.image_delete(json)
+	return jsonify(res)
+
+
+@app.route('/extra/<string:_id>', methods=['GET'])
+@csrf.exempt
+def extra_get(_id):
+	res = db.extra_get(_id)
+	return res
+
+@app.route('/extra/info/<string:_id>', methods=['GET'])
+@csrf.exempt
+def extra_get_info(_id):
+	res = db.extra_get_info(_id)
+	return res
+
+@app.route('/extra/create', methods=['POST'])
+@csrf.exempt
+def extra_create():
+	files = request.files.getlist('files')
+	res = db.extra_create(files)
+	return jsonify(res)
+
+@app.route('/extra/update', methods=['PUT'])
+@csrf.exempt
+def extra_update():
+	json = request.get_json(force=True)
+	res = db.extra_update(json)
+	return jsonify(res)
+
+@app.route('/extra/delete', methods=['DELETE'])
+@csrf.exempt
+def extra_delete():
+	json = request.get_json(force=True)
+	res = db.extra_delete(json)
+	return jsonify(res)
 
 
 if __name__ == "__main__":

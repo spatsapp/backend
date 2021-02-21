@@ -1,9 +1,10 @@
+from bson.objectid import ObjectId
+from collections import MutableMapping
 from flask import current_app, request
 from flask_pymongo import PyMongo
-from werkzeug.wsgi import wrap_file
-from bson.objectid import ObjectId
 from gridfs import GridFS, NoFile
 from os.path import splitext
+from werkzeug.wsgi import wrap_file
 
 from .suid import Suid
 from .field_parser import FieldParser
@@ -223,18 +224,17 @@ class Database:
 		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
-			for json in json_list:
-				_id = json['_id']
+			for _id in json_list:
 				if not self.suid.validate(_id):
 					errors.append({
 						'message': f'"{_id}" is an invalid suid.',
-						'document': json
+						'value': _id
 					})
 				res = self._delete(type_, {'_id': _id})
 				if not res.deleted_count:
 					errors.append({
 						'message': f'"{_id}" does not match any documents to delete',
-						'document': json
+						'value': _id
 					})
 				else:
 					deleted += res.deleted_count
@@ -320,8 +320,7 @@ class Database:
 		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
-			for json in json_list:
-				_id = json['_id']
+			for _id in json_list:
 				if not self.suid.validate(_id):
 					errors.append({
 						'message': f'"{_id}" is an invalid suid.',
@@ -417,7 +416,7 @@ class Database:
 				response.content_length = fileobj.length
 				response.last_modified = fileobj.upload_date
 				response.set_etag(fileobj.md5)
-				response.cache_control.max_age = 31536000
+				response.cache_control.max_age = 10
 				response.cache_control.public = True
 				response.make_conditional(request)
 				return response
@@ -443,7 +442,7 @@ class Database:
 			return info
 
 	def _document_create(self, gridfs, files):
-		uploaded = []
+		created = []
 		for file_ in files:
 			_id = self.suid.generate()
 			metadata = {
@@ -451,19 +450,19 @@ class Database:
 				'thing': [],
 				'group': []
 			}
-			res = gridfs.put(_id=_id, data=file_, filename=file_.filename, metadata=metadata)
-			uploaded.append(res)
-		return {'uploaded': uploaded}
+			res = gridfs.put(_id=_id, data=file_, filename=file_.filename, metadata=metadata, content_type=file_.mimetype)
+			created.append(res)
+		return {'created': created}
 
 	def _document_delete(self, gridfs, json_list):
-		deleted = []
+		deleted = 0
 		errors = []
 		if json_list:
 			json_list = self._to_list(json_list)
 			for _id in json_list:
 				if self.suid.validate(_id):
 					res = gridfs.delete(file_id=_id)
-					deleted.append({'res': res, 'value': _id})
+					deleted += 1
 				else:
 					errors.append({'message': f'"{_id}" is not a valid suid', 'value': _id})
 		return {'deleted': deleted, 'errored': errors}
@@ -481,4 +480,20 @@ class Database:
 		return self._material_update('image.files', json_list)
 
 	def image_delete(self, json_list):
-		self._document_delete(self.image, json_list)
+		return self._document_delete(self.image, json_list)
+
+
+	def extra_get(self, _id):
+		return self._document_retrieve(self.extra, _id)
+
+	def extra_get_info(self, _id):
+		return self._document_get(self.extra, _id)
+
+	def extra_create(self, files):
+		return self._document_create(self.extra, files)
+
+	def extra_update(self, json_list):
+		return self._material_update('extra.files', json_list)
+
+	def extra_delete(self, json_list):
+		return self._document_delete(self.extra, json_list)
