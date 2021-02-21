@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
 from flask_wtf.csrf import CSRFProtect
-from shortuuid import ShortUUID
+
 import dotenv
 
 from .database import Database
@@ -189,6 +189,35 @@ def group_delete():
 	json = request.get_json(force=True)
 	res = db.group_delete(json)
 	return jsonify(res)
+
+
+@app.route('/image/<string:_id>', methods=['GET'])
+@csrf.exempt
+def image_get(_id):
+	res = db.image_get(_id)
+	return res
+
+@app.route('/image/info/<string:_id>', methods=['GET'])
+@csrf.exempt
+def image_get_info(_id):
+	res = db.image_get_info(_id)
+	return res
+
+@app.route('/image/create', methods=['POST'])
+@csrf.exempt
+def image_create():
+	files = request.files.getlist('files')
+	res = db.image_create(files)
+	return jsonify(res)
+
+@app.route('/image/update', methods=['POST'])
+@csrf.exempt
+def image_update():
+	json = request.get_json(force=True)
+	res = db.image_update(json)
+	return jsonify(res)
+
+
 
 if __name__ == "__main__":
 	app.run()

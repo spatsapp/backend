@@ -1,4 +1,9 @@
+from flask import current_app, request
 from flask_pymongo import PyMongo
+from werkzeug.wsgi import wrap_file
+from bson.objectid import ObjectId
+from gridfs import GridFS, NoFile
+from os.path import splitext
 
 from .suid import Suid
 from .field_parser import FieldParser
@@ -26,6 +31,8 @@ class Database:
 		self.mongo = PyMongo()
 		self.mongo.init_app(app)
 		self.db = self.mongo.db
+		self.image = GridFS(self.db, 'image')
+		self.extra = GridFS(self.db, 'extra')
 
 		self.suid = Suid()
 		self.field_parser = FieldParser()
@@ -391,3 +398,87 @@ class Database:
 
 	def group_delete(self, json_list):
 		return self._material_delete('group', json_list)
+
+
+	def _document_retrieve(self, gridfs, _id):
+		if self.suid.validate(_id):
+			# https://stackoverflow.com/a/58382158
+			try:
+				fileobj = gridfs.get(file_id=_id)
+			except NoFile: #404
+				return None
+			else:
+				data = wrap_file(request.environ, fileobj, buffer_size=1024 * 255)
+				response = current_app.response_class(
+					data,
+					mimetype=fileobj.content_type,
+					direct_passthrough=True,
+				)
+				response.content_length = fileobj.length
+				response.last_modified = fileobj.upload_date
+				response.set_etag(fileobj.md5)
+				response.cache_control.max_age = 31536000
+				response.cache_control.public = True
+				response.make_conditional(request)
+				return response
+		return None
+
+	def _document_get(self, gridfs, name):
+		try:
+			_id, ext = splitext(name)
+			if not self.suid.validate(_id):
+				raise InvalidSuidError(f'"{_id}" is an invalid suid')
+			res = gridfs.get(file_id=_id)
+			info = {
+				'content_type': res.content_type,
+				'filename': res.filename,
+				'size': res.length,
+				'md5': res.md5,
+				'metadata': res.metadata,
+				'upload_date': res.upload_date
+			}
+		except Exception as e:
+			return {'error': e.message, 'value': _id}
+		else:
+			return info
+
+	def _document_create(self, gridfs, files):
+		uploaded = []
+		for file_ in files:
+			_id = self.suid.generate()
+			metadata = {
+				'display': splitext(file_.filename)[0],
+				'thing': [],
+				'group': []
+			}
+			res = gridfs.put(_id=_id, data=file_, filename=file_.filename, metadata=metadata)
+			uploaded.append(res)
+		return {'uploaded': uploaded}
+
+	def _document_delete(self, gridfs, json_list):
+		deleted = []
+		errors = []
+		if json_list:
+			json_list = self._to_list(json_list)
+			for _id in json_list:
+				if self.suid.validate(_id):
+					res = gridfs.delete(file_id=_id)
+					deleted.append({'res': res, 'value': _id})
+				else:
+					errors.append({'message': f'"{_id}" is not a valid suid', 'value': _id})
+		return {'deleted': deleted, 'errored': errors}
+
+	def image_get(self, _id):
+		return self._document_retrieve(self.image, _id)
+
+	def image_get_info(self, _id):
+		return self._document_get(self.image, _id)
+
+	def image_create(self, files):
+		return self._document_create(self.image, files)
+
+	def image_update(self, json_list):
+		return self._material_update('image.files', json_list)
+
+	def image_delete(self, json_list):
+		self._document_delete(self.image, json_list)
