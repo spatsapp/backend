@@ -436,6 +436,8 @@ class Database:
 				'metadata': res.metadata,
 				'upload_date': res.upload_date
 			}
+		except NoFile:
+			return {'error': f'"{_id}" does not match any documents to delete', 'value': _id}
 		except Exception as e:
 			return {'error': e.message, 'value': _id}
 		else:
@@ -446,7 +448,7 @@ class Database:
 		for file_ in files:
 			_id = self.suid.generate()
 			metadata = {
-				'display': splitext(file_.filename)[0],
+				'display': file_.filename,
 				'thing': [],
 				'group': []
 			}

@@ -197,7 +197,7 @@ def image_get(_id):
 	res = db.image_get(_id)
 	return res
 
-@app.route('/image/info/<string:_id>', methods=['GET'])
+@app.route('/image/<string:_id>/info', methods=['GET'])
 @csrf.exempt
 def image_get_info(_id):
 	res = db.image_get_info(_id)
@@ -231,7 +231,7 @@ def extra_get(_id):
 	res = db.extra_get(_id)
 	return res
 
-@app.route('/extra/info/<string:_id>', methods=['GET'])
+@app.route('/extra/<string:_id>/info', methods=['GET'])
 @csrf.exempt
 def extra_get_info(_id):
 	res = db.extra_get_info(_id)
