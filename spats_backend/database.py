@@ -337,68 +337,6 @@ class Database:
 						deleted += res.deleted_count
 		return {'deleted': deleted, 'errored': errors}
 
-
-	def asset_all(self):
-		return self._get_many('asset')
-
-	def asset_get(self, value):
-		return self._symbolic_get('asset', value)
-
-	def asset_create(self, json_list):
-		self._symbolic_create('asset', json_list)
-
-	def asset_update(self, json_list):
-		self._symbolic_update('asset', json_list)
-
-	def asset_delete(self, json_list):
-		self._symbolic_delete('asset', json_list)
-
-	def thing_all(self, asset=None):
-		return self._material_all('thing', 'asset', asset)
-
-	def thing_get(self, _id):
-		return self._material_get('thing', _id)
-
-	def thing_create(self, json_list):
-		return self._material_create('thing', json_list)
-
-	def thing_update(self, json_list):
-		return self._material_update('thing', json_list)
-
-	def thing_delete(self, json_list):
-		return self._material_delete('thing', json_list)
-
-	def combo_all(self):
-		return self._get_many('combo')
-
-	def combo_get(self, value):
-		return self._symbolic_get('combo', value)
-
-	def combo_create(self, json_list):
-		self._symbolic_create('combo', json_list)
-
-	def combo_update(self, json_list):
-		self._symbolic_update('combo', json_list)
-
-	def combo_delete(self, json_list):
-		self._symbolic_delete('combo', json_list)
-
-	def group_all(self, combo=None):
-		return self._material_all('group', 'combo', combo)
-
-	def group_get(self, _id):
-		return self._material_get('group', _id)
-
-	def group_create(self, json_list):
-		return self._material_create('group', json_list)
-
-	def group_update(self, json_list):
-		return self._material_update('group', json_list)
-
-	def group_delete(self, json_list):
-		return self._material_delete('group', json_list)
-
-
 	def _document_retrieve(self, gridfs, name):
 		_id, ext = splitext(name)
 		if self.suid.validate(_id):
@@ -469,6 +407,68 @@ class Database:
 				else:
 					errors.append({'message': f'"{_id}" is not a valid suid', 'value': _id})
 		return {'deleted': deleted, 'errored': errors}
+
+
+	def asset_all(self):
+		return self._get_many('asset')
+
+	def asset_get(self, value):
+		return self._symbolic_get('asset', value)
+
+	def asset_create(self, json_list):
+		self._symbolic_create('asset', json_list)
+
+	def asset_update(self, json_list):
+		self._symbolic_update('asset', json_list)
+
+	def asset_delete(self, json_list):
+		self._symbolic_delete('asset', json_list)
+
+	def thing_all(self, asset=None):
+		return self._material_all('thing', 'asset', asset)
+
+	def thing_get(self, _id):
+		return self._material_get('thing', _id)
+
+	def thing_create(self, json_list):
+		return self._material_create('thing', json_list)
+
+	def thing_update(self, json_list):
+		return self._material_update('thing', json_list)
+
+	def thing_delete(self, json_list):
+		return self._material_delete('thing', json_list)
+
+	def combo_all(self):
+		return self._get_many('combo')
+
+	def combo_get(self, value):
+		return self._symbolic_get('combo', value)
+
+	def combo_create(self, json_list):
+		self._symbolic_create('combo', json_list)
+
+	def combo_update(self, json_list):
+		self._symbolic_update('combo', json_list)
+
+	def combo_delete(self, json_list):
+		self._symbolic_delete('combo', json_list)
+
+	def group_all(self, combo=None):
+		return self._material_all('group', 'combo', combo)
+
+	def group_get(self, _id):
+		return self._material_get('group', _id)
+
+	def group_create(self, json_list):
+		return self._material_create('group', json_list)
+
+	def group_update(self, json_list):
+		return self._material_update('group', json_list)
+
+	def group_delete(self, json_list):
+		return self._material_delete('group', json_list)
+
 
 	def image_get(self, _id):
 		return self._document_retrieve(self.image, _id)
