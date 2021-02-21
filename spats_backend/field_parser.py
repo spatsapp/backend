@@ -1,4 +1,4 @@
-from collections import namedtuple, MutableMapping
+from collections import namedtuple
 from datetime import datetime, date, MINYEAR, MAXYEAR
 import math
 
