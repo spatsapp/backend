@@ -249,6 +249,15 @@ class Database:
 					deleted += res.deleted_count
 		return {'deleted': deleted, 'errored': errors}
 
+	def _material_decode(self, raw_res, symbolic_res):
+		res = {'_id': raw_res['_id'], 'type': raw_res['type'], 'fields': {}}
+		for key, value in raw_res['fields'].items():
+			cur_symbolic = symbolic_res['fields'][key]
+			field_type = cur_symbolic['type']
+			field_params = cur_symbolic['parameters']
+			res['fields'][key] = self.field_parser.decode(field_type, value, field_params)
+		return res
+
 	def _material_all(self, type_, symbolic_type, symbolic_lookup=None):
 		material_res = []
 		if symbolic_lookup:
@@ -258,12 +267,19 @@ class Database:
 			except Exception as e:
 				return {'error': e.message, 'lookup': symbolic_lookup, 'type': type_ }
 			else:
-				material_res = self._get_many(type_, {'type_list': symbolic_res['_id']})
+				raw_res = self._get_many(type_, {'type_list': symbolic_res['_id']})
+				
 		else:
-			material_res = self._get_many(type_)
-			symbolic_ids = list(set([ doc['type'] for doc in material_res ]))
+			raw_res = self._get_many(type_)
+			symbolic_ids = list(set([ doc['type'] for doc in raw_res ]))
 			symbolic_res = self._get_many(symbolic_type, {'_id': { '$in': symbolic_ids }})
 		symbolic_res = self._to_id_dic(symbolic_res)
+		material_res = []
+		for raw in raw_res:
+			raw_type = raw['type']
+			symbolic_cur = symbolic_res[raw_type]
+			decoded = self._material_decode(raw, symbolic_cur)
+			material_res.append(decoded)
 		return {symbolic_type: symbolic_res, type_: material_res}
 
 	def _material_get(self, type_, symbolic_type, _id):
@@ -272,12 +288,7 @@ class Database:
 				raise InvalidSuidError(f'"{_id}" is an invalid suid')
 			raw_res = self._get(type_, {'_id': _id})
 			symbolic_res = self._get(symbolic_type, raw_res['type'])
-			res = {'_id': raw_res['_id'], 'type': raw_res['type'], 'fields': {}}
-			for key, value in raw_res['fields'].items():
-				cur_symbolic = symbolic_res['fields'][key]
-				field_type = cur_symbolic['type']
-				field_params = cur_symbolic['parameters']
-				res['fields'][key] = self.field_parser.decode(field_type, value, field_params)
+			res = self._material_decode(raw_res, symbolic_res)
 			symbolic_res = self._to_id_dic(symbolic_res)
 		except Exception as e:
 			return {'error': str(e), 'value': _id}
