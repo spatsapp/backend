@@ -44,6 +44,33 @@ class FieldParser:
 			raise UnknownFieldError(f'Field type of "{field}" is undefined')
 		return return_value
 
+	def decode(self, field, value, params):
+		return_value = None
+		if field in [ "boolean", "string", "integer", "reference" ]:
+			return_value = value
+		elif field == "decimal":
+			precision = params.get('precision')
+			whole = str(value['whole'])
+			fraction = str(value['fraction'])
+			if precision is not None and len(fraction) != precision:
+				fraction = fraction.ljust(precision, '0')[:precision]
+			if fraction.startswith('-'):
+				fraction = fraction[1:]
+			return_value = f'{whole}.{fraction}'
+		elif field == "date":
+			date_format = params.get('date_format', '%Y-%m-%d')
+			return_value = datetime.strftime(value, date_format)
+		elif field == "list":
+			list_type = params.get('list_type', 'string')
+			ordered = params.get('ordered', False)
+			decoded_list = [ self.decode(list_type, v, params) for v in value ]
+			if ordered:
+				decoded_list.sort()
+			return_value = decoded_list
+		else:
+			raise UnknownFieldError(f'Field type of "{field}" is undefined')
+		return return_value
+
 	def boolean_field(self, value, params):
 		if value not in self.truthy or value not in self.falsey:
 			raise BooleanNameError(f'Boolean is not of right type. "{value}" needs to be one of the following: {self.truthy} or {self.falsey}')

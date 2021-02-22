@@ -145,6 +145,15 @@ class Database:
 				raise UniqueAttributeNotUniqueError(f'"{name}" is a unique field and matches another document')
 		return transformed
 
+	def _to_id_dic(self, json_list):
+		res = {}
+		if json_list:
+			json_list = self._to_list(json_list)
+			for json in json_list:
+				_id = json['_id']
+				del json['_id']
+				res[_id] = json
+		return res
 
 	def _symbolic_get(self, type_, value):
 		try:
@@ -249,21 +258,31 @@ class Database:
 			except Exception as e:
 				return {'error': e.message, 'lookup': symbolic_lookup, 'type': type_ }
 			else:
-				if symbolic_res:
-					material_res = self._get_many(type_, {'type_list': symbolic_res['_id']})
+				material_res = self._get_many(type_, {'type_list': symbolic_res['_id']})
 		else:
 			material_res = self._get_many(type_)
-		return list(material_res)
+			symbolic_ids = list(set([ doc['type'] for doc in material_res ]))
+			symbolic_res = self._get_many(symbolic_type, {'_id': { '$in': symbolic_ids }})
+		symbolic_res = self._to_id_dic(symbolic_res)
+		return {symbolic_type: symbolic_res, type_: material_res}
 
-	def _material_get(self, type_, _id):
+	def _material_get(self, type_, symbolic_type, _id):
 		try:
 			if not self.suid.validate(_id):
 				raise InvalidSuidError(f'"{_id}" is an invalid suid')
-			res = self._get(type_, {'_id': _id})
+			raw_res = self._get(type_, {'_id': _id})
+			symbolic_res = self._get(symbolic_type, raw_res['type'])
+			res = {'_id': raw_res['_id'], 'type': raw_res['type'], 'fields': {}}
+			for key, value in raw_res['fields'].items():
+				cur_symbolic = symbolic_res['fields'][key]
+				field_type = cur_symbolic['type']
+				field_params = cur_symbolic['parameters']
+				res['fields'][key] = self.field_parser.decode(field_type, value, field_params)
+			symbolic_res = self._to_id_dic(symbolic_res)
 		except Exception as e:
-			return {'error': e.message, 'value': _id}
+			return {'error': str(e), 'value': _id}
 		else:
-			return res
+			return {type_: res, symbolic_type: symbolic_res}
 
 	def _material_create(self, type_, json_list):
 		created = []
@@ -416,19 +435,19 @@ class Database:
 		return self._symbolic_get('asset', value)
 
 	def asset_create(self, json_list):
-		self._symbolic_create('asset', json_list)
+		return self._symbolic_create('asset', json_list)
 
 	def asset_update(self, json_list):
-		self._symbolic_update('asset', json_list)
+		return self._symbolic_update('asset', json_list)
 
 	def asset_delete(self, json_list):
-		self._symbolic_delete('asset', json_list)
+		return self._symbolic_delete('asset', json_list)
 
 	def thing_all(self, asset=None):
 		return self._material_all('thing', 'asset', asset)
 
 	def thing_get(self, _id):
-		return self._material_get('thing', _id)
+		return self._material_get('thing', 'asset', _id)
 
 	def thing_create(self, json_list):
 		return self._material_create('thing', json_list)
@@ -446,19 +465,19 @@ class Database:
 		return self._symbolic_get('combo', value)
 
 	def combo_create(self, json_list):
-		self._symbolic_create('combo', json_list)
+		return self._symbolic_create('combo', json_list)
 
 	def combo_update(self, json_list):
-		self._symbolic_update('combo', json_list)
+		return self._symbolic_update('combo', json_list)
 
 	def combo_delete(self, json_list):
-		self._symbolic_delete('combo', json_list)
+		return self._symbolic_delete('combo', json_list)
 
 	def group_all(self, combo=None):
 		return self._material_all('group', 'combo', combo)
 
 	def group_get(self, _id):
-		return self._material_get('group', _id)
+		return self._material_get('group', 'combo', _id)
 
 	def group_create(self, json_list):
 		return self._material_create('group', json_list)
