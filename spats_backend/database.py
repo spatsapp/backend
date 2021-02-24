@@ -156,17 +156,19 @@ class Database:
 		return res
 
 	def _symbolic_get(self, type_, value):
+		res = {}
 		try:
 			doc = self._name_or_id(value)
-			res = self._get(type_, doc)
+			res[type_] = self._get(type_, doc)
 		except Exception as e:
-			return {'error': e.message, 'value': value}
-		else:
-			return res
+			res['error'] = e.message
+			res['lookup'] = value
+		return res
 
 	def _symbolic_create(self, type_, json_list):
 		created = []
 		errors = []
+
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
@@ -180,18 +182,20 @@ class Database:
 						raise InvalidInheritedSymbolicError(f'"{inherit}" is not an existing {type_} type, create before inheriting from it')
 				except Exception as e:
 					errors.append({
-						'message': e.message,
+						'message': str(e),
 						'document': json
 					})
 				else:
 					json = self._merge_docs(src=symbolic, dest=json)
 					res = self._insert(type_, json)
 					created.append(res.inserted_id)
+
 		return {'created': created, 'errored': errors}
 
 	def _symbolic_update(self, type_, json_list):
 		updated = 0
 		errors = []
+
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
@@ -199,6 +203,7 @@ class Database:
 				if not self.suid.validate(_id):
 					errors.append({
 						'message': f'"{_id}" is an invalid suid.',
+						'lookup': _id,
 						'document': json
 					})
 				else:
@@ -211,6 +216,7 @@ class Database:
 					if not res.matched_count:
 						errors.append({
 							'message': f'"{_id}" does not match any documents to update',
+							'lookup': _id,
 							'document': json
 						})
 					else:
@@ -226,27 +232,30 @@ class Database:
 									child_res = self._update(type_, {'_id': child['_id']}, {'fields': child_update})
 									child_matches += child_res.matched_count
 						updated += (res.matched_count + child_matches)
+
 		return {'updated': updated, 'errored': errors}
 
 	def _symbolic_delete(self, type_, json_list):
 		deleted = 0
 		errors = []
+
 		if json_list:
 			json_list = self._to_list(json_list)
 			for _id in json_list:
 				if not self.suid.validate(_id):
 					errors.append({
 						'message': f'"{_id}" is an invalid suid.',
-						'value': _id
+						'lookup': _id
 					})
 				res = self._delete(type_, {'_id': _id})
 				if not res.deleted_count:
 					errors.append({
 						'message': f'"{_id}" does not match any documents to delete',
-						'value': _id
+						'lookup': _id
 					})
 				else:
 					deleted += res.deleted_count
+
 		return {'deleted': deleted, 'errored': errors}
 
 	def _material_decode(self, raw_res, symbolic_res):
@@ -260,44 +269,63 @@ class Database:
 
 	def _material_all(self, type_, symbolic_type, symbolic_lookup=None):
 		material_res = []
+		symbolic_res = {}
+		res = {}
+
 		if symbolic_lookup:
 			try:
 				doc = self._name_or_id(symbolic_lookup)
 				symbolic_res = self._get(symbolic_type, doc)
 			except Exception as e:
-				return {'error': e.message, 'lookup': symbolic_lookup, 'type': type_ }
+				res['error'] = str(e)
+				res['lookup'] = symbolic_lookup
+				res['type'] = type_
 			else:
 				raw_res = self._get_many(type_, {'type_list': symbolic_res['_id']})
-				
 		else:
-			raw_res = self._get_many(type_)
-			symbolic_ids = list(set([ doc['type'] for doc in raw_res ]))
-			symbolic_res = self._get_many(symbolic_type, {'_id': { '$in': symbolic_ids }})
+			try:
+				raw_res = self._get_many(type_)
+				symbolic_ids = list(set([ doc['type'] for doc in raw_res ]))
+				symbolic_res = self._get_many(symbolic_type, {'_id': { '$in': symbolic_ids }})
+			except Exception as e:
+				res['error'] = str(e)
+				res['type'] = type_
+
 		symbolic_res = self._to_id_dic(symbolic_res)
-		material_res = []
 		for raw in raw_res:
 			raw_type = raw['type']
 			symbolic_cur = symbolic_res[raw_type]
 			decoded = self._material_decode(raw, symbolic_cur)
 			material_res.append(decoded)
-		return {symbolic_type: symbolic_res, type_: material_res}
+
+		res[symbolic_type] = symbolic_res
+		res[type_] = material_res
+		return res
 
 	def _material_get(self, type_, symbolic_type, _id):
+		material_res = {}
+		symbolic_res = {}
+		res = {}
+
 		try:
 			if not self.suid.validate(_id):
 				raise InvalidSuidError(f'"{_id}" is an invalid suid')
 			raw_res = self._get(type_, {'_id': _id})
 			symbolic_res = self._get(symbolic_type, raw_res['type'])
-			res = self._material_decode(raw_res, symbolic_res)
+			material_res = self._material_decode(raw_res, symbolic_res)
 			symbolic_res = self._to_id_dic(symbolic_res)
 		except Exception as e:
-			return {'error': str(e), 'value': _id}
-		else:
-			return {type_: res, symbolic_type: symbolic_res}
+			res['error'] = str(e)
+			res['lookup'] = _id
+
+		res[type_] = material_res
+		res[symbolic_type] = symbolic_res
+		return res
 
 	def _material_create(self, type_, json_list):
 		created = []
 		errors = []
+
 		if json_list:
 			transformed = []
 			json_list = self._to_list(json_list)
@@ -320,11 +348,13 @@ class Database:
 						'message': e.message,
 						'document': json
 					})
+
 		return {'created': created, 'errored': errors}
 
 	def _material_update(self, type_, json_list):
 		updated = 0
 		errors = []
+
 		if json_list:
 			json_list = self._to_list(json_list)
 			for json in json_list:
@@ -332,6 +362,7 @@ class Database:
 				if not self.suid.validate(_id):
 					errors.append({
 						'message': f'"{_id}" is an invalid suid.',
+						'lookup': _id,
 						'document': json
 					})
 				else:
@@ -339,21 +370,25 @@ class Database:
 					if not res.modified_count:
 						errors.append({
 							'message': f'"{_id}" does not match any documents to update',
+							'lookup': _id,
 							'document': json
 						})
 					else:
 						updated += res.matched_count
+
 		return {'updated': updated, 'errored': errors}
 
 	def _material_delete(self, type_, json_list):
 		deleted = 0
 		errors = []
+
 		if json_list:
 			json_list = self._to_list(json_list)
 			for _id in json_list:
 				if not self.suid.validate(_id):
 					errors.append({
 						'message': f'"{_id}" is an invalid suid.',
+						'lookup': _id,
 						'document': json
 					})
 				else:
@@ -361,10 +396,12 @@ class Database:
 					if not res.deleted_count:
 						errors.append({
 							'message': f'"{_id}" does not match any documents to delete',
+							'lookup': _id,
 							'document': json
 						})
 					else:
 						deleted += res.deleted_count
+
 		return {'deleted': deleted, 'errored': errors}
 
 	def _document_retrieve(self, gridfs, name):
@@ -392,28 +429,32 @@ class Database:
 		return None
 
 	def _document_get(self, gridfs, name):
+		res = {}
 		try:
 			_id, ext = splitext(name)
 			if not self.suid.validate(_id):
 				raise InvalidSuidError(f'"{_id}" is an invalid suid')
-			res = gridfs.get(file_id=_id)
-			info = {
-				'content_type': res.content_type,
-				'filename': res.filename,
-				'size': res.length,
-				'md5': res.md5,
-				'metadata': res.metadata,
-				'upload_date': res.upload_date
+			gridfs_res = gridfs.get(file_id=_id)
+			res = {
+				'content_type': gridfs_res.content_type,
+				'filename': gridfs_res.filename,
+				'size': gridfs_res.length,
+				'md5': gridfs_res.md5,
+				'metadata': gridfs_res.metadata,
+				'upload_date': gridfs_res.upload_date
 			}
 		except NoFile:
-			return {'error': f'"{_id}" does not match any documents to delete', 'value': _id}
+			res['error'] = f'"{_id}" does not match any documents to delete'
+			res['lookup'] = _id
 		except Exception as e:
-			return {'error': e.message, 'value': _id}
-		else:
-			return info
+			res['error'] = str(e)
+			res['lookup'] = _id
+		return res
 
 	def _document_create(self, gridfs, files):
 		created = []
+		errors = []
+
 		for file_ in files:
 			_id = self.suid.generate()
 			metadata = {
@@ -421,13 +462,22 @@ class Database:
 				'thing': [],
 				'group': []
 			}
-			res = gridfs.put(_id=_id, data=file_, filename=file_.filename, metadata=metadata, content_type=file_.mimetype)
-			created.append(res)
-		return {'created': created}
+			try:
+				gridfs_res = gridfs.put(_id=_id, data=file_, filename=file_.filename, metadata=metadata, content_type=file_.mimetype)
+			except Exception as e:
+				errors.append({
+					'error': str(e),
+					'document': str(file_)
+				})
+			else:
+				created.append(gridfs_res)
+
+		return {'created': created, 'errored': errors}
 
 	def _document_delete(self, gridfs, json_list):
 		deleted = 0
 		errors = []
+
 		if json_list:
 			json_list = self._to_list(json_list)
 			for _id in json_list:
@@ -435,7 +485,8 @@ class Database:
 					res = gridfs.delete(file_id=_id)
 					deleted += 1
 				else:
-					errors.append({'message': f'"{_id}" is not a valid suid', 'value': _id})
+					errors.append({'error': f'"{_id}" is not a valid suid', 'lookup': _id})
+
 		return {'deleted': deleted, 'errored': errors}
 
 
