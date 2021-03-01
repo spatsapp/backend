@@ -21,7 +21,7 @@ class FieldParser:
 	def __init__(self):
 		self.truthy = ['t', 'true', 'T', 'True', True]
 		self.falsey = ['f', 'false', 'F', 'False', False]
-		self.list_types = ['boolean', 'integer', 'decimal', 'date', 'reference']
+		self.list_types = ['boolean', 'string', 'integer', 'decimal', 'date', 'reference']
 
 
 	def parse(self, field, value, params):
