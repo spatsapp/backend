@@ -11,7 +11,7 @@ class Suid:
 		return self.short_uuid.random(length=self.length)
 
 	def validate(self, value):
-		return len(value) == 7 and all([char in self.alphabet for char in value])
+		return len(value) == self.length and all([char in self.alphabet for char in value])
 
 if __name__ == '__main__':
 	suid = Suid()

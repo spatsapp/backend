@@ -413,6 +413,12 @@ class Database:
 						raise MissingSymbolicTypeError(f'No type given to create {type_}')
 					symbolic_doc = self._name_or_id(symbolic_type)
 					template = self._get(symbolic, symbolic_doc)
+				except Exception as e:
+					errors.append({
+						'message': e.message,
+						'document': json
+					})
+				else:
 					current = {}
 					current['_id'] = self.suid.generate()
 					current['type'] = template['_id']
@@ -420,11 +426,6 @@ class Database:
 					current['fields'] = self._verify(json['fields'], template)
 					res = self._insert(type_, current)
 					created.append(res.inserted_id)
-				except Exception as e:
-					errors.append({
-						'message': e.message,
-						'document': json
-					})
 
 		return {'created': created, 'errored': errors}
 
