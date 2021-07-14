@@ -81,6 +81,8 @@ class FieldParser:
         if field in ["boolean", "string", "integer", "reference"]:
             return_value = value
         elif field == "decimal":
+            if not isinstance(value, dict):
+                value = self.decimal_field(value, params)
             precision = int(params.get("precision", 0))
             whole = str(value["whole"])
             fraction = str(value["fraction"])
@@ -90,6 +92,8 @@ class FieldParser:
                 fraction = fraction[1:]
             return_value = f"{whole}.{fraction}"
         elif field == "date":
+            if not isinstance(value, datetime):
+                value = self.date_field(value, params)
             date_format = params.get("date_format", "%Y-%m-%d")
             return_value = datetime.strftime(value, date_format)
         elif field == "list":
@@ -155,7 +159,8 @@ class FieldParser:
                 f'Decimal value "{str_value}" has too many decimal points'
             )
         if precision is not None and len(fraction) != precision:
-            fraction = fraction.ljust(precision, "0")[:precision]
+            precision = int(precision)
+            fraction = fraction.ljust((precision), "0")[:precision]
         if whole.startswith("-"):
             fraction = "-" + fraction
         return {"whole": int(whole), "fraction": int(fraction)}

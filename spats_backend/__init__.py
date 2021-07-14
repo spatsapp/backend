@@ -496,6 +496,7 @@ def upload():
 @csrf.exempt
 def updates():
     """Upload json to load data into database"""
+    # pylint: disable=protected-access
     return jsonify(db._updates())
 
 if __name__ == "__main__":
