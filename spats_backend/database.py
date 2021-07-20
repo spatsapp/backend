@@ -989,25 +989,48 @@ class Database:
         """Upload json as new database info"""
         old = self.download()
         create = {}
-        if "asset" in newdata:
+        if newdata.get("asset"):
             new_asset = self._order_symbolic_inheritance(newdata["asset"], "Asset")
             self.database.drop_collection("asset")
-            create["asset"] = self._insert_many("asset", new_asset).inserted_ids
-
-        if "combo" in newdata:
+            inserted = self._insert_many("asset", new_asset).inserted_ids
+            create["asset"] = {
+                "created": inserted,
+                "errored": [
+                    asset["_id"] for asset in new_asset if asset["_id"] not in inserted
+                ],
+            }
+        if newdata.get("combo"):
             new_combo = self._order_symbolic_inheritance(newdata["combo"], "Combo")
             self.database.drop_collection("combo")
-            create["combo"] = self._insert_many("combo", new_combo).inserted_ids
-
-        if "thing" in newdata:
-            new_thing = newdata["thing"]
+            inserted = self._insert_many("combo", new_combo).inserted_ids
+            create["combo"] = {
+                "created": inserted,
+                "errored": [
+                    combo["_id"] for combo in new_combo if combo["_id"] not in inserted
+                ],
+            }
+        if newdata.get("thing"):
             self.database.drop_collection("thing")
-            create["thing"] = self._material_create("thing", new_thing)
-
-        if "group" in newdata:
-            new_group = newdata["group"]
+            inserted = self._insert_many("thing", newdata["thing"]).inserted_ids
+            create["thing"] = {
+                "created": inserted,
+                "errored": [
+                    thing["_id"]
+                    for thing in newdata["thing"]
+                    if thing["_id"] not in inserted
+                ],
+            }
+        if newdata.get("group"):
             self.database.drop_collection("group")
-            create["group"] = self._material_create("group", new_group)
+            inserted = self._insert_many("group", newdata["group"]).inserted_ids
+            create["group"] = {
+                "created": inserted,
+                "errored": [
+                    group["_id"]
+                    for group in newdata["group"]
+                    if group["_id"] not in inserted
+                ],
+            }
         new = self.download()
 
         return {
