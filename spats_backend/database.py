@@ -1,4 +1,5 @@
 """Interface for mongo database"""
+# pylint: disable=too-many-lines
 
 from collections.abc import MutableMapping
 from os.path import splitext
@@ -6,6 +7,7 @@ from os.path import splitext
 from flask import current_app, request
 from flask_pymongo import PyMongo
 from gridfs import GridFS, NoFile
+from pymongo.errors import PyMongoError
 from werkzeug.wsgi import wrap_file
 
 from .field_parser import FieldParser
@@ -20,22 +22,6 @@ class Error(Exception):
         self.message = message
 
 
-class InvalidSymbolicTypeError(Error):
-    """Symbolic id or name is invlaid"""
-
-
-class InvalidInheritedSymbolicError(Error):
-    """Can't inherit from Symbolic value given"""
-
-
-class InvalidSuidError(Error):
-    """Suid is invalid"""
-
-
-class MissingSymbolicTypeError(Error):
-    """Symbolic Type does not exist in database"""
-
-
 class NoDocumentFound(Error):
     """No documents exist for requested type"""
 
@@ -44,8 +30,16 @@ class RequiredAttributeError(Error):
     """Required field not given"""
 
 
-class UniqueAttributeNotUniqueError(Error):
+class UniqueAttributeError(Error):
     """Unique filed not unique"""
+
+
+class InvalidSuidError(Error):
+    """Suid is invalid"""
+
+
+class InvalidSymbolicError(Error):
+    """Symbolic id or name is invlaid"""
 
 
 class TupleNoneCompare:
@@ -226,6 +220,20 @@ class Database:
             )
 
     @staticmethod
+    def _error_json(error, document, **kwargs):
+        if isinstance(error, Exception):
+            msg = f"{error.__class__.__qualname__}: {error.message}"
+        else:
+            msg = str(error)
+        doc = {
+            "error": msg,
+            "document": document,
+        }
+        for key, value in kwargs.items():
+            doc[key] = value
+        return doc
+
+    @staticmethod
     def _to_list(json):
         if isinstance(json, dict):
             return [json] if json.keys() else []
@@ -233,29 +241,38 @@ class Database:
             return json
         return []
 
-    def _flatten(self, dic, parent_key="", sep="."):
+    def _flatten(self, dic, parent_key="", sep=".", rename=False):
         # https://stackoverflow.com/a/6027615
         items = []
         for key, value in dic.items():
             new_key = parent_key + sep + key if parent_key else key
             if value and isinstance(value, MutableMapping):
-                items.extend(self._flatten(value, new_key, sep=sep).items())
+                items.extend(
+                    self._flatten(
+                        value,
+                        parent_key=new_key,
+                        sep=sep,
+                        rename=rename,
+                    ).items()
+                )
             else:
+                if rename:
+                    value = parent_key + sep + value if parent_key else value
                 items.append((new_key, value))
         return dict(items)
 
-    def _get(self, collection, filter_):
+    def _get(self, collection, filter_, error=True):
         doc = self.database[collection].find_one(filter_)
-        if doc is None:
+        if doc is None and error:
             raise NoDocumentFound(
                 f'No document in collection "{collection}" matches filter: {filter_}'
             )
         return doc
 
-    # pylint: disable=dangerous-default-value
-    def _get_many(self, collection, filter_={}):
+    def _get_many(self, collection, filter_=None, error=True):
+        filter_ = filter_ or {}
         docs = list(self.database[collection].find(filter_))
-        if len(docs) == 0:
+        if len(docs) == 0 and error:
             raise NoDocumentFound(
                 f'No documents in collection "{collection}" matches filter: {filter_}'
             )
@@ -271,11 +288,19 @@ class Database:
     def _insert_many(self, collection, documents):
         return self.database[collection].insert_many(documents)
 
-    def _update(self, collection, filter_, update, unset=None):
-        preflat = update.get("_preflat", False)
+    def _update(
+        self,
+        collection,
+        filter_,
+        document,
+        preflat=False,
+    ):
         values = {}
+        update = document.get("update", None)
+        unset = document.get("unset", None)
+        rename = document.get("rename", None)
+
         if preflat:
-            del update["_preflat"]
             if update:
                 values["$set"] = update
             if unset:
@@ -285,11 +310,20 @@ class Database:
                 values["$set"] = self._flatten(update)
             if unset:
                 values["$unset"] = self._flatten(unset)
-        return self.database[collection].update_one(
+        res = self.database[collection].update_one(
             filter_,
             values,
             upsert=False,
         )
+
+        if rename:
+            _ = self.database[collection].update_one(
+                filter_,
+                {"$rename": rename if preflat else self._flatten(rename, rename=True)},
+                upsert=False,
+            )
+
+        return res
 
     def _update_many(self, collection, filter_, update):
         flat_update = self._flatten(update)
@@ -306,24 +340,26 @@ class Database:
         return self.database[collection].delete_many(filter_)
 
     @staticmethod
-    def _merge_docs(src, dest):
-        dest["inherit"] = src["_id"]
-        dest_field_names = []
-        added_field_names = []
-        for name, field in dest["fields"].items():
-            dest_field_names.append(name)
-            field["inherited"] = False
-            field["origin"] = dest["_id"]
-        for name, field in src["fields"].items():
-            if name not in dest_field_names:
-                field["inherited"] = True
-                dest["fields"][name] = field
-                added_field_names.append(name)
-
-        dest["type_list"] = src["type_list"] + [dest["_id"]]
-        unordered = [name for name in added_field_names if name not in dest["order"]]
-        dest["order"].extend(unordered)
-        return dest
+    def _merge_docs(inherit, child):
+        if inherit == {}:
+            return child
+        for field in child["fields"].values():
+            if field["name"] in inherit["fields"]:
+                i_field = inherit["fields"][field["name"]]
+                if (
+                    field["type"] == i_field["type"]
+                    and field["description"] == i_field["description"]
+                    and field["parameters"] == i_field["parameters"]
+                ):
+                    field["inherited"] = True
+                    field["origin"] = i_field["origin"]
+                else:
+                    field["inherited"] = False
+                    field["origin"] = child["_id"]
+            else:
+                field["inherited"] = False
+                field["origin"] = child["_id"]
+        return child
 
     def _check_unique(self, value, name, origin, type_):
         try:
@@ -340,7 +376,7 @@ class Database:
             return {"name": value[1:]}
         if self.suid.validate(value):
             return {"_id": value}
-        raise InvalidSymbolicTypeError(f'"{value}" is not a valid name or suid')
+        raise InvalidSymbolicError(f'"{value}" is not a valid name or suid')
 
     def _verify(self, json, template, type_, unset=None):
         transformed = {}
@@ -373,7 +409,7 @@ class Database:
                     type_,
                 )
             ):
-                raise UniqueAttributeNotUniqueError(
+                raise UniqueAttributeError(
                     f'"{name}" is a unique field and matches another document'
                 )
         return transformed
@@ -400,97 +436,116 @@ class Database:
             res[type_] = self._get(type_, doc)
         except NoDocumentFound:
             pass
-        except InvalidSymbolicTypeError as e:
+        except InvalidSymbolicError as e:
             res["error"] = str(e)
             res["lookup"] = value
         return res
 
+    def _symbolic_lookup(self, type_, value):
+        try:
+            doc = self._name_or_id(value)
+            symbolic = self._get(type_, doc)
+        except NoDocumentFound as e:
+            raise InvalidSymbolicError(
+                f'"{value}" does not exist as a {type_} type'
+            ) from e
+        return symbolic
+
+    def _symbolic_name_check(self, type_, name):
+        if name is None:
+            raise InvalidSymbolicError(f"{type_} name cannot be empty")
+        try:
+            self._symbolic_lookup(type_, name)
+        except InvalidSymbolicError:
+            return True
+        else:
+            raise InvalidSymbolicError(f'"{name[1:]}" already exists as a {type_} name')
+
     def _symbolic_create(self, type_, json_list, ignore=False):
         created = []
         errors = []
+        merged = False
 
         for json in self._to_list(json_list):
             json["_id"] = json.get("_id") or self.suid.generate()
             inherit = json.get("inherit")
             try:
-                try:
-                    doc = self._name_or_id(inherit)
-                    symbolic = self._get(type_, doc)
-                except NoDocumentFound as e:
-                    raise InvalidInheritedSymbolicError(
-                        (
-                            f'"{inherit}" is not an existing {type_} type, '
-                            "create before inheriting from it"
-                        )
-                    ) from e
-            # pylint: disable=broad-except
-            except Exception as e:
-                errors.append(
-                    {
-                        "message": f"{e.__class__.__qualname__}: {str(e)}",
-                        "document": json,
-                    }
-                )
+                self._symbolic_name_check(type_, f'_{json.get("name")}')
+                if inherit is None and json.get("name", "").lower() == type_:
+                    symbolic = {}
+                else:
+                    symbolic = self._symbolic_lookup(type_, inherit)
+            except (InvalidSymbolicError, PyMongoError) as e:
+                errors.append(self._error_json(e, json))
             else:
-                json = self._merge_docs(src=symbolic, dest=json)
+                json = self._merge_docs(symbolic, json)
+                json["type_list"] = symbolic.get("type_list", []) + [json["_id"]]
+                merged = True
             finally:
-                if ignore:
+                if ignore or merged:
                     res = self._insert(type_, json)
                     created.append(res.inserted_id)
 
         return {"created": created, "errored": errors}
 
-    # pylint: disable=too-many-branches,too-many-locals,too-many-nested-blocks
+    # pylint: disable=too-many-locals
     def _symbolic_update(self, type_, json_list):
         updated = 0
         errors = []
 
         for json in self._to_list(json_list):
             _id = json["_id"]
+            update = json.get("update", {})
             if not self.suid.validate(_id):
                 errors.append(
-                    {
-                        "message": f'"{_id}" is an invalid suid.',
-                        "lookup": _id,
-                        "document": json,
-                    }
-                )
-            else:
-                if "fields" in json:
-                    to_update = self._get(type_, {"_id": _id})
-                    for name in json["fields"]:
-                        if to_update["fields"][name]["inherited"]:
-                            json["fields"][name]["inherited"] = False
-                unset = {}
-                if "unset" in json:
-                    unset["fields"] = json["unset"]
-                    del json["unset"]
-                res = self._update(type_, {"_id": _id}, json, unset)
-                if not res.matched_count:
-                    errors.append(
-                        {
-                            "message": f'"{_id}" does not match any documents to update',
-                            "lookup": _id,
-                            "document": json,
-                        }
+                    self._error_json(
+                        f'"{_id}" is an invalid suid.',
+                        json,
+                        lookup=_id,
                     )
-                else:
-                    child_matches = 0
-                    if "fields" in json:
-                        children = self._get_many(type_, {"type_list": _id})
-                        for child in children:
-                            child_update = {}
-                            for name, update in json["fields"].items():
-                                if child["fields"][name]["inherited"]:
-                                    child_update[name] = update
-                            if child_update:
-                                child_res = self._update(
-                                    type_,
-                                    {"_id": child["_id"]},
-                                    {"fields": child_update},
-                                )
-                                child_matches += child_res.matched_count
-                    updated += res.matched_count + child_matches
+                )
+                continue
+            if "fields" in update:
+                to_update = self._get(type_, {"_id": _id})
+                for name, value in update["fields"].items():
+                    if (
+                        to_update["fields"].get(name, {}).get("inherited", False)
+                        or "inherited" not in value
+                    ):
+                        value["inherited"] = False
+                    if "parameters" not in value:
+                        value["parameters"] = {}
+                    if "origin" not in value:
+                        value["origin"] = _id
+            res = self._update(type_, {"_id": _id}, json)
+            if not res.matched_count:
+                errors.append(
+                    self._error_json(
+                        f'"{_id}" does not match any documents to update',
+                        json,
+                        lookup=_id,
+                    )
+                )
+                continue
+            updated += res.matched_count
+            if "fields" in update or "rename" in json:
+                children = [
+                    child
+                    for child in self._get_many(type_, {"type_list": _id})
+                    if child["_id"] != _id
+                ]
+                for child in children:
+                    child_update = {}
+                    for name, value in update.get("fields", {}).items():
+                        if child["fields"][name]["inherited"]:
+                            child_update[name] = value
+                    if child_update:
+                        document = {
+                            "update": {"fields": child_update} if child_update else {},
+                            "rename": json.get("rename", {}),
+                        }
+                        child_res = self._update(type_, {"_id": child["_id"]}, document)
+                        updated += child_res.matched_count
 
         return {"updated": updated, "errored": errors}
 
@@ -602,22 +657,13 @@ class Database:
 
         for json in self._to_list(json_list):
             try:
-                symbolic_type = json.get("type")
-                if symbolic_type is None:
-                    raise MissingSymbolicTypeError(f"No type given to create {type_}")
-                symbolic_doc = self._name_or_id(symbolic_type)
+                symbolic_doc = self._name_or_id(json.get("type", ""))
                 template = self._get(
                     "asset" if type_ == "thing" else "combo",
                     symbolic_doc,
                 )
-            # pylint: disable=broad-except
-            except Exception as e:
-                errors.append(
-                    {
-                        "message": f"{e.__class__.__qualname__}: {str(e)}",
-                        "document": json,
-                    }
-                )
+            except (InvalidSymbolicError, PyMongoError) as e:
+                errors.append(self._error_json(e, json))
             else:
                 current = {}
                 current["_id"] = json.get("_id") or self.suid.generate()
@@ -637,33 +683,21 @@ class Database:
             _id = json["_id"]
             if not self.suid.validate(_id):
                 errors.append(
-                    {
-                        "message": f'"{_id}" is an invalid suid.',
-                        "lookup": _id,
-                        "document": json,
-                    }
+                    self._error_json(
+                        f'"{_id}" is an invalid suid.',
+                        json,
+                        lookup=_id,
+                    )
                 )
                 continue
             try:
-                symbolic_type = json.get("type")
-                if symbolic_type is None:
-                    raise MissingSymbolicTypeError(f"No type given to create {type_}")
-                symbolic_doc = self._name_or_id(symbolic_type)
+                symbolic_doc = self._name_or_id(json.get("type", ""))
                 template = self._get(
                     "asset" if type_ == "thing" else "combo",
                     symbolic_doc,
                 )
-            except (
-                MissingSymbolicTypeError,
-                InvalidSymbolicTypeError,
-                NoDocumentFound,
-            ) as e:
-                errors.append(
-                    {
-                        "message": f"{e.__class__.__qualname__}: {str(e)}",
-                        "document": json,
-                    }
-                )
+            except (InvalidSymbolicError, NoDocumentFound) as e:
+                errors.append(self._error_json(e, json))
             else:
                 unset = {}
                 update = {}
@@ -677,20 +711,21 @@ class Database:
                         unset,
                     )
                 if unset or update:
-                    res = self._update(type_, {"_id": _id}, update, unset)
+                    res = self._update(
+                        type_,
+                        {"_id": _id},
+                        {"update": update, "unset": unset},
+                    )
                     if not res.modified_count:
                         errors.append(
-                            {
-                                "message": (
-                                    f'"{_id}" does not match any documents '
-                                    'of type "{type_}" to update'
-                                ),
-                                "lookup": _id,
-                                "document": json,
-                            }
+                            self._error_json(
+                                f'"{_id}" does not match any documents of type "{type_}" to update',
+                                json,
+                                lookup=_id,
+                            )
                         )
-                else:
-                    updated += res.matched_count
+                    else:
+                        updated += res.matched_count
 
         return {"updated": updated, "errored": errors}
 
@@ -701,21 +736,21 @@ class Database:
         for _id in self._to_list(json_list):
             if not self.suid.validate(_id):
                 errors.append(
-                    {
-                        "message": f'"{_id}" is an invalid suid.',
-                        "lookup": _id,
-                        "document": None,
-                    }
+                    self._error_json(
+                        f'"{_id}" is an invalid suid.',
+                        {},
+                        lookup=_id,
+                    )
                 )
             else:
                 res = self._delete(type_, {"_id": _id})
                 if not res.deleted_count:
                     errors.append(
-                        {
-                            "message": f'"{_id}" does not match any documents to delete',
-                            "lookup": _id,
-                            "document": None,
-                        }
+                        self._error_json(
+                            f'"{_id}" does not match any documents to delete',
+                            {},
+                            lookup=_id,
+                        )
                     )
                 else:
                     deleted += res.deleted_count
@@ -746,7 +781,6 @@ class Database:
                 return response
         return None
 
-    # pylint: disable=broad-except
     def _document_get(self, gridfs, name):
         res = {}
         try:
@@ -765,7 +799,7 @@ class Database:
         except NoFile:
             res["error"] = f'"{_id}" does not match any documents to delete'
             res["lookup"] = _id
-        except Exception as e:
+        except (InvalidSuidError, PyMongoError) as e:
             res["error"] = str(e)
             res["lookup"] = _id
         return res
@@ -785,14 +819,8 @@ class Database:
                     metadata=metadata,
                     content_type=file_.mimetype,
                 )
-            # pylint: disable=broad-except
-            except Exception as e:
-                errors.append(
-                    {
-                        "error": f"{e.__class__.__qualname__}: {str(e)}",
-                        "document": str(file_),
-                    }
-                )
+            except (InvalidSymbolicError, PyMongoError) as e:
+                errors.append(self._error_json(e, str(file_)))
             else:
                 created.append(gridfs_res)
 
@@ -955,50 +983,37 @@ class Database:
             symbolic[:] = [
                 cur for cur in symbolic if value["_id"] != cur.get("inherit")
             ]
-
         return ordered
 
     def upload(self, newdata):
         """Upload json as new database info"""
         old = self.download()
+        create = {}
+        if "asset" in newdata:
+            new_asset = self._order_symbolic_inheritance(newdata["asset"], "Asset")
+            self.database.drop_collection("asset")
+            create["asset"] = self._insert_many("asset", new_asset).inserted_ids
 
-        new_asset = self._order_symbolic_inheritance(newdata["asset"], "Asset")
-        self.database.drop_collection("asset")
-        asset_create = self._symbolic_create("asset", new_asset, True)
-        if (
-            asset_create.get("errored")
-            and asset_create["errored"][0]["document"]["name"] == "Asset"
-        ):
-            del asset_create["errored"][0]
+        if "combo" in newdata:
+            new_combo = self._order_symbolic_inheritance(newdata["combo"], "Combo")
+            self.database.drop_collection("combo")
+            create["combo"] = self._insert_many("combo", new_combo).inserted_ids
 
-        new_combo = self._order_symbolic_inheritance(newdata["combo"], "Combo")
-        self.database.drop_collection("combo")
-        combo_create = self._symbolic_create("combo", new_combo, True)
-        if (
-            combo_create.get("errored")
-            and combo_create["errored"][0]["document"]["name"] == "Combo"
-        ):
-            del combo_create["errored"][0]
+        if "thing" in newdata:
+            new_thing = newdata["thing"]
+            self.database.drop_collection("thing")
+            create["thing"] = self._material_create("thing", new_thing)
 
-        new_thing = newdata["thing"]
-        self.database.drop_collection("thing")
-        thing_create = self._material_create("thing", new_thing)
-
-        new_group = newdata["group"]
-        self.database.drop_collection("group")
-        group_create = self._material_create("group", new_group)
-
+        if "group" in newdata:
+            new_group = newdata["group"]
+            self.database.drop_collection("group")
+            create["group"] = self._material_create("group", new_group)
         new = self.download()
 
         return {
             "old": old,
             "new": new,
-            "create": {
-                "asset": asset_create,
-                "thing": thing_create,
-                "combo": combo_create,
-                "group": group_create,
-            },
+            "create": create,
         }
 
     def _updates(self):
