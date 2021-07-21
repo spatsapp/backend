@@ -1,6 +1,4 @@
 """Interface for mongo database"""
-# pylint: disable=too-many-lines
-
 from collections.abc import MutableMapping
 from os.path import splitext
 
@@ -261,6 +259,15 @@ class Database:
                 items.append((new_key, value))
         return dict(items)
 
+    def _paginate(self, collection, limit=10):
+        cursor = self.database[collection].find({})
+        count = cursor.count()
+        last = int(count / limit)
+        return {
+            "count": count,
+            "last": last,
+        }
+
     def _get(self, collection, filter_, error=True):
         doc = self.database[collection].find_one(filter_)
         if doc is None and error:
@@ -269,14 +276,25 @@ class Database:
             )
         return doc
 
-    def _get_many(self, collection, filter_=None, error=True):
+    def _get_many(self, collection, filter_=None, error=True, page=None):
+        limit = 10
         filter_ = filter_ or {}
-        docs = list(self.database[collection].find(filter_))
-        if len(docs) == 0 and error:
+        cursor = self.database[collection].find(filter_)
+        ret = {}
+        if page is not None:
+            ret["count"] = cursor.count()
+            ret["range"] = (page * limit, (page * limit) + limit)
+            ret["last"] = int(ret["count"] / limit)
+            ret["docs"] = list(cursor.skip(page * limit).limit(limit))
+        else:
+            ret["docs"] = list(cursor)
+
+        if len(ret["docs"]) == 0 and error:
             raise NoDocumentFound(
                 f'No documents in collection "{collection}" matches filter: {filter_}'
             )
-        return docs
+
+        return ret
 
     # pylint: disable=dangerous-default-value
     def _search(self, collection, filter_={}):
@@ -422,14 +440,14 @@ class Database:
             res[_id] = json
         return res
 
-    def _symbolic_all(self, type_):
+    def symbolic_all(self, type_):
         try:
-            docs = self._get_many(type_)
+            docs = self._get_many(type_)["docs"]
         except NoDocumentFound:
             docs = []
         return sorted(docs, key=lambda doc: doc.get("name"))
 
-    def _symbolic_get(self, type_, value):
+    def symbolic_get(self, type_, value):
         res = {}
         try:
             doc = self._name_or_id(value)
@@ -461,7 +479,7 @@ class Database:
         else:
             raise InvalidSymbolicError(f'"{name[1:]}" already exists as a {type_} name')
 
-    def _symbolic_create(self, type_, json_list, ignore=False):
+    def symbolic_create(self, type_, json_list, ignore=False):
         created = []
         errors = []
         merged = False
@@ -489,7 +507,7 @@ class Database:
         return {"created": created, "errored": errors}
 
     # pylint: disable=too-many-locals
-    def _symbolic_update(self, type_, json_list):
+    def symbolic_update(self, type_, json_list):
         updated = 0
         errors = []
 
@@ -531,7 +549,7 @@ class Database:
             if "fields" in update or "rename" in json:
                 children = [
                     child
-                    for child in self._get_many(type_, {"type_list": _id})
+                    for child in self._get_many(type_, {"type_list": _id})["docs"]
                     if child["_id"] != _id
                 ]
                 for child in children:
@@ -549,7 +567,7 @@ class Database:
 
         return {"updated": updated, "errored": errors}
 
-    def _symbolic_delete(self, type_, json_list):
+    def symbolic_delete(self, type_, json_list):
         deleted = 0
         errors = []
 
@@ -583,9 +601,16 @@ class Database:
         return res
 
     @staticmethod
-    def _material_sort_key(symbolic_res):
+    def _from_keys(dict_, keys):
+        for key in keys:
+            if key in dict_:
+                return dict_[key]
+        raise ValueError("No key in list exists in dictionary")
+
+    # @staticmethod
+    def _material_sort_key(self, symbolic_res):
         def helper(doc):
-            symbolic = symbolic_res[doc["type"]]
+            symbolic = self._from_keys(symbolic_res, doc["type_list"])
             primary_key = symbolic.get("primary")
             secondary_key = symbolic.get("secondary")
             tertiary_keys = symbolic.get("tertiary", [])
@@ -597,7 +622,7 @@ class Database:
 
         return helper
 
-    def _material_all(self, type_, symbolic_type, symbolic_lookup=None):
+    def material_all(self, type_, symbolic_type, symbolic_lookup=None, page=None):
         material_res = []
         symbolic_res = {}
         res = {}
@@ -606,29 +631,39 @@ class Database:
             if symbolic_lookup:
                 doc = self._name_or_id(symbolic_lookup)
                 symbolic_res = self._get(symbolic_type, doc)
-                raw_res = self._get_many(type_, {"type_list": symbolic_res["_id"]})
-            else:
-                raw_res = self._get_many(type_)
-                symbolic_ids = list({doc["type"] for doc in raw_res})
-                symbolic_res = self._get_many(
-                    symbolic_type, {"_id": {"$in": symbolic_ids}}
+                raw_res = self._get_many(
+                    type_, {"type_list": symbolic_res["_id"]}, page=page
                 )
+            else:
+                raw_res = self._get_many(type_, page=page)
+            symbolic_ids = list({doc["type"] for doc in raw_res["docs"]})
+            symbolic_res = self._get_many(
+                symbolic_type, {"_id": {"$in": symbolic_ids}}
+            )["docs"]
         except NoDocumentFound:
-            pass
+            res["paginate"] = self._paginate(type_)
         else:
             symbolic_res = self._to_id_dic(symbolic_res)
-            raw_res.sort(key=self._material_sort_key(symbolic_res))
-            for raw in raw_res:
+            raw_res["docs"].sort(key=self._material_sort_key(symbolic_res))
+            for raw in raw_res["docs"]:
                 raw_type = raw["type"]
                 symbolic_cur = symbolic_res[raw_type]
                 decoded = self._material_decode(raw, symbolic_cur)
                 material_res.append(decoded)
 
+            if raw_res.get("count") and raw_res.get("range"):
+                res["paginate"] = {
+                    "page": page,
+                    "count": raw_res["count"],
+                    "range": raw_res["range"],
+                    "last": raw_res["last"],
+                }
+
         res[symbolic_type] = symbolic_res
         res[type_] = material_res
         return res
 
-    def _material_get(self, type_, symbolic_type, _id):
+    def material_get(self, type_, symbolic_type, _id):
         material_res = {}
         symbolic_res = {}
         res = {}
@@ -651,7 +686,7 @@ class Database:
         res[symbolic_type] = symbolic_res
         return res
 
-    def _material_create(self, type_, json_list):
+    def material_create(self, type_, json_list):
         created = []
         errors = []
 
@@ -675,7 +710,7 @@ class Database:
 
         return {"created": created, "errored": errors}
 
-    def _material_update(self, type_, json_list):
+    def material_update(self, type_, json_list):
         updated = 0
         errors = []
 
@@ -729,7 +764,7 @@ class Database:
 
         return {"updated": updated, "errored": errors}
 
-    def _material_delete(self, type_, json_list):
+    def material_delete(self, type_, json_list):
         deleted = 0
         errors = []
 
@@ -839,86 +874,6 @@ class Database:
 
         return {"deleted": deleted, "errored": errors}
 
-    def asset_all(self):
-        """Get all assets"""
-        return self._symbolic_all("asset")
-
-    def asset_get(self, value):
-        """Get all things for asset"""
-        return self._symbolic_get("asset", value)
-
-    def asset_create(self, json_list):
-        """Create new asset"""
-        return self._symbolic_create("asset", json_list)
-
-    def asset_update(self, json_list):
-        """Update asset"""
-        return self._symbolic_update("asset", json_list)
-
-    def asset_delete(self, json_list):
-        """Delete asset"""
-        return self._symbolic_delete("asset", json_list)
-
-    def thing_all(self, asset=None):
-        """Get all things"""
-        return self._material_all("thing", "asset", asset)
-
-    def thing_get(self, _id):
-        """Get specific thing"""
-        return self._material_get("thing", "asset", _id)
-
-    def thing_create(self, json_list):
-        """Create thing"""
-        return self._material_create("thing", json_list)
-
-    def thing_update(self, json_list):
-        """Update thing"""
-        return self._material_update("thing", json_list)
-
-    def thing_delete(self, json_list):
-        """Delete thing"""
-        return self._material_delete("thing", json_list)
-
-    def combo_all(self):
-        """Get all combos"""
-        return self._symbolic_all("combo")
-
-    def combo_get(self, value):
-        """Get all groups for combo"""
-        return self._symbolic_get("combo", value)
-
-    def combo_create(self, json_list):
-        """Create new combo"""
-        return self._symbolic_create("combo", json_list)
-
-    def combo_update(self, json_list):
-        """Update combo"""
-        return self._symbolic_update("combo", json_list)
-
-    def combo_delete(self, json_list):
-        """Delete combo"""
-        return self._symbolic_delete("combo", json_list)
-
-    def group_all(self, combo=None):
-        """Get all groups"""
-        return self._material_all("group", "combo", combo)
-
-    def group_get(self, _id):
-        """Get group"""
-        return self._material_get("group", "combo", _id)
-
-    def group_create(self, json_list):
-        """Create new group"""
-        return self._material_create("group", json_list)
-
-    def group_update(self, json_list):
-        """Update group"""
-        return self._material_update("group", json_list)
-
-    def group_delete(self, json_list):
-        """Delete group"""
-        return self._material_delete("group", json_list)
-
     def image_get(self, _id):
         """Get imgae"""
         return self._document_retrieve(self.image, _id)
@@ -933,7 +888,7 @@ class Database:
 
     def image_update(self, json_list):
         """Update image"""
-        return self._material_update("image.files", json_list)
+        return self.material_update("image.files", json_list)
 
     def image_delete(self, json_list):
         """Delete image"""
@@ -953,7 +908,7 @@ class Database:
 
     def extra_update(self, json_list):
         """Update extra"""
-        return self._material_update("extra.files", json_list)
+        return self.material_update("extra.files", json_list)
 
     def extra_delete(self, json_list):
         """Delete extra"""
@@ -962,10 +917,10 @@ class Database:
     def download(self):
         """Download database as json"""
         return {
-            "asset": self.asset_all(),
-            "thing": self.thing_all()["thing"],
-            "combo": self.combo_all(),
-            "group": self.group_all()["group"],
+            "asset": self._get_many("asset"),
+            "thing": self._get_many("thing"),
+            "combo": self._get_many("combo"),
+            "group": self._get_many("group"),
         }
 
     @staticmethod
