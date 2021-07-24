@@ -8,7 +8,9 @@ from gridfs import GridFS, NoFile
 from pymongo.errors import PyMongoError
 from werkzeug.wsgi import wrap_file
 
+from . import dbinit
 from .field_parser import FieldParser
+from .mongointerface import MongoInterface, NoDocumentFound
 from .suid import Suid
 
 
@@ -18,10 +20,6 @@ class Error(Exception):
     def __init__(self, message):
         super().__init__()
         self.message = message
-
-
-class NoDocumentFound(Error):
-    """No documents exist for requested type"""
 
 
 class RequiredAttributeError(Error):
@@ -119,11 +117,9 @@ class Database:
     def init_app(self, app):
         """Initalize the app"""
         self.app = app
-        self.mongo = PyMongo()
-        self.mongo.init_app(app)
-        self.database = self.mongo.db
-        self.image = GridFS(self.database, "image")
-        self.extra = GridFS(self.database, "extra")
+        self.database = MongoInterface(app)
+        self.image = GridFS(self.database.database, "image")
+        self.extra = GridFS(self.database.database, "extra")
 
         self.suid = Suid()
         self.field_parser = FieldParser()
@@ -132,90 +128,16 @@ class Database:
 
     def _init_database(self):
         try:
-            self._get("asset", {"name": "Asset"})
+            self.database.get("asset", {"name": "Asset"})
         except NoDocumentFound:
             _id = self.suid.generate()
-            self._insert(
-                "asset",
-                {
-                    "_id": _id,
-                    "name": "Asset",
-                    "fields": {
-                        "Combos": {
-                            "description": "List of names of combos it's in",
-                            "parameters": {"list_type": "reference"},
-                            "type": "list",
-                            "origin": _id,
-                        },
-                        "Name": {
-                            "description": "What you call the thing",
-                            "parameters": {"required": True},
-                            "type": "string",
-                            "origin": _id,
-                        },
-                        "Notes": {
-                            "description": "Special notes that don't fit in any other attributes",
-                            "parameters": {},
-                            "type": "string",
-                            "origin": _id,
-                        },
-                        "Pics": {
-                            "description": "List of pics of the thing",
-                            "parameters": {"list_type": "reference"},
-                            "type": "list",
-                            "origin": _id,
-                        },
-                    },
-                    "order": ["Name", "Notes", "Pics", "Combos"],
-                    "primary": "Name",
-                    "secondary": None,
-                    "tertiary": None,
-                    "type_list": [_id],
-                },
-            )
+            self.database.insert("asset", dbinit.asset(_id))
 
         try:
-            self._get("combo", {"name": "Combo"})
+            self.database.get("combo", {"name": "Combo"})
         except NoDocumentFound:
             _id = self.suid.generate()
-            self._insert(
-                "combo",
-                {
-                    "_id": _id,
-                    "name": "Combo",
-                    "fields": {
-                        "Combos": {
-                            "description": "List of names of combos it's in",
-                            "parameters": {"list_type": "reference"},
-                            "type": "list",
-                            "origin": _id,
-                        },
-                        "Name": {
-                            "description": "What you call the thing",
-                            "parameters": {"required": True},
-                            "type": "string",
-                            "origin": _id,
-                        },
-                        "Notes": {
-                            "description": "Special notes that don't fit in any other attributes",
-                            "parameters": {},
-                            "type": "string",
-                            "origin": _id,
-                        },
-                        "Pics": {
-                            "description": "List of pics of the thing",
-                            "parameters": {"list_type": "reference"},
-                            "type": "list",
-                            "origin": _id,
-                        },
-                    },
-                    "order": ["Name", "Notes", "Pics", "Combos"],
-                    "primary": "Name",
-                    "secondary": None,
-                    "tertiary": None,
-                    "type_list": [_id],
-                },
-            )
+            self.database.insert("combo", dbinit.combo(_id))
 
     @staticmethod
     def _error_json(error, document, **kwargs):
@@ -238,124 +160,6 @@ class Database:
         if isinstance(json, list):
             return json
         return []
-
-    def _flatten(self, dic, parent_key="", sep=".", rename=False):
-        # https://stackoverflow.com/a/6027615
-        items = []
-        for key, value in dic.items():
-            new_key = parent_key + sep + key if parent_key else key
-            if value and isinstance(value, MutableMapping):
-                items.extend(
-                    self._flatten(
-                        value,
-                        parent_key=new_key,
-                        sep=sep,
-                        rename=rename,
-                    ).items()
-                )
-            else:
-                if rename:
-                    value = parent_key + sep + value if parent_key else value
-                items.append((new_key, value))
-        return dict(items)
-
-    def _paginate(self, collection, limit=10):
-        cursor = self.database[collection].find({})
-        count = cursor.count()
-        last = int(count / limit)
-        return {
-            "count": count,
-            "last": last,
-        }
-
-    def _get(self, collection, filter_, error=True):
-        doc = self.database[collection].find_one(filter_)
-        if doc is None and error:
-            raise NoDocumentFound(
-                f'No document in collection "{collection}" matches filter: {filter_}'
-            )
-        return doc
-
-    def _get_many(self, collection, filter_=None, error=True, page=None):
-        limit = 10
-        filter_ = filter_ or {}
-        cursor = self.database[collection].find(filter_)
-        ret = {}
-        if page is not None:
-            ret["count"] = cursor.count()
-            ret["range"] = (page * limit, (page * limit) + limit)
-            ret["last"] = int(ret["count"] / limit)
-            ret["docs"] = list(cursor.skip(page * limit).limit(limit))
-        else:
-            ret["docs"] = list(cursor)
-
-        if len(ret["docs"]) == 0 and error:
-            raise NoDocumentFound(
-                f'No documents in collection "{collection}" matches filter: {filter_}'
-            )
-
-        return ret
-
-    # pylint: disable=dangerous-default-value
-    def _search(self, collection, filter_={}):
-        return self.database[collection].find(filter_)
-
-    def _insert(self, collection, document):
-        return self.database[collection].insert_one(document)
-
-    def _insert_many(self, collection, documents):
-        return self.database[collection].insert_many(documents)
-
-    def _update(
-        self,
-        collection,
-        filter_,
-        document,
-        preflat=False,
-    ):
-        values = {}
-        update = document.get("update", None)
-        unset = document.get("unset", None)
-        rename = document.get("rename", None)
-
-        if preflat:
-            if update:
-                values["$set"] = update
-            if unset:
-                values["$unset"] = unset
-        else:
-            if update:
-                values["$set"] = self._flatten(update)
-            if unset:
-                values["$unset"] = self._flatten(unset)
-        res = self.database[collection].update_one(
-            filter_,
-            values,
-            upsert=False,
-        )
-
-        if rename:
-            _ = self.database[collection].update_one(
-                filter_,
-                {"$rename": rename if preflat else self._flatten(rename, rename=True)},
-                upsert=False,
-            )
-
-        return res
-
-    def _update_many(self, collection, filter_, update):
-        flat_update = self._flatten(update)
-        return self.database[collection].update_many(
-            filter_,
-            {"$set": flat_update},
-            upsert=False,
-        )
-
-    def _delete(self, collection, filter_):
-        return self.database[collection].delete_one(filter_)
-
-    def _delete_many(self, collection, filter_):
-        return self.database[collection].delete_many(filter_)
 
     @staticmethod
     def _merge_docs(inherit, child):
@@ -381,8 +185,9 @@ class Database:
 
     def _check_unique(self, value, name, origin, type_):
         try:
-            existing_doc = self._get(
-                type_, {"type_list": origin, f"fields.{name}": value}
+            existing_doc = self.database.get(
+                type_,
+                {"type_list": origin, f"fields.{name}": value},
             )
         except NoDocumentFound:
             return True
@@ -414,7 +219,9 @@ class Database:
                 transformed[name] = params["default"]
             elif name in json:
                 transformed[name] = self.field_parser.parse(
-                    field_type, json[name]["value"], params
+                    field_type,
+                    json[name]["value"],
+                    params,
                 )
             if (
                 unique
@@ -442,7 +249,7 @@ class Database:
 
     def symbolic_all(self, type_):
         try:
-            docs = self._get_many(type_)["docs"]
+            docs = self.database.get_many(type_)["docs"]
         except NoDocumentFound:
             docs = []
         return sorted(docs, key=lambda doc: doc.get("name"))
@@ -451,7 +258,7 @@ class Database:
         res = {}
         try:
             doc = self._name_or_id(value)
-            res[type_] = self._get(type_, doc)
+            res[type_] = self.database.get(type_, doc)
         except NoDocumentFound:
             pass
         except InvalidSymbolicError as e:
@@ -462,7 +269,7 @@ class Database:
     def _symbolic_lookup(self, type_, value):
         try:
             doc = self._name_or_id(value)
-            symbolic = self._get(type_, doc)
+            symbolic = self.database.get(type_, doc)
         except NoDocumentFound as e:
             raise InvalidSymbolicError(
                 f'"{value}" does not exist as a {type_} type'
@@ -501,7 +308,7 @@ class Database:
                 merged = True
             finally:
                 if ignore or merged:
-                    res = self._insert(type_, json)
+                    res = self.database.insert(type_, json)
                     created.append(res.inserted_id)
 
         return {"created": created, "errored": errors}
@@ -524,7 +331,7 @@ class Database:
                 )
                 continue
             if "fields" in update:
-                to_update = self._get(type_, {"_id": _id})
+                to_update = self.database.get(type_, {"_id": _id})
                 for name, value in update["fields"].items():
                     if (
                         to_update["fields"].get(name, {}).get("inherited", False)
@@ -535,7 +342,7 @@ class Database:
                         value["parameters"] = {}
                     if "origin" not in value:
                         value["origin"] = _id
-            res = self._update(type_, {"_id": _id}, json)
+            res = self.database.update(type_, {"_id": _id}, json)
             if not res.matched_count:
                 errors.append(
                     self._error_json(
@@ -549,7 +356,9 @@ class Database:
             if "fields" in update or "rename" in json:
                 children = [
                     child
-                    for child in self._get_many(type_, {"type_list": _id})["docs"]
+                    for child in self.database.get_many(type_, {"type_list": _id})[
+                        "docs"
+                    ]
                     if child["_id"] != _id
                 ]
                 for child in children:
@@ -562,7 +371,9 @@ class Database:
                             "update": {"fields": child_update} if child_update else {},
                             "rename": json.get("rename", {}),
                         }
-                        child_res = self._update(type_, {"_id": child["_id"]}, document)
+                        child_res = self.database.update(
+                            type_, {"_id": child["_id"]}, document
+                        )
                         updated += child_res.matched_count
 
         return {"updated": updated, "errored": errors}
@@ -576,7 +387,7 @@ class Database:
                 errors.append(
                     {"message": f'"{_id}" is an invalid suid.', "lookup": _id}
                 )
-            res = self._delete(type_, {"_id": _id})
+            res = self.database.delete(type_, {"_id": _id})
             if not res.deleted_count:
                 errors.append(
                     {
@@ -596,7 +407,9 @@ class Database:
             field_type = cur_symbolic["type"]
             field_params = cur_symbolic["parameters"]
             res["fields"][key] = self.field_parser.decode(
-                field_type, value, field_params
+                field_type,
+                value,
+                field_params,
             )
         return res
 
@@ -630,18 +443,19 @@ class Database:
         try:
             if symbolic_lookup:
                 doc = self._name_or_id(symbolic_lookup)
-                symbolic_res = self._get(symbolic_type, doc)
-                raw_res = self._get_many(
+                symbolic_res = self.database.get(symbolic_type, doc)
+                raw_res = self.database.get_many(
                     type_, {"type_list": symbolic_res["_id"]}, page=page
                 )
             else:
-                raw_res = self._get_many(type_, page=page)
+                raw_res = self.database.get_many(type_, page=page)
             symbolic_ids = list({doc["type"] for doc in raw_res["docs"]})
-            symbolic_res = self._get_many(
-                symbolic_type, {"_id": {"$in": symbolic_ids}}
+            symbolic_res = self.database.get_many(
+                symbolic_type,
+                {"_id": {"$in": symbolic_ids}},
             )["docs"]
         except NoDocumentFound:
-            res["paginate"] = self._paginate(type_)
+            res["paginate"] = self.database.paginate(type_, page)
         else:
             symbolic_res = self._to_id_dic(symbolic_res)
             raw_res["docs"].sort(key=self._material_sort_key(symbolic_res))
@@ -671,14 +485,14 @@ class Database:
         try:
             if not self.suid.validate(_id):
                 raise InvalidSuidError(f'"{_id}" is an invalid suid')
-            raw_res = self._get(type_, {"_id": _id})
+            raw_res = self.database.get(type_, {"_id": _id})
         except NoDocumentFound:
             pass
         except InvalidSuidError as e:
             res["error"] = str(e)
             res["lookup"] = _id
         else:
-            symbolic_res = self._get(symbolic_type, raw_res["type"])
+            symbolic_res = self.database.get(symbolic_type, raw_res["type"])
             material_res = self._material_decode(raw_res, symbolic_res)
             symbolic_res = self._to_id_dic(symbolic_res)
 
@@ -693,7 +507,7 @@ class Database:
         for json in self._to_list(json_list):
             try:
                 symbolic_doc = self._name_or_id(json.get("type", ""))
-                template = self._get(
+                template = self.database.get(
                     "asset" if type_ == "thing" else "combo",
                     symbolic_doc,
                 )
@@ -705,7 +519,7 @@ class Database:
                 current["type"] = template["_id"]
                 current["type_list"] = template["type_list"]
                 current["fields"] = self._verify(json["fields"], template, type_)
-                res = self._insert(type_, current)
+                res = self.database.insert(type_, current)
                 created.append(res.inserted_id)
 
         return {"created": created, "errored": errors}
@@ -727,7 +541,7 @@ class Database:
                 continue
             try:
                 symbolic_doc = self._name_or_id(json.get("type", ""))
-                template = self._get(
+                template = self.database.get(
                     "asset" if type_ == "thing" else "combo",
                     symbolic_doc,
                 )
@@ -746,7 +560,7 @@ class Database:
                         unset,
                     )
                 if unset or update:
-                    res = self._update(
+                    res = self.database.update(
                         type_,
                         {"_id": _id},
                         {"update": update, "unset": unset},
@@ -778,7 +592,7 @@ class Database:
                     )
                 )
             else:
-                res = self._delete(type_, {"_id": _id})
+                res = self.database.delete(type_, {"_id": _id})
                 if not res.deleted_count:
                     errors.append(
                         self._error_json(
@@ -917,10 +731,10 @@ class Database:
     def download(self):
         """Download database as json"""
         return {
-            "asset": self._get_many("asset"),
-            "thing": self._get_many("thing"),
-            "combo": self._get_many("combo"),
-            "group": self._get_many("group"),
+            "asset": self.database.get_many("asset"),
+            "thing": self.database.get_many("thing"),
+            "combo": self.database.get_many("combo"),
+            "group": self.database.get_many("group"),
         }
 
     @staticmethod
@@ -947,7 +761,7 @@ class Database:
         if newdata.get("asset"):
             new_asset = self._order_symbolic_inheritance(newdata["asset"], "Asset")
             self.database.drop_collection("asset")
-            inserted = self._insert_many("asset", new_asset).inserted_ids
+            inserted = self.database.insert_many("asset", new_asset).inserted_ids
             create["asset"] = {
                 "created": inserted,
                 "errored": [
@@ -957,7 +771,7 @@ class Database:
         if newdata.get("combo"):
             new_combo = self._order_symbolic_inheritance(newdata["combo"], "Combo")
             self.database.drop_collection("combo")
-            inserted = self._insert_many("combo", new_combo).inserted_ids
+            inserted = self.database.insert_many("combo", new_combo).inserted_ids
             create["combo"] = {
                 "created": inserted,
                 "errored": [
@@ -966,7 +780,7 @@ class Database:
             }
         if newdata.get("thing"):
             self.database.drop_collection("thing")
-            inserted = self._insert_many("thing", newdata["thing"]).inserted_ids
+            inserted = self.database.insert_many("thing", newdata["thing"]).inserted_ids
             create["thing"] = {
                 "created": inserted,
                 "errored": [
@@ -977,7 +791,7 @@ class Database:
             }
         if newdata.get("group"):
             self.database.drop_collection("group")
-            inserted = self._insert_many("group", newdata["group"]).inserted_ids
+            inserted = self.database.insert_many("group", newdata["group"]).inserted_ids
             create["group"] = {
                 "created": inserted,
                 "errored": [
