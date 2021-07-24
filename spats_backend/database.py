@@ -731,10 +731,10 @@ class Database:
     def download(self):
         """Download database as json"""
         return {
-            "asset": self.database.get_many("asset"),
-            "thing": self.database.get_many("thing"),
-            "combo": self.database.get_many("combo"),
-            "group": self.database.get_many("group"),
+            "asset": self.database.get_many("asset")["docs"],
+            "thing": self.database.get_many("thing")["docs"],
+            "combo": self.database.get_many("combo")["docs"],
+            "group": self.database.get_many("group")["docs"],
         }
 
     @staticmethod
@@ -760,7 +760,7 @@ class Database:
         create = {}
         if newdata.get("asset"):
             new_asset = self._order_symbolic_inheritance(newdata["asset"], "Asset")
-            self.database.drop_collection("asset")
+            self.database.database.drop_collection("asset")
             inserted = self.database.insert_many("asset", new_asset).inserted_ids
             create["asset"] = {
                 "created": inserted,
@@ -770,7 +770,7 @@ class Database:
             }
         if newdata.get("combo"):
             new_combo = self._order_symbolic_inheritance(newdata["combo"], "Combo")
-            self.database.drop_collection("combo")
+            self.database.database.drop_collection("combo")
             inserted = self.database.insert_many("combo", new_combo).inserted_ids
             create["combo"] = {
                 "created": inserted,
@@ -779,7 +779,7 @@ class Database:
                 ],
             }
         if newdata.get("thing"):
-            self.database.drop_collection("thing")
+            self.database.database.drop_collection("thing")
             inserted = self.database.insert_many("thing", newdata["thing"]).inserted_ids
             create["thing"] = {
                 "created": inserted,
@@ -790,7 +790,7 @@ class Database:
                 ],
             }
         if newdata.get("group"):
-            self.database.drop_collection("group")
+            self.database.database.drop_collection("group")
             inserted = self.database.insert_many("group", newdata["group"]).inserted_ids
             create["group"] = {
                 "created": inserted,
