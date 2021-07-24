@@ -12,6 +12,7 @@ from . import dbinit
 from .field_parser import FieldParser
 from .mongointerface import MongoInterface, NoDocumentFound
 from .suid import Suid
+from .support import TupleNoneCompare, from_keys, json2list, jsonerror, list2dict
 
 
 class Error(Exception):
@@ -38,74 +39,6 @@ class InvalidSymbolicError(Error):
     """Symbolic id or name is invlaid"""
 
 
-class TupleNoneCompare:
-    """Compare Class than can be None or a valid tuple"""
-
-    def __init__(self, x):
-        self.x = x
-
-    @staticmethod
-    def _not_same(x, y):
-        return (
-            (x is None and y is not None)
-            or (x is not None and y is None)
-            or (not isinstance(x, type(y)))
-        )
-
-    def __len__(self):
-        return len(self.x)
-
-    def __getitem__(self, y):
-        return self.x[y]
-
-    def __lt__(self, y):
-        x = self.x
-        len_x = len(x)
-        len_y = len(y)
-        for i in range(max(len_x, len_y)):
-            # pylint: disable=too-many-boolean-expressions
-            if (
-                self._not_same(x[i], y[i])
-                or (len_x > i and len_y == i)
-                or ((x[i] is not None or y[i] is not None) and (x[i] > y[i]))
-            ):
-                return False
-            if (len_x == i and len_y > i) or (
-                (x[i] is not None or y[i] is not None) and (x[i] < y[i])
-            ):
-                return True
-        return False
-
-    def __le__(self, y):
-        return self.__lt__(y) or self.__eq__(y)
-
-    def __eq__(self, y):
-        x = self.x
-        if (
-            (len(x) != len(y))
-            or self._not_same(x[0], y[0])
-            or (x[0] != y[0])
-            or self._not_same(x[1], y[1])
-            or (x[1] != y[1])
-        ):
-            return False
-        len_x = len(x)
-        for i in range(2, len_x):
-            if self._not_same(x[i], y[i]) or (x[i] != y[i]):
-                return False
-        return True
-
-    def __ne__(self, y):
-        return not self.__eq__(y)
-
-    def __gt__(self, y):
-        return not self.__lt__(y)
-
-    def __ge__(self, y):
-        return self.__gt__(y) or self.__eq__(y)
-
-
-# pylint: disable=too-many-public-methods
 class Database:
     """API interface for a Mongo database"""
 
@@ -138,28 +71,6 @@ class Database:
         except NoDocumentFound:
             _id = self.suid.generate()
             self.database.insert("combo", dbinit.combo(_id))
-
-    @staticmethod
-    def _error_json(error, document, **kwargs):
-        if isinstance(error, Exception):
-            msg = f"{error.__class__.__qualname__}: {error.message}"
-        else:
-            msg = str(error)
-        doc = {
-            "error": msg,
-            "document": document,
-        }
-        for key, value in kwargs.items():
-            doc[key] = value
-        return doc
-
-    @staticmethod
-    def _to_list(json):
-        if isinstance(json, dict):
-            return [json] if json.keys() else []
-        if isinstance(json, list):
-            return json
-        return []
 
     @staticmethod
     def _merge_docs(inherit, child):
@@ -239,14 +150,6 @@ class Database:
                 )
         return transformed
 
-    def _to_id_dic(self, json_list):
-        res = {}
-        for json in self._to_list(json_list):
-            _id = json["_id"]
-            del json["_id"]
-            res[_id] = json
-        return res
-
     def symbolic_all(self, type_):
         try:
             docs = self.database.get_many(type_)["docs"]
@@ -291,7 +194,7 @@ class Database:
         errors = []
         merged = False
 
-        for json in self._to_list(json_list):
+        for json in json2list(json_list):
             json["_id"] = json.get("_id") or self.suid.generate()
             inherit = json.get("inherit")
             try:
@@ -301,7 +204,7 @@ class Database:
                 else:
                     symbolic = self._symbolic_lookup(type_, inherit)
             except (InvalidSymbolicError, PyMongoError) as e:
-                errors.append(self._error_json(e, json))
+                errors.append(jsonerror(e, json))
             else:
                 json = self._merge_docs(symbolic, json)
                 json["type_list"] = symbolic.get("type_list", []) + [json["_id"]]
@@ -318,12 +221,12 @@ class Database:
         updated = 0
         errors = []
 
-        for json in self._to_list(json_list):
+        for json in json2list(json_list):
             _id = json["_id"]
             update = json.get("update", {})
             if not self.suid.validate(_id):
                 errors.append(
-                    self._error_json(
+                    jsonerror(
                         f'"{_id}" is an invalid suid.',
                         json,
                         lookup=_id,
@@ -345,7 +248,7 @@ class Database:
             res = self.database.update(type_, {"_id": _id}, json)
             if not res.matched_count:
                 errors.append(
-                    self._error_json(
+                    jsonerror(
                         f'"{_id}" does not match any documents to update',
                         json,
                         lookup=_id,
@@ -382,7 +285,7 @@ class Database:
         deleted = 0
         errors = []
 
-        for _id in self._to_list(json_list):
+        for _id in json2list(json_list):
             if not self.suid.validate(_id):
                 errors.append(
                     {"message": f'"{_id}" is an invalid suid.', "lookup": _id}
@@ -413,17 +316,9 @@ class Database:
             )
         return res
 
-    @staticmethod
-    def _from_keys(dict_, keys):
-        for key in keys:
-            if key in dict_:
-                return dict_[key]
-        raise ValueError("No key in list exists in dictionary")
-
-    # @staticmethod
     def _material_sort_key(self, symbolic_res):
         def helper(doc):
-            symbolic = self._from_keys(symbolic_res, doc["type_list"])
+            symbolic = from_keys(symbolic_res, doc["type_list"])
             primary_key = symbolic.get("primary")
             secondary_key = symbolic.get("secondary")
             tertiary_keys = symbolic.get("tertiary", [])
@@ -457,7 +352,7 @@ class Database:
         except NoDocumentFound:
             res["paginate"] = self.database.paginate(type_, page)
         else:
-            symbolic_res = self._to_id_dic(symbolic_res)
+            symbolic_res = list2dict("_id", symbolic_res)
             raw_res["docs"].sort(key=self._material_sort_key(symbolic_res))
             for raw in raw_res["docs"]:
                 raw_type = raw["type"]
@@ -494,7 +389,7 @@ class Database:
         else:
             symbolic_res = self.database.get(symbolic_type, raw_res["type"])
             material_res = self._material_decode(raw_res, symbolic_res)
-            symbolic_res = self._to_id_dic(symbolic_res)
+            symbolic_res = list2dict("_id", symbolic_res)
 
         res[type_] = material_res
         res[symbolic_type] = symbolic_res
@@ -504,7 +399,7 @@ class Database:
         created = []
         errors = []
 
-        for json in self._to_list(json_list):
+        for json in json2list(json_list):
             try:
                 symbolic_doc = self._name_or_id(json.get("type", ""))
                 template = self.database.get(
@@ -512,7 +407,7 @@ class Database:
                     symbolic_doc,
                 )
             except (InvalidSymbolicError, PyMongoError) as e:
-                errors.append(self._error_json(e, json))
+                errors.append(jsonerror(e, json))
             else:
                 current = {}
                 current["_id"] = json.get("_id") or self.suid.generate()
@@ -528,11 +423,11 @@ class Database:
         updated = 0
         errors = []
 
-        for json in self._to_list(json_list):
+        for json in json2list(json_list):
             _id = json["_id"]
             if not self.suid.validate(_id):
                 errors.append(
-                    self._error_json(
+                    jsonerror(
                         f'"{_id}" is an invalid suid.',
                         json,
                         lookup=_id,
@@ -546,7 +441,7 @@ class Database:
                     symbolic_doc,
                 )
             except (InvalidSymbolicError, NoDocumentFound) as e:
-                errors.append(self._error_json(e, json))
+                errors.append(jsonerror(e, json))
             else:
                 unset = {}
                 update = {}
@@ -567,7 +462,7 @@ class Database:
                     )
                     if not res.modified_count:
                         errors.append(
-                            self._error_json(
+                            jsonerror(
                                 f'"{_id}" does not match any documents of type "{type_}" to update',
                                 json,
                                 lookup=_id,
@@ -582,10 +477,10 @@ class Database:
         deleted = 0
         errors = []
 
-        for _id in self._to_list(json_list):
+        for _id in json2list(json_list):
             if not self.suid.validate(_id):
                 errors.append(
-                    self._error_json(
+                    jsonerror(
                         f'"{_id}" is an invalid suid.',
                         {},
                         lookup=_id,
@@ -595,7 +490,7 @@ class Database:
                 res = self.database.delete(type_, {"_id": _id})
                 if not res.deleted_count:
                     errors.append(
-                        self._error_json(
+                        jsonerror(
                             f'"{_id}" does not match any documents to delete',
                             {},
                             lookup=_id,
@@ -669,7 +564,7 @@ class Database:
                     content_type=file_.mimetype,
                 )
             except (InvalidSymbolicError, PyMongoError) as e:
-                errors.append(self._error_json(e, str(file_)))
+                errors.append(jsonerror(e, str(file_)))
             else:
                 created.append(gridfs_res)
 
@@ -679,7 +574,7 @@ class Database:
         deleted = 0
         errors = []
 
-        for _id in self._to_list(json_list):
+        for _id in json2list(json_list):
             if self.suid.validate(_id):
                 _ = gridfs.delete(file_id=_id)
                 deleted += 1

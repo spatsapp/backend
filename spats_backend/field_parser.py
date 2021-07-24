@@ -5,8 +5,10 @@ from datetime import MAXYEAR, MINYEAR, datetime
 
 from .suid import Suid
 
+
 class Error(Exception):
     """Base class for module exceptions"""
+
     def __init__(self, message):
         super().__init__()
         self.message = message
@@ -41,6 +43,7 @@ Decimal = namedtuple("Decimal", ("whole", "fraction"))
 
 class FieldParser:
     """Form field parser"""
+
     def __init__(self):
         self.truthy = ["t", "true"]
         self.falsey = ["f", "false"]
@@ -111,10 +114,12 @@ class FieldParser:
         """Verify boolean field"""
         value = str(value).lower()
         if value not in self.truthy or value not in self.falsey:
-            raise BooleanNameError((
-                'Boolean is not of right type. '
-                f'"{value}" needs to be one of the following: '
-                f'{self.truthy} or {self.falsey}')
+            raise BooleanNameError(
+                (
+                    "Boolean is not of right type. "
+                    f'"{value}" needs to be one of the following: '
+                    f"{self.truthy} or {self.falsey}"
+                )
             )
         return value in self.truthy
 

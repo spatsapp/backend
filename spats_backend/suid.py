@@ -4,6 +4,7 @@ from shortuuid import ShortUUID
 
 class Suid:
     """ShortUUID wrapper"""
+
     # https://pypi.org/project/shortuuid/
     def __init__(self, length=7, alphabet="abcdfghijklnoqrstuwxyz"):
         self.alphabet = alphabet

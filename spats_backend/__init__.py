@@ -25,6 +25,7 @@ class OptionConverter(BaseConverter):
     def to_url(self, value):
         return value
 
+
 def _symbolic_type(material):
     return "asset" if material == "thing" else "combo"
 
@@ -51,6 +52,7 @@ def clear_trailing():
 
 # <option('thing', 'group'):material>
 # <option('asset', 'combo'):symbolic>
+
 
 @app.route("/<option('asset', 'combo'):symbolic>/all", methods=["GET"])
 def symbolic_all(symbolic):
@@ -104,14 +106,20 @@ def material_all_page(material, page):
     return jsonify(docs)
 
 
-@app.route("/<option('thing', 'group'):material>/<option('asset', 'combo'):symbolic>/<string:_id>", methods=["GET"])
+@app.route(
+    "/<option('thing', 'group'):material>/<option('asset', 'combo'):symbolic>/<string:_id>",
+    methods=["GET"],
+)
 def material_symbolic(material, symbolic, _id):
     """Get all things for specific asset type"""
     docs = db.material_all(material, symbolic, _id)
     return jsonify(docs)
 
 
-@app.route("/<option('thing', 'group'):material>/<option('asset', 'combo'):symbolic>/<string:_id>/<int:page>", methods=["GET"])
+@app.route(
+    "/<option('thing', 'group'):material>/<option('asset', 'combo'):symbolic>/<string:_id>/<int:page>",
+    methods=["GET"],
+)
 def material_symbolic_page(material, symbolic, _id, page):
     """Get all things for specific asset type"""
     docs = db.material_all(material, symbolic, _id, page=page)
