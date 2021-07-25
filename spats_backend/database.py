@@ -72,6 +72,11 @@ class Database:
             _id = self.suid.generate()
             self.database.insert("combo", dbinit.combo(_id))
 
+        self.database.database["asset"].create_index([("$**","text")])
+        self.database.database["combo"].create_index([("$**","text")])
+        self.database.database["thing"].create_index([("$**","text")])
+        self.database.database["group"].create_index([("$**","text")])
+
     @staticmethod
     def _merge_docs(inherit, child):
         if inherit == {}:
@@ -623,13 +628,25 @@ class Database:
         """Delete extra"""
         return self._document_delete(self.extra, json_list)
 
+    def search(self, json):
+        asset = self.database.search("asset", {"$text": {"$search": json["search"]}})
+        combo = self.database.search("combo", {"$text": {"$search": json["search"]}})
+        thing = self.database.search("thing", {"$text": {"$search": json["search"]}})
+        group = self.database.search("group", {"$text": {"$search": json["search"]}})
+        return {
+            "asset": asset,
+            "combo": combo,
+            "thing": thing,
+            "group": group,
+        }
+
     def download(self):
         """Download database as json"""
         return {
-            "asset": self.database.get_many("asset")["docs"],
-            "thing": self.database.get_many("thing")["docs"],
-            "combo": self.database.get_many("combo")["docs"],
-            "group": self.database.get_many("group")["docs"],
+            "asset": self.database.get_many("asset", error=False)["docs"],
+            "thing": self.database.get_many("thing", error=False)["docs"],
+            "combo": self.database.get_many("combo", error=False)["docs"],
+            "group": self.database.get_many("group", error=False)["docs"],
         }
 
     @staticmethod

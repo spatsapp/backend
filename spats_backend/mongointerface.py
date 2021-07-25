@@ -84,7 +84,8 @@ class MongoInterface:
     # pylint: disable=dangerous-default-value
     def search(self, collection, filter_=None):
         filter_ = filter_ or {}
-        return self.database[collection].find(filter_)
+        docs = self.database[collection].find(filter_)
+        return list(docs)
 
     def insert(self, collection, document):
         return self.database[collection].insert_one(document)
