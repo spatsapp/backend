@@ -53,12 +53,13 @@ def clear_trailing():
 # <option('thing', 'group'):material>
 # <option('asset', 'combo'):symbolic>
 
+
 @app.route("/search", methods=["POST"])
 def search_docs():
     json = request.get_json(force=True)
-    import sys; print(json, file=sys.stderr)
     res = db.search(json)
     return jsonify(res)
+
 
 @app.route("/<option('asset', 'combo'):symbolic>/all", methods=["GET"])
 def symbolic_all(symbolic):

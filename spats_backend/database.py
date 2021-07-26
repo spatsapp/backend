@@ -628,11 +628,33 @@ class Database:
         """Delete extra"""
         return self._document_delete(self.extra, json_list)
 
+    def _search_symbolic(self, material, symbolic, document):
+        symbolic_res = self.database.get(symbolic, document["type"])
+        material_res = self._material_decode(document, symbolic_res)
+        symbolic_res = list2dict("_id", symbolic_res)
+        return {
+            material: material_res,
+            symbolic: symbolic_res
+        }
+
     def search(self, json):
-        asset = self.database.search("asset", {"$text": {"$search": json["search"]}})
-        combo = self.database.search("combo", {"$text": {"$search": json["search"]}})
-        thing = self.database.search("thing", {"$text": {"$search": json["search"]}})
-        group = self.database.search("group", {"$text": {"$search": json["search"]}})
+        asset = []
+        combo = []
+        thing = []
+        group = []
+        collections = json["collection"].split()
+        if "asset" in collections:
+            asset = self.database.search("asset", json["search"])
+        if "combo" in collections:
+            combo = self.database.search("combo", json["search"])
+        if "thing" in collections:
+            thing = self.database.search("thing", json["search"])
+        if "group" in collections:
+            group = self.database.search("group", json["search"])
+
+        thing = [self._search_symbolic("thing", "asset", t) for t in thing]
+        group = [self._search_symbolic("group", "combo", g) for g in group]
+
         return {
             "asset": asset,
             "combo": combo,

@@ -81,10 +81,12 @@ class MongoInterface:
 
         return ret
 
-    # pylint: disable=dangerous-default-value
-    def search(self, collection, filter_=None):
-        filter_ = filter_ or {}
-        docs = self.database[collection].find(filter_)
+    def search(self, collection, value):
+        filter_ = {"$text": {"$search": value}}
+        docs = self.database[collection].find(
+            filter_,
+            { "score": { "$meta": "textScore" }},
+        ).sort([("score", { "$meta": "textScore" })])
         return list(docs)
 
     def insert(self, collection, document):
