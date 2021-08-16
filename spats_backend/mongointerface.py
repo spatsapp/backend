@@ -17,6 +17,7 @@ class NoDocumentFound(Error):
 
 
 class MongoInterface:
+    """Interface for monog database"""
     def __init__(self, app):
         self.mongo = PyMongo()
         self.mongo.init_app(app)
@@ -43,6 +44,7 @@ class MongoInterface:
         return dict(items)
 
     def paginate(self, collection, page, limit=10):
+        """Get paginate info for a collection"""
         cursor = self.database[collection].find({})
         count = cursor.count()
         last = int(count / limit)
@@ -54,6 +56,7 @@ class MongoInterface:
         }
 
     def get(self, collection, filter_, error=True):
+        """Get document that matches a search"""
         doc = self.database[collection].find_one(filter_)
         if doc is None and error:
             raise NoDocumentFound(
@@ -62,6 +65,7 @@ class MongoInterface:
         return doc
 
     def get_many(self, collection, filter_=None, error=True, page=None):
+        """Get many documents that match a filter"""
         limit = 10
         filter_ = filter_ or {}
         cursor = self.database[collection].find(filter_)
@@ -82,6 +86,7 @@ class MongoInterface:
         return ret
 
     def search(self, collection, value):
+        """Search for a value"""
         filter_ = {"$text": {"$search": value}}
         docs = self.database[collection].find(
             filter_,
@@ -90,9 +95,11 @@ class MongoInterface:
         return list(docs)
 
     def insert(self, collection, document):
+        """Insert new document into a collection"""
         return self.database[collection].insert_one(document)
 
     def insert_many(self, collection, documents):
+        """Insert many documents"""
         return self.database[collection].insert_many(documents)
 
     def update(
@@ -102,6 +109,7 @@ class MongoInterface:
         document,
         preflat=False,
     ):
+        """Update a document documenat"""
         values = {}
         update = document.get("update", None)
         unset = document.get("unset", None)
@@ -133,6 +141,7 @@ class MongoInterface:
         return res
 
     def update_many(self, collection, filter_, update):
+        """Update many documents"""
         flat_update = self._flatten(update)
         return self.database[collection].update_many(
             filter_,
@@ -141,7 +150,9 @@ class MongoInterface:
         )
 
     def delete(self, collection, filter_):
+        """Delete one document"""
         return self.database[collection].delete_one(filter_)
 
     def delete_many(self, collection, filter_):
+        """Delete many documents"""
         return self.database[collection].delete_many(filter_)

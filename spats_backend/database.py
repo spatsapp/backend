@@ -1,9 +1,7 @@
 """Interface for mongo database"""
-from collections.abc import MutableMapping
 from os.path import splitext
 
 from flask import current_app, request
-from flask_pymongo import PyMongo
 from gridfs import GridFS, NoFile
 from pymongo.errors import PyMongoError
 from werkzeug.wsgi import wrap_file
@@ -156,6 +154,7 @@ class Database:
         return transformed
 
     def symbolic_all(self, type_):
+        """Get all entries of a given symbolic type"""
         try:
             docs = self.database.get_many(type_)["docs"]
         except NoDocumentFound:
@@ -163,6 +162,7 @@ class Database:
         return sorted(docs, key=lambda doc: doc.get("name"))
 
     def symbolic_get(self, type_, value):
+        """Get entry that matches value for given type"""
         res = {}
         try:
             doc = self._name_or_id(value)
@@ -195,6 +195,7 @@ class Database:
             raise InvalidSymbolicError(f'"{name[1:]}" already exists as a {type_} name')
 
     def symbolic_create(self, type_, json_list, ignore=False):
+        """Create new instance of symbolic type"""
         created = []
         errors = []
         merged = False
@@ -223,6 +224,7 @@ class Database:
 
     # pylint: disable=too-many-locals
     def symbolic_update(self, type_, json_list):
+        """Update values for symbolic type"""
         updated = 0
         errors = []
 
@@ -287,6 +289,7 @@ class Database:
         return {"updated": updated, "errored": errors}
 
     def symbolic_delete(self, type_, json_list):
+        """Delete symbolic type"""
         deleted = 0
         errors = []
 
@@ -336,6 +339,7 @@ class Database:
         return helper
 
     def material_all(self, type_, symbolic_type, symbolic_lookup=None, page=None):
+        """Get all instances of material type"""
         material_res = []
         symbolic_res = {}
         res = {}
@@ -378,6 +382,7 @@ class Database:
         return res
 
     def material_get(self, type_, symbolic_type, _id):
+        """Get instance of material type matching id"""
         material_res = {}
         symbolic_res = {}
         res = {}
@@ -401,6 +406,7 @@ class Database:
         return res
 
     def material_create(self, type_, json_list):
+        """Create new material instance"""
         created = []
         errors = []
 
@@ -425,6 +431,7 @@ class Database:
         return {"created": created, "errored": errors}
 
     def material_update(self, type_, json_list):
+        """Update existing materials"""
         updated = 0
         errors = []
 
@@ -479,6 +486,7 @@ class Database:
         return {"updated": updated, "errored": errors}
 
     def material_delete(self, type_, json_list):
+        """Delete material instances"""
         deleted = 0
         errors = []
 
@@ -638,6 +646,7 @@ class Database:
         }
 
     def search(self, json):
+        """Search for value in entries"""
         asset = []
         combo = []
         thing = []

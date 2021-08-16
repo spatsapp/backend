@@ -56,6 +56,7 @@ def clear_trailing():
 
 @app.route("/search", methods=["POST"])
 def search_docs():
+    """Search for docs"""
     json = request.get_json(force=True)
     res = db.search(json)
     return jsonify(res)
@@ -124,7 +125,11 @@ def material_symbolic(material, symbolic, _id):
 
 
 @app.route(
-    "/<option('thing', 'group'):material>/<option('asset', 'combo'):symbolic>/<string:_id>/<int:page>",
+    (
+        "/<option('thing', 'group'):material>"
+        "/<option('asset', 'combo'):symbolic>"
+        "/<string:_id>/<int:page>"
+    ),
     methods=["GET"],
 )
 def material_symbolic_page(material, symbolic, _id, page):
