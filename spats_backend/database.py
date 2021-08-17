@@ -3,7 +3,7 @@ from os.path import splitext
 
 from flask import current_app, request
 from gridfs import GridFS, NoFile
-from pymongo.errors import PyMongoError
+from pymongo.errors import PyMongoError, OperationFailure
 from werkzeug.wsgi import wrap_file
 
 from . import dbinit
@@ -70,10 +70,13 @@ class Database:
             _id = self.suid.generate()
             self.database.insert("combo", dbinit.combo(_id))
 
-        self.database.database["asset"].create_index([("$**","text")])
-        self.database.database["combo"].create_index([("$**","text")])
-        self.database.database["thing"].create_index([("$**","text")])
-        self.database.database["group"].create_index([("$**","text")])
+        self._create_index()
+
+    def _create_index(self):
+        self.database.database["asset"].create_index([("$**", "text")])
+        self.database.database["combo"].create_index([("$**", "text")])
+        self.database.database["thing"].create_index([("$**", "text")])
+        self.database.database["group"].create_index([("$**", "text")])
 
     @staticmethod
     def _merge_docs(inherit, child):
@@ -640,10 +643,7 @@ class Database:
         symbolic_res = self.database.get(symbolic, document["type"])
         material_res = self._material_decode(document, symbolic_res)
         symbolic_res = list2dict("_id", symbolic_res)
-        return {
-            material: material_res,
-            symbolic: symbolic_res
-        }
+        return {material: material_res, symbolic: symbolic_res}
 
     def search(self, json):
         """Search for value in entries"""
@@ -652,14 +652,26 @@ class Database:
         thing = []
         group = []
         collections = json["collection"].split()
-        if "asset" in collections:
-            asset = self.database.search("asset", json["search"])
-        if "combo" in collections:
-            combo = self.database.search("combo", json["search"])
-        if "thing" in collections:
-            thing = self.database.search("thing", json["search"])
-        if "group" in collections:
-            group = self.database.search("group", json["search"])
+
+        try:
+            if "asset" in collections:
+                asset = self.database.search("asset", json["search"])
+            if "combo" in collections:
+                combo = self.database.search("combo", json["search"])
+            if "thing" in collections:
+                thing = self.database.search("thing", json["search"])
+            if "group" in collections:
+                group = self.database.search("group", json["search"])
+        except OperationFailure:
+            self._create_index()
+            if "asset" in collections:
+                asset = self.database.search("asset", json["search"])
+            if "combo" in collections:
+                combo = self.database.search("combo", json["search"])
+            if "thing" in collections:
+                thing = self.database.search("thing", json["search"])
+            if "group" in collections:
+                group = self.database.search("group", json["search"])
 
         thing = [self._search_symbolic("thing", "asset", t) for t in thing]
         group = [self._search_symbolic("group", "combo", g) for g in group]
