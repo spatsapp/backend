@@ -1,0 +1,162 @@
+// Dump
+{
+	"_id": "fgakdqu",
+	"fields": {
+		"Collected": {
+			"description": "Vol number of collected edition, can use v1, b1, c1, for volume, book, or collected",
+			"inherited": false,
+			"origin": "fgakdqu",
+			"parameters": {},
+			"type": "string"
+		},
+		"Combos": {
+			"description": "List of names of combos it's in",
+			"inherited": true,
+			"origin": "flhkwwr",
+			"parameters": {
+				"list_type": "reference"
+			},
+			"type": "list"
+		},
+		"Copyright": {
+			"description": "Earliest copyright date",
+			"inherited": true,
+			"origin": "boyzgqi",
+			"parameters": {
+				"date_format": "%Y"
+			},
+			"type": "date"
+		},
+		"Format": {
+			"description": "Format of book (ie. Mass Market, Paperback, Hardcover, ect.)",
+			"inherited": true,
+			"origin": "boyzgqi",
+			"parameters": {},
+			"type": "string"
+		},
+		"Genres": {
+			"description": "Comma seperated list of genres",
+			"inherited": false,
+			"origin": "fgakdqu",
+			"parameters": {
+			"list_type": "string",
+				"ordered": true
+			},
+			"type": "list"
+		},
+		"Isbn": {
+			"description": "ISBN 10 or 13, can include hyphens",
+			"inherited": true,
+			"origin": "boyzgqi",
+			"parameters": {
+				"unique": true
+			},
+			"type": "string"
+		},
+		"Issues": {
+			"description": "Comma seperated list of issues in collected book, or single number for floppies",
+			"inherited": false,
+			"origin": "fgakdqu",
+			"parameters": {
+				"list_type": "integer"
+			},
+			"type": "list"
+		},
+		"Name": {
+			"description": "What you call the thing",
+			"inherited": true,
+			"origin": "flhkwwr",
+			"parameters": {
+				"required": true
+			},
+			"type": "string"
+		},
+		"Notes": {
+			"description": "Special notes that don't fit in any other attributes",
+			"inherited": true,
+			"origin": "flhkwwr",
+			"parameters": {},
+			"type": "string"
+		},
+		"Pics": {
+			"description": "List of pics of the thing",
+			"inherited": true,
+			"origin": "flhkwwr",
+			"parameters": {
+				"list_type": "reference"
+			},
+			"type": "list"
+		},
+		"Price": {
+			"description": "Cover price of book, not what was paid for it",
+			"inherited": true,
+			"origin": "boyzgqi",
+			"parameters": {
+				"default": 0.0,
+				"min_value": 0.0,
+				"precision": 2
+			},
+			"type": "decimal"
+		},
+		"Publisher": {
+			"description": "Company that published it",
+			"inherited": true,
+			"origin": "boyzgqi",
+			"parameters": {},
+			"type": "string"
+		},
+		"Series": {
+			"description": "Characters involed, Batgirl, Wasp, Champions, Ms. Marvel",
+			"inherited": false,
+			"origin": "fgakdqu",
+			"parameters": {
+				"list_type": "string"
+			},
+			"type": "list"
+		},
+		"Story": {
+			"description": "Story arc",
+			"inherited": false,
+			"origin": "fgakdqu",
+			"parameters": {},
+			"type": "string"
+		},
+		"Volume": {
+			"description": "Vol of current titles run (eg. N52 Batgirl is Vol 4 of Batgirl)",
+			"inherited": false,
+			"origin": "fgakdqu",
+			"parameters": {},
+			"type": "integer"
+		}
+	},
+	"inherit": "boyzgqi",
+	"name": "Comic",
+	"order": [
+		"Name",
+		"Story",
+		"Collected",
+		"Issues",
+		"Series",
+		"Volume",
+		"Genres",
+		"Copyright",
+		"Format",
+		"Isbn",
+		"Price",
+		"Publisher",
+		"Combos",
+		"Notes",
+		"Pics"
+	],
+	"primary": "Name",
+	"secondary": "Collected",
+	"tertiary": [
+		"Story",
+		"Volume"
+	],
+	"type_list": [
+		"flhkwwr",
+		"boyzgqi",
+		"fgakdqu"
+	]
+}

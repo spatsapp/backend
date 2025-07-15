@@ -1,6 +1,8 @@
 """ShortUUID wrapper"""
 from shortuuid import ShortUUID
+from typing import Annotated
 
+from pydantic import AfterValidator, BaseModel
 
 class Suid:
     """ShortUUID wrapper"""
@@ -20,6 +22,10 @@ class Suid:
         chars_in_alpha = [char in self.alphabet for char in value]
         return len(value) == self.length and all(chars_in_alpha)
 
+def _suid_valid(value: str) -> bool:
+    if Suid().validate(value):
+        return True
+    raise ValueError(f'{value} is not a valid suid')
 
-if __name__ == "__main__":
-    suid = Suid()
+class SuidInput(BaseModel):
+    value: Annotated[str, AfterValidator(_suid_valid)]
