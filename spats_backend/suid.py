@@ -2,7 +2,7 @@
 from shortuuid import ShortUUID
 from typing import Annotated
 
-from pydantic import AfterValidator, BaseModel
+from pydantic import AfterValidator, Field
 
 class Suid:
     """ShortUUID wrapper"""
@@ -24,8 +24,7 @@ class Suid:
 
 def _suid_valid(value: str) -> bool:
     if Suid().validate(value):
-        return True
+        return value
     raise ValueError(f'{value} is not a valid suid')
 
-class SuidInput(BaseModel):
-    value: Annotated[str, AfterValidator(_suid_valid)]
+SuidInput = Annotated[Annotated[str, Field(alias="_id")], AfterValidator(_suid_valid)]

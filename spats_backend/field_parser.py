@@ -1,8 +1,8 @@
 """Form Field parser"""
 import math
-from collections import namedtuple
 from datetime import MAXYEAR, MINYEAR, datetime
 
+from .support import Decimal
 from .suid import Suid
 
 
@@ -36,9 +36,6 @@ class OutOfBoundsError(Error):
 
 class UnknownFieldError(Error):
     """Field type not recognized"""
-
-
-Decimal = namedtuple("Decimal", ("whole", "fraction"))
 
 
 class FieldParser:
@@ -230,7 +227,3 @@ class FieldParser:
         if not self.suid.validate(str_value):
             raise InvalidSuidError(f"{value} is not a valid suuid")
         return str_value
-
-
-if __name__ == "__main__":
-    field_parser = FieldParser()

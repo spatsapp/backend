@@ -1,4 +1,7 @@
 """Some support classes and methods for the backend"""
+from collections import namedtuple
+
+Decimal = namedtuple("Decimal", ("whole", "fraction"))
 
 
 class TupleNoneCompare:
@@ -87,6 +90,12 @@ def jsonerror(error, document, **kwargs):
     for key, value in kwargs.items():
         doc[key] = value
     return doc
+
+
+def tolist(data) -> list:
+    if isinstance(data, list):
+        return data
+    return [data]
 
 
 def json2list(json):
