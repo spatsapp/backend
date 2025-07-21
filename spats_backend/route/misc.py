@@ -21,7 +21,7 @@ class GeneralRoutes:
         router.add_api_route("/download", endpoint=self.download,    methods=["get"])
         router.add_api_route("/upload",   endpoint=self.upload,      methods=["post"])
         router.add_api_route("/updates",  endpoint=self.updates,     methods=["put"])
-        router.add_api_route("/updates",  endpoint=self.updates,     methods=["post"], include_in_schema=False)
+        # router.add_api_route("/updates",  endpoint=self.updates,     methods=["post"], include_in_schema=False)
 
         return router
 
@@ -69,7 +69,7 @@ class ImageRoutes:
         router.add_api_route("/{_id}/info", endpoint=self.get_info, methods=["get"])
         router.add_api_route("/create",     endpoint=self.create,   methods=["post"])
         router.add_api_route("/update",     endpoint=self.update,   methods=["put"])
-        router.add_api_route("/update",     endpoint=self.update,   methods=["post"], include_in_schema=False)
+        # router.add_api_route("/update",     endpoint=self.update,   methods=["post"], include_in_schema=False)
         router.add_api_route("/delete",     endpoint=self.delete,   methods=["delete"])
 
         return router
@@ -120,7 +120,7 @@ class ExtraRoutes:
         router.add_api_route("/{_id}/info", endpoint=self.get_info, methods=["get"])
         router.add_api_route("/create",     endpoint=self.create,   methods=["post"])
         router.add_api_route("/update",     endpoint=self.update,   methods=["put"])
-        router.add_api_route("/update",     endpoint=self.update,   methods=["post"], include_in_schema=False)
+        # router.add_api_route("/update",     endpoint=self.update,   methods=["post"], include_in_schema=False)
         router.add_api_route("/delete",     endpoint=self.delete,   methods=["delete"])
 
         return router

@@ -2,6 +2,8 @@
 import math
 from datetime import MAXYEAR, MINYEAR, datetime
 
+import dateutil
+
 from .support import Decimal
 from .suid import Suid
 
@@ -200,8 +202,7 @@ class FieldParser:
     @staticmethod
     def date_field(value, params):
         """Verify date field"""
-        date_format = params.get("date_format", "%Y-%m-%d")
-        date_value = datetime.strptime(str(value), date_format)
+        date_value = dateutil.parser.parse(str(value), ignoretz=True)
         min_value = params.get("min_value", datetime(MINYEAR, 1, 1))
         max_value = params.get("max_value", datetime(MAXYEAR, 12, 31))
         if not min_value <= date_value <= max_value:

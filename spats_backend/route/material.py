@@ -26,7 +26,7 @@ class MaterialRoutes:
         router.add_api_route("/all",                     endpoint=self.all,           methods=["get"])
         router.add_api_route("/create",                  endpoint=self.create,        methods=["post"])
         router.add_api_route("/update",                  endpoint=self.update,        methods=["put"])
-        router.add_api_route("/update",                  endpoint=self.update,        methods=["post"], include_in_schema=False)
+        # router.add_api_route("/update",                  endpoint=self.update,        methods=["post"], include_in_schema=False)
         router.add_api_route("/delete",                  endpoint=self.delete,        methods=["delete"])
         router.add_api_route("/all/{page}",              endpoint=self.all_page,      methods=["get"])
         router.add_api_route("/{symbolic}/{_id}",        endpoint=self.symbolic,      methods=["get"])
