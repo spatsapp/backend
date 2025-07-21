@@ -1,8 +1,9 @@
 import math
-from typing import Any
+from typing import Any, Annotated, Union
 from enum import Enum
 from datetime import datetime
 
+from fastapi import Form
 from pydantic import BaseModel
 
 from .suid import SuidInput
@@ -109,3 +110,10 @@ class MaterialUpdate(BaseModel):
 
 class MaterialDelete(BaseModel):
     ids: list[SuidInput]
+
+
+class Search(BaseModel):
+    search: str
+    collections: list[Union[SymbolicName, MaterialName]] | None = [ SymbolicName.asset, SymbolicName.combo, MaterialName.thing, MaterialName.group ]
+
+SearchForm = Annotated[Search, Form()]

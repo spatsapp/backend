@@ -3,6 +3,8 @@ from fastapi import APIRouter, Request
 from fastapi.responses import RedirectResponse
 import starlette.status as status
 
+from ..model import Search, SearchForm
+
 
 class GeneralRoutes:
     metadata = {
@@ -17,11 +19,10 @@ class GeneralRoutes:
         router = APIRouter(tags=["General"])
 
         router.add_api_route("/",         endpoint=self.rootToDocs,  methods=["get"])
-        router.add_api_route("/search",   endpoint=self.search, methods=["get"])
+        router.add_api_route("/search",   endpoint=self.search,      methods=["get"])
         router.add_api_route("/download", endpoint=self.download,    methods=["get"])
         router.add_api_route("/upload",   endpoint=self.upload,      methods=["post"])
         router.add_api_route("/updates",  endpoint=self.updates,     methods=["put"])
-        # router.add_api_route("/updates",  endpoint=self.updates,     methods=["post"], include_in_schema=False)
 
         return router
 
@@ -30,10 +31,10 @@ class GeneralRoutes:
         """Redirects to the docs"""
         return RedirectResponse(url="/docs", status_code=status.HTTP_302_FOUND)
 
-    def search(self, request: Request):
+    # def search(self, request: SearchForm):
+    def search(self, request: Search):
         """Search for docs"""
-        json = request.json()
-        res = self.db.search(json)
+        res = self.db.search(request)
         return res
 
     def download(self):
@@ -69,7 +70,6 @@ class ImageRoutes:
         router.add_api_route("/{_id}/info", endpoint=self.get_info, methods=["get"])
         router.add_api_route("/create",     endpoint=self.create,   methods=["post"])
         router.add_api_route("/update",     endpoint=self.update,   methods=["put"])
-        # router.add_api_route("/update",     endpoint=self.update,   methods=["post"], include_in_schema=False)
         router.add_api_route("/delete",     endpoint=self.delete,   methods=["delete"])
 
         return router
@@ -120,7 +120,6 @@ class ExtraRoutes:
         router.add_api_route("/{_id}/info", endpoint=self.get_info, methods=["get"])
         router.add_api_route("/create",     endpoint=self.create,   methods=["post"])
         router.add_api_route("/update",     endpoint=self.update,   methods=["put"])
-        # router.add_api_route("/update",     endpoint=self.update,   methods=["post"], include_in_schema=False)
         router.add_api_route("/delete",     endpoint=self.delete,   methods=["delete"])
 
         return router

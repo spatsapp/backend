@@ -758,33 +758,34 @@ class Database:
         symbolic_res = list2dict("_id", symbolic_res)
         return {material: material_res, symbolic: symbolic_res}
 
-    def search(self, json):
+    def search(self, data):
         """Search for value in entries"""
         asset = []
         combo = []
         thing = []
         group = []
-        collections = json["collection"].split()
+        collections = data.collections
+        value = data.search
 
         try:
             if "asset" in collections:
-                asset = self.database.search("asset", json["search"])
+                asset = self.database.search("asset", value)
             if "combo" in collections:
-                combo = self.database.search("combo", json["search"])
+                combo = self.database.search("combo", value)
             if "thing" in collections:
-                thing = self.database.search("thing", json["search"])
+                thing = self.database.search("thing", value)
             if "group" in collections:
-                group = self.database.search("group", json["search"])
+                group = self.database.search("group", value)
         except OperationFailure:
             self._create_index()
             if "asset" in collections:
-                asset = self.database.search("asset", json["search"])
+                asset = self.database.search("asset", value)
             if "combo" in collections:
-                combo = self.database.search("combo", json["search"])
+                combo = self.database.search("combo", value)
             if "thing" in collections:
-                thing = self.database.search("thing", json["search"])
+                thing = self.database.search("thing", value)
             if "group" in collections:
-                group = self.database.search("group", json["search"])
+                group = self.database.search("group", value)
 
         thing = [self._search_symbolic("thing", "asset", t) for t in thing]
         group = [self._search_symbolic("group", "combo", g) for g in group]
