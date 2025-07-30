@@ -28,3 +28,4 @@ def _suid_valid(value: str) -> bool:
     raise ValueError(f'{value} is not a valid suid')
 
 SuidInput = Annotated[Annotated[str, Field(alias="_id")], AfterValidator(_suid_valid)]
+TypeInput = Annotated[str, AfterValidator(_suid_valid)]

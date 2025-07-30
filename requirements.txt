@@ -1,5 +1,5 @@
 pymongo~=4.13.2
-python-dotenv~=1.1.1
+environs~=14.2.0
 shortuuid~=1.0.1
 fastapi[standard]~=0.116.0
 python-dateutil~=2.9.0

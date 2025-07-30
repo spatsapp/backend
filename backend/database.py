@@ -273,7 +273,7 @@ class Database:
             elif name in json:
                 transformed[name] = self.field_parser.parse(
                     field_type,
-                    json[name]["value"],
+                    json[name],
                     params,
                 )
             if (
@@ -375,11 +375,16 @@ class Database:
                 )
                 continue
             changes = {}
-            if req.update:
-                changes["update"] = dump_model(req.update)
+            if req_update := dump_model(req.update):
+                changes["update"] = req_update
             if req.rename:
                 changes["rename"] = req.rename
             if req.unset:
+                # TODO: Add to openapi docs somewhere
+                # unset parameters of an field need to use dot notation
+                # ie: no more max value -> Price.max_value
+                # https://www.mongodb.com/docs/manual/reference/operator/update/unset/
+                # https://www.mongodb.com/docs/manual/core/document/#std-label-document-dot-notation
                 changes["unset"] = {elem: "" for elem in req.unset}
 
             res = self.database.update(type_, {"_id": _id}, changes)
@@ -402,7 +407,7 @@ class Database:
                 for child in children:
                     child_fields = {}
                     child_rename = {}
-                    child_unset = {}
+                    child_unset = []
                     if req.update.fields:
                         for name, value in req.update.fields.items():
                             if child["fields"][name]["inherited"]:
@@ -411,13 +416,17 @@ class Database:
                         if child["fields"][og]["inherited"]:
                             child_rename[og] = new
                     for unset in req.unset:
-                        if child["fields"][unset]["inherited"]:
-                            child_unset[unset] = ""
+                        if '.' in unset:
+                            field, _ = unset.split('.', 1)
+                            if child["fields"][field]["inherited"]:
+                                child_unset.append(unset)
+                        elif child["fields"][unset]["inherited"]:
+                            child_unset.append(unset)
                     if child_fields or child_rename or child_unset:
                         document = {
                             "update": {"fields": child_fields},
                             "rename": child_rename,
-                            "unset": child_unset
+                            "unset": {elem: "" for elem in child_unset}
                         }
                         child_res = self.database.update(type_, {"_id": child["_id"]}, document)
                         updated += child_res.matched_count
@@ -586,7 +595,7 @@ class Database:
                 unset = {}
                 update = {}
                 if material.unset:
-                    unset["fields"] = material.unset
+                    unset["fields"] = {key: "" for key in material.unset}
                 if material.fields:
                     update["fields"] = self._verify(material.fields, template, _id, unset)
                 if unset or update:

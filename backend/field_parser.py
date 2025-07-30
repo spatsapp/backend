@@ -66,7 +66,7 @@ class FieldParser:
         elif field == "integer":
             return_value = self.integer_field(value, params)
         elif field == "decimal":
-            return_value = self.decimal_field(value, params)
+            return_value = self.decimal_str(self.decimal_field(value, params))
         elif field == "date":
             return_value = self.date_field(value, params)
         elif field == "list":
@@ -85,7 +85,9 @@ class FieldParser:
         elif field == "decimal":
             if not isinstance(value, dict):
                 value = self.decimal_field(value, params)
-            precision = int(params.get("precision", 0))
+            precision = None
+            if param := params.get("precision"):
+                precision = int(param)
             whole = str(value["whole"])
             fraction = str(value["fraction"])
             if precision is not None and len(fraction) != precision:
@@ -168,6 +170,9 @@ class FieldParser:
         if whole.startswith("-"):
             fraction = "-" + fraction
         return {"whole": int(whole), "fraction": int(fraction)}
+
+    def decimal_str(self, value):
+        return f"{value['whole']}.{value['fraction']}"
 
     def decimal_field(self, value, params):
         """Verify decimal field"""

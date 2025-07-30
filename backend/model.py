@@ -6,7 +6,7 @@ from datetime import datetime
 from fastapi import Form
 from pydantic import BaseModel
 
-from .suid import SuidInput
+from .suid import SuidInput, TypeInput
 from .support import Decimal
 
 
@@ -14,7 +14,7 @@ def dump_model(model):
     return model.model_dump(exclude_unset=True, by_alias=True)
 
 def get_symbolic_type(material):
-    return SymbolicName.asset if material == MaterialName.thing else SymbolicName.combo
+    return SymbolicName.asset.value if material == MaterialName.thing else SymbolicName.combo.value
 
 
 class SymbolicName(str, Enum):
@@ -32,37 +32,37 @@ class Parameter(BaseModel):
     default: Any | None = None
 
 class ParameterBoolean(Parameter):
-    default: bool
+    default: bool | None = None
 
 class ParameterString(Parameter):
-    default: str
+    default: str | None = None
     min_len: int | None = -math.inf
     max_len: int | None = math.inf
 
 class ParameterInteger(Parameter):
-    default: int
+    default: int | None = None
     min_val: int | None = -math.inf
     max_val: int | None = math.inf
 
 class ParameterDecimal(Parameter):
-    default: Decimal
+    default: Decimal | None = None
     min_val: Decimal | None = None
     max_val: Decimal | None = None
     precision: int | None = 2
 
 class ParameterDate(Parameter):
-    default: datetime
+    default: datetime | None = None
     min_val: datetime | None = None
     max_val: datetime | None = None
     format: str | None = "%Y-%m-%d"
 
 class ParameterList(Parameter):
     default: list | None = []
-    type: str | None = "String"
+    list_type: str | None = "String"
     ordered: bool | None = False
 
 class ParameterReference(Parameter):
-    default: str
+    default: str | None = None
 
 Parameters = ParameterBoolean | ParameterString | ParameterInteger | ParameterDecimal | ParameterDate | ParameterList | ParameterReference
 
@@ -72,7 +72,7 @@ class Attr(BaseModel):
     description: str | None = None
     inherited: bool | None = None
     origin: str | None = None
-    parameters: dict[str, Parameters] | None = None
+    parameters: Parameters | None = None
 
 
 class SymbolicCreate(BaseModel):
@@ -107,13 +107,18 @@ class MaterialCreate(BaseModel):
 
 class MaterialUpdate(BaseModel):
     id: SuidInput
+    type: TypeInput
+    fields: dict[str, Any] | None = {}
+    unset: list[str] | None = []
 
 class MaterialDelete(BaseModel):
     ids: list[SuidInput]
 
 
+all_collections = [ SymbolicName.asset, SymbolicName.combo, MaterialName.thing, MaterialName.group ]
+
 class Search(BaseModel):
     search: str
-    collections: list[Union[SymbolicName, MaterialName]] | None = [ SymbolicName.asset, SymbolicName.combo, MaterialName.thing, MaterialName.group ]
+    collections: list[Union[SymbolicName, MaterialName]] | None = all_collections
 
 SearchForm = Annotated[Search, Form()]
