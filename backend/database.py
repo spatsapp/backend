@@ -273,7 +273,7 @@ class Database:
             elif name in json:
                 transformed[name] = self.field_parser.parse(
                     field_type,
-                    json[name],
+                    json[name]["value"],
                     params,
                 )
             if (

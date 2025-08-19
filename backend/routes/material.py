@@ -56,10 +56,9 @@ class MaterialRoutes:
         """Get info for specific thing"""
         return self.db.material_get(self._type, get_symbolic_type(self._type), _id)
 
-    # def create(self, data: MaterialCreate):
-    def create(self, request: Request):
+    async def create(self, request: Request):
         """Create new thing"""
-        data = request.json()
+        data = await request.json()
         return self.db.material_create(self._type, data)
 
     def update(self, data: MaterialUpdate):

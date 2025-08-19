@@ -3,7 +3,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import RedirectResponse
 import starlette.status as status
 
-from ..model import Search, SearchForm
+from ..model import Search
 
 
 class GeneralRoutes:
@@ -42,9 +42,9 @@ class GeneralRoutes:
         res = self.db.download()
         return res
 
-    def upload(self, request: Request):
+    async def upload(self, request: Request):
         """Upload json to load data into database"""
-        json = request.json()
+        json = await request.json()
         res = self.db.upload(json)
         return res
 
@@ -91,15 +91,15 @@ class ImageRoutes:
         res = self.db.image_create(files)
         return res
 
-    def update(self, request: Request):
+    async def update(self, request: Request):
         """Update image"""
-        json = request.json()
+        json = await request.json()
         res = self.db.image_update(json)
         return res
 
-    def delete(self, request: Request):
+    async def delete(self, request: Request):
         """Delete image"""
-        json = request.json()
+        json = await request.json()
         res = self.db.image_delete(json)
         return res
 
@@ -141,15 +141,15 @@ class ExtraRoutes:
         res = self.db.extra_create(files)
         return res
 
-    def update(self, request: Request):
+    async def update(self, request: Request):
         """Update extra"""
-        json = request.json()
+        json = await request.json()
         res = self.db.extra_update(json)
         return res
 
-    def delete(self, request: Request):
+    async def delete(self, request: Request):
         """Delete extra"""
-        json = request.json()
+        json = await request.json()
         res = self.db.extra_delete(json)
         return res
 
